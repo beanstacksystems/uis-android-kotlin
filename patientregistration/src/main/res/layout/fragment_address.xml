@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_below="@+id/header"
+    android:gravity="center"
+    tools:context=".ui.patientregistration.AddressFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="5dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/linearlayoutAddressPopup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/addressPopUpHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="@string/address"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutStyleBox"
+                    android:id="@+id/streetAddLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/street_address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/streetAdd"
+                        style="@style/TextInputStyleBox" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutStyleBox"
+                    android:id="@+id/cityLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/city">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/city"
+                        style="@style/TextInputStyleBox" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutStyleBox"
+                    android:id="@+id/distLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/district">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dist"
+                        style="@style/TextInputStyleBox" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutStyleBox"
+                    android:id="@+id/stateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/state">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/state"
+                        style="@style/TextInputStyleBox"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutStyleBox"
+                    android:id="@+id/pincodeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ZipPin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pincode"
+                        style="@style/TextInputStyleBox"
+                        android:inputType="number"
+                        android:maxLength="6"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,132 @@
+<resources>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="app_name">Unity IS Strength</string>
+    <string name="app_name_suff">Cancer Foundation</string>
+    <string name="copyright">\u00A9 Beanstack Systems Pvt Ltd.</string>
+
+    <string name="facebook_app_id">947730725995178</string>
+    <string name="fb_login_protocol_scheme">fb947730725995178</string>
+    <string name="facebook_client_token">6ca38ffe8247c57dc12224ca456f4839</string>
+
+
+
+    <string name="splashscreen">SplashScreen</string>
+    <string name="title_activity_drawer_main">DrawerMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Unity is Strength A Cancer Foundation</string>
+    <string name="nav_header_name">Test</string>
+    <string name="nav_header_email">a@b.cde</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_patient">Patients</string>
+    <string name="menu_shelterHome">Shelter Home</string>
+    <string name="menu_members">Members</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_switchRole">SwitchRole</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_admin">Admin Home</string>
+    <string name="switch_admin">Switch to Admin</string>
+    <string name="menu_logout">Logout</string>
+    <string name="city">City</string>
+    <string name="district">District</string>
+    <string name="street_address">Street address</string>
+    <string name="ZipPin">PinCode</string>
+    <string name="address">Address</string>
+    <string name="state">State</string>
+
+    <string name="person_details">Person Details</string>
+    <string name="person_name_hint">Enter Full Name</string>
+    <string name="contact">Mobile No</string>
+    <string name="salutation">Salutation</string>
+    <string name="gender">Gender</string>
+    <string name="occupation">Occupation</string>
+    <string name="relationship">Relationship With Patient</string>
+    <string name="email">Email</string>
+    <string name="male">Male</string>
+    <string name="date_of_birth">Date of birth dd/mm/yyyy</string>
+    <string name="panaadhar">Pan/Aadhar</string>
+    <string name="medical_history">Medical history</string>
+    <string name="diease_name">Diease name</string>
+    <string name="Social_profiles">Social profiles</string>
+    <string name="id_proof">ID-Proof</string>
+    <string name="medical_report">Medical Reports</string>
+    <string name="attendant_details">Attendant Details</string>
+    <!--    <string name="copyright">\u00A9 Beanstack Systems Pvt Ltd.</string>-->
+    <!--    <string name="facebook_application_id">3323999927638523</string>-->
+
+    <string name="search_title">Search</string>
+    <string name="shelter_home">Shelter Home</string>
+    <string name="update">Update</string>
+    <string name="register">Register</string>
+    <string name="addAddress">Add Address</string>
+    <string name="googleClientId">148926166991-g9g5psf1u6e51ick0e0dqeqph9mfebp5.apps.googleusercontent.com</string>
+
+    <string name="biometric_title">Login</string>
+    <string name="biometric_subtitle">Login to your account</string>
+    <string name="biometric_description">Place your finger on the device home button to verify your identity</string>
+    <string name="biometric_negative_button_text">CANCEL</string>
+    <string name="biometric_error_sdk_not_supported">Sdk version not supported</string>
+    <string name="biometric_error_hardware_not_supported">Device does not support biometric authentication</string>
+    <string name="biometric_error_fingerprint_not_available">Fingerprint is not registered in device</string>
+    <string name="biometric_error_permission_not_granted">Permission is not granted by user</string>
+    <string name="biometric_cancelled">Authentication cancelled by user</string>
+    <string name="biometric_success">Login Successful</string>
+    <string name="cancerFoundation">Cancer Foundation</string>
+
+    <string name="imgcapture">Capture/Upload image here.</string>
+    <string name="done">Done</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment_title">fragment_title</string>
+    <string name="fragment_personDetail_title">Personal Details</string>
+    <string name="fragment_address_title">Address Details</string>
+    <string name="fragment_medical_title">Medical History</string>
+    <string name="fragment_attendant_title">Attendant Details</string>
+    <string name="profile_details">Profile Details</string>
+    <string name="last_updated">Last Updated:</string>
+    <string name="edit"><u>Edit</u></string>
+    <string name="update_profile"><u>Update</u></string>
+    <string name="wcstr">Welcome to UIS family</string>
+
+    <string name="bloodGroup">Blood Group</string>
+    <string name="cancerType">Cancer Type</string>
+    <string name="identifiedOn">Identified on</string>
+    <string name="otherdisease">Other disease</string>
+    <string name="title_activity_login_signup">LoginSignupActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="resetpwd">Reset Password</string>
+
+    <string name="submit">Submit</string>
+    <string name="fillvalue">Please fill all required values before proceed.</string>
+    <string name="fillImage">Please Capture all required Images before proceed.</string>
+
+    <string name="income">Income per Year</string>
+    <string name="userregistraionFailed">Failed to register User!</string>
+    <string name="loginfailed">Invalid Username and Password!</string>
+    <string name="severconnectionfailed">Failed to Connect Server.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+
+    <string name="api_failed">Failed to connect Server!</string>
+    <string name="api_expectation_faied">User operation failed!</string>
+
+    <string name="select">Select</string>
+    <string name="cancel">Cancel</string>
+    <string name="prompt_info_title">Sample App Authentication</string>
+    <string name="prompt_info_subtitle">Please login to get access</string>
+    <string name="prompt_info_description">Sample App is using Android biometric authentication</string>
+    <string name="prompt_info_use_app_password">Use app password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logout">Are you sure?</string>
+</resources>
