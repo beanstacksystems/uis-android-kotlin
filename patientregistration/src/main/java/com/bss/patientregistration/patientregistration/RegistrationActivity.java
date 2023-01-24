@@ -100,6 +100,7 @@ public class RegistrationActivity extends FragmentActivity implements View.OnCli
         BaseFragment curfragment = (BaseFragment) adapter.getItem(mPager.getCurrentItem());
         if(v==nextBtn)
         {
+            assert curfragment != null;
             if(curfragment.isValidDetails())
             {
                 curfragment.updatePatientDTO(patientDTO);

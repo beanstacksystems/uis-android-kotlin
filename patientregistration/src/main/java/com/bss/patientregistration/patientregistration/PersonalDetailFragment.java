@@ -272,13 +272,13 @@ public class PersonalDetailFragment extends BaseFragment{
     }
     @Override
     public boolean isValidDetails() {
-        String profileImagePath = profileImageFragment.getSelectedImagePath();
-        if(imageCaptureFragmentIdProof.getImageCount() != imageCaptureFragmentIdProof.getSelectedImage().size() ||
-                     null ==  profileImagePath || profileImagePath.isEmpty()) {
-            Toast.makeText(getActivity(),
-                    getResources().getString(R.string.fillImage), Toast.LENGTH_LONG).show();
-            return false;
-        }
+//        String profileImagePath = profileImageFragment.getSelectedImagePath();
+//        if(imageCaptureFragmentIdProof.getImageCount() != imageCaptureFragmentIdProof.getSelectedImage().size() ||
+//                     null ==  profileImagePath || profileImagePath.isEmpty()) {
+//            Toast.makeText(getActivity(),
+//                    getResources().getString(R.string.fillImage), Toast.LENGTH_LONG).show();
+//            return false;
+//        }
         String nameTxt = name.getText().toString().trim();
         String emailTxt = email.getText().toString().trim();
         String contactTxt = contact.getText().toString().trim();
@@ -288,25 +288,16 @@ public class PersonalDetailFragment extends BaseFragment{
         String genderTxt = gender.getText().toString().trim();
         String salTxt = salutation.getText().toString().trim();
         String occupationTxt = occupation.getText().toString().trim();
-        if(null == nameTxt ||nameTxt.isEmpty()|| null == emailTxt ||emailTxt.isEmpty()
-                || null == contactTxt || contactTxt.isEmpty()
-                || null == incomeTxt || incomeTxt.isEmpty()
-                 || null == dobTxt || dobTxt.isEmpty()
-                   ||   null == panadharTxt || panadharTxt.isEmpty()
-                 || null == genderTxt || genderTxt.isEmpty()
-                || null == salTxt || salTxt.isEmpty()
-                || null == occupationTxt || occupationTxt.isEmpty()){
+        if(nameTxt.isEmpty() || emailTxt.isEmpty() || contactTxt.isEmpty() || incomeTxt.isEmpty() || dobTxt.isEmpty() || panadharTxt.isEmpty() || genderTxt.isEmpty() || salTxt.isEmpty() || occupationTxt.isEmpty()){
             Toast.makeText(getActivity(),
                     getResources().getString(R.string.fillvalue),Toast.LENGTH_LONG).show();
             return false;
         }
 
-        if(null != nameInputLayout.getError()||null != eMailInputLayout.getError()
-                ||null != contactInputLayout.getError()
-                ||null != dobInputLayout.getError()||null != genderLayout.getError()
-                ||null != salutationLayout.getError() ||null != occupationLayout.getError())
-            return false;
-        return true;
+        return null == nameInputLayout.getError() && null == eMailInputLayout.getError()
+                && null == contactInputLayout.getError()
+                && null == dobInputLayout.getError() && null == genderLayout.getError()
+                && null == salutationLayout.getError() && null == occupationLayout.getError();
     }
 
     @Override

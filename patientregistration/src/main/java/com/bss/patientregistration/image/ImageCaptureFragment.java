@@ -236,10 +236,15 @@ public class ImageCaptureFragment extends Fragment {
     }
     // add image in selectedImageList and imageList
     public void addImage(String filePath) {
+
         if(selectedImageList.size() == imageCount)
             selectedImageList.remove(0);
         selectedImageList.add(filePath);
+        selectedImageAdapter = new SelectedImageAdapter(getActivity(),selectedImageList);
+        selectedImageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        selectedImageRecyclerView.setAdapter(selectedImageAdapter);
         selectedImageAdapter.notifyDataSetChanged();
+
     }
     public void setSelectedImageList() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);

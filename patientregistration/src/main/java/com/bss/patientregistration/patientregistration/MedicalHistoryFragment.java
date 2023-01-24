@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 
 
+import com.bss.patientregistration.R;
 import com.bss.patientregistration.dto.PatientDTO;
 import com.bss.patientregistration.listener.DateChooserFocusChangeListener;
 import com.bss.patientregistration.listener.TextInputLayoutFocusChangeListener;
@@ -54,15 +55,15 @@ public class MedicalHistoryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(com.bss.patientregistration.R.layout.fragment_medical_history, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_medical_history, container, false);
         initView(fragmentView);
         return fragmentView;
     }
 
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     private void initView(View fragmentView) {
-        otherdiseasetxt = fragmentView.findViewById(com.bss.patientregistration.R.id.otherdiseasetxt);;
-        otherdiseasetxtInputLayout = fragmentView.findViewById(com.bss.patientregistration.R.id.otherdiseasetxtLayout);
+        otherdiseasetxt = fragmentView.findViewById(R.id.otherdiseasetxt);;
+        otherdiseasetxtInputLayout = fragmentView.findViewById(R.id.otherdiseasetxtLayout);
 
         otherdiseasetxt.setOnFocusChangeListener(new TextInputLayoutFocusChangeListener
                 (otherdiseasetxtInputLayout,"Field cannot be empty"));
@@ -81,8 +82,8 @@ public class MedicalHistoryFragment extends BaseFragment {
         initCancerTypeView(fragmentView);
     }
     private void initDateOfIdentification(View fragmentView) {
-        dateOfIdentification = fragmentView.findViewById(com.bss.patientregistration.R.id.dateOfidentification);
-        dateOfIdentificationInputLayout = fragmentView.findViewById(com.bss.patientregistration.R.id.dateOfidentificationLayout);
+        dateOfIdentification = fragmentView.findViewById(R.id.dateOfidentification);
+        dateOfIdentificationInputLayout = fragmentView.findViewById(R.id.dateOfidentificationLayout);
         dateOfIdentification.addTextChangedListener(new CustomTextValidator(dateOfIdentification) {
             @Override
             public void validate(TextView textView, String text) {
@@ -98,10 +99,9 @@ public class MedicalHistoryFragment extends BaseFragment {
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     private void initCancerTypeView(View fragmentView)
     {
-        cancerType = fragmentView.findViewById(com.bss.patientregistration.R.id.cancerTypetxt);
-        cancerTypeInputLayout = fragmentView.findViewById(com.bss.patientregistration.R.id.cancerTypetxtLayout);
+        cancerType = fragmentView.findViewById(R.id.cancerTypetxt);
+        cancerTypeInputLayout = fragmentView.findViewById(R.id.cancerTypetxtLayout);
         cancerType.setShowSoftInputOnFocus(false);
-
         ArrayList<String> illnessTypes = new ArrayList<>();
         cancerType.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -125,8 +125,8 @@ public class MedicalHistoryFragment extends BaseFragment {
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     private void initBloodGroupView(View fragmentView)
     {
-        bloodGrp = fragmentView.findViewById(com.bss.patientregistration.R.id.blood_group);
-        bloodGrpInputLayout = fragmentView.findViewById(com.bss.patientregistration.R.id.spinner_blood_group);
+        bloodGrp = fragmentView.findViewById(R.id.blood_group);
+        bloodGrpInputLayout = fragmentView.findViewById(R.id.spinner_blood_group);
         bloodGrp.setShowSoftInputOnFocus(false);
         ArrayList<String> bloodGroups = new ArrayList<>();
         bloodGrp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -157,7 +157,7 @@ public class MedicalHistoryFragment extends BaseFragment {
                 || null == otherdisease || otherdisease.isEmpty()
                 || null == dateTxt || dateTxt.isEmpty()){
             Toast.makeText(getActivity(),
-                    "Please fill all required values before proceed.",Toast.LENGTH_LONG).show();
+                    getResources().getString(R.string.fillvalue),Toast.LENGTH_LONG).show();
             return false;
         }
 

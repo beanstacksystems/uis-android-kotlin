@@ -305,10 +305,13 @@ public class UIUtil {
 //    }
 
     public static String getImagePath(Context context, Uri uri){
-        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+        String[] proj = { MediaStore.Images.Media.DATA };
+        Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
-        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-        return cursor.getString(idx);
+        String filePath = cursor.getString(column_index);
+        cursor.close();
+        return filePath;
 
     }
 }

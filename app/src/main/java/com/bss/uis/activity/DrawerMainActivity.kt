@@ -16,12 +16,15 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bss.patientregistration.patientregistration.RegistrationActivity
 import com.bss.sharedpref.SharedPrefRoomDb
 import com.bss.uis.R
 import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.TabDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserRightResponseDomain
+import com.bss.uis.presentation.adapter.UserAdapter
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
 import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
@@ -54,6 +57,7 @@ class DrawerMainActivity : AppCompatActivity() {
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    lateinit var  recyclerviewView: RecyclerView
 
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -187,6 +191,12 @@ class DrawerMainActivity : AppCompatActivity() {
 //            saveToMasterEntity()
 //            saveUserRights()
 //        }
+
+        recyclerviewView = findViewById(R.id.rv_iduserRequet)
+        recyclerviewView.layoutManager = LinearLayoutManager(this)
+//        val items = fetchdata()
+        val adapter = UserAdapter(SharedPrefRoomDb.occupationlist(this@DrawerMainActivity))
+        recyclerviewView.adapter =adapter
 
     }
 
