@@ -3,6 +3,7 @@ package com.bss.uis.presentation.fragment
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Build
@@ -22,6 +23,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
+import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity.Companion.fragmentName
 import com.bss.uis.util.AppUtil
 import com.bumptech.glide.Glide
@@ -61,6 +63,7 @@ class PersonalDetailsFragment : BaseFragment() {
     lateinit var id_proof_layout:LinearLayout
     lateinit var iv_idProof:ImageView
     var imagePath: String? = null
+    lateinit var onStepChangeListener: OnStepChangeListner
 
 
     override fun onCreateView(
@@ -350,6 +353,20 @@ class PersonalDetailsFragment : BaseFragment() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            onStepChangeListener = context as OnStepChangeListner
+        } catch (ex: ClassCastException) {
+            throw ClassCastException("$context must implement onSomeEventListener")
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        onStepChangeListener.onstepChange(1)
     }
 
 

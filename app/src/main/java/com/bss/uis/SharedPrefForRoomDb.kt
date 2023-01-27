@@ -81,4 +81,39 @@ class SharedPrefForRoomDb {
         val gson = Gson()
         return gson.fromJson(json, type)
     }
+
+    fun storeBloodgroup(context: Context, occupationlit: MutableList<String>) {
+        val sharedPref = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = gson.toJson(occupationlit)
+        val editor = sharedPref.edit()
+        editor.putString("bloodgroup", json)
+        editor.apply()
+    }
+    fun bllodgroupList(context: Context): ArrayList<String> {
+        val sharedPref =
+            context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val json = sharedPref.getString("bloodgroup", null)
+        val type =
+            object : TypeToken<ArrayList<String?>?>() {}.type
+        val gson = Gson()
+        return gson.fromJson(json, type)
+    }
+    fun storeCancerType(context: Context, occupationlit: MutableList<String>) {
+        val sharedPref = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = gson.toJson(occupationlit)
+        val editor = sharedPref.edit()
+        editor.putString("illnesstype", json)
+        editor.apply()
+    }
+    fun illnesslist(context: Context): ArrayList<String> {
+        val sharedPref =
+            context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val json = sharedPref.getString("illnesstype", null)
+        val type =
+            object : TypeToken<ArrayList<String?>?>() {}.type
+        val gson = Gson()
+        return gson.fromJson(json, type)
+    }
 }

@@ -5,25 +5,20 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.bss.uis.R
-import com.bss.uis.presentation.ValidateData
-import com.bss.uis.presentation.fragment.AddressDetailsFragment
-import com.bss.uis.presentation.fragment.BaseFragment
-import com.bss.uis.presentation.fragment.MedicalDetailsFragment
-import com.bss.uis.presentation.fragment.PersonalDetailsFragment
+import com.bss.uis.StepViewRegistration
+import com.bss.uis.presentation.OnStepChangeListner
 import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @AndroidEntryPoint
-class AddPatientActivity : AppCompatActivity(), View.OnClickListener {
+class AddPatientActivity : AppCompatActivity(), OnStepChangeListner{
     lateinit var toolbar: MaterialToolbar
     lateinit var btnNext: AppCompatButton
+    lateinit var stepView: StepViewRegistration
 
     companion object {
         var fragmentName = ""
@@ -44,6 +39,7 @@ class AddPatientActivity : AppCompatActivity(), View.OnClickListener {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+        stepView = findViewById(R.id.customStepView)
         btnNext = findViewById(R.id.btnNext)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
@@ -72,7 +68,9 @@ class AddPatientActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(v: View?) {
-
+    override fun onstepChange(step: Int) {
+       stepView.goToStep(step)
     }
+
+
 }

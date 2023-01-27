@@ -1,6 +1,7 @@
 package com.bss.uis.presentation.fragment
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -14,6 +15,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bss.uis.R
+import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.util.Resource
@@ -39,6 +41,7 @@ class AddressDetailsFragment : BaseFragment() {
     lateinit var distInputLayout: TextInputLayout
     lateinit var stateInputLayout: TextInputLayout
     lateinit var pinLayout: TextInputLayout
+    lateinit var onStepChangeListener: OnStepChangeListner
 
 
     override fun onCreateView(
@@ -119,12 +122,10 @@ class AddressDetailsFragment : BaseFragment() {
                 is Resource.Success -> {
 
                     viewModelUIS.pincodedetailsList.value = it
-//                    it.data?.forEach {data->
-//                        Log.d("pincodedetailsList",data?.state.toString())
-//                    }
+                   Log.d("district", it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
 
-//                    state.text = Editable.Factory.getInstance().newEditable(it.data?.get(0)?.state)
-//                    dist.text = Editable.Factory.getInstance().newEditable(it.data?.get(0)?.district)
+                    state.text = Editable.Factory.getInstance().newEditable(it.data?.get(0)?.PostOffice?.get(0)?.State.toString())
+                    dist.text = Editable.Factory.getInstance().newEditable(it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
                     viewModelUIS.pincodedetailsList.value = null
 
                 }
@@ -143,6 +144,20 @@ class AddressDetailsFragment : BaseFragment() {
 
     override fun fragmentName(): String {
         return "AddressDetails"
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            onStepChangeListener = context as OnStepChangeListner
+        } catch (ex: ClassCastException) {
+            throw ClassCastException("$context must implement onSomeEventListener")
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        onStepChangeListener.onstepChange(2)
     }
 
 }

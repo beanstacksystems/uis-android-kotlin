@@ -5,54 +5,275 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragment.AttendantDetailsFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_margin="5dp"
             app:cardElevation="5dp"
             app:cardCornerRadius="10dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
-            <LinearLayout
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/addressPopUpHeader"
+                android:layout_above="@+id/footer"
+                android:gravity="center">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:gravity="center"
-                    android:text="@string/attendant_details"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/attendant_tabviewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/attendant_tabLayout"
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="#FFFFFF"
+                        android:gravity="center">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="78dp"
+                            android:layout_height="78dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@drawable/ic_person"
+                            app:civ_border_color="#FF000000"
+                            app:civ_border_width="2dp" />
+
+                        <ImageView
+                            android:id="@+id/profile_image_edit_layout"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="65dp"
+                            android:src="@drawable/ic_edit_image"
+                            android:layout_marginTop="60dp"
+                            android:orientation="vertical" />
+                    </RelativeLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:tabTextColor="@color/orange"
-                        app:tabIndicatorColor="@color/greenlite"
-                        android:background="@color/white"
-                        app:tabMode="scrollable"
-                        tools:ignore="MissingConstraints">
-                    </com.google.android.material.tabs.TabLayout>
-                </androidx.viewpager.widget.ViewPager>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/persondetailPopUpHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Attendant Details"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_salutation_layout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/salutation">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/text_salutation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/personNameLayout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/person_name_hint">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/personName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="text"
+                                android:maxLength="100" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/Email_etLayout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/email">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Email_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/contactInputLayout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/contact">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/contact_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="100"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/dateOfBirthLayout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/date_of_birth">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dateOfBirth"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_panadhar_layout"
+                                style="@style/PatientRegistrationStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/panaadhar">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text_panadhar_select"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:backgroundTint="#F8F5F5"
+                                    android:gravity="center"
+                                    android:inputType="text"
+                                    android:maxLength="100"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                        </LinearLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_gender_layout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/gender">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/text_gender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_occupation_layout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/occupation">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/text_occupation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/incomeInputLayout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/income">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/income_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="100" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/relationship_layout"
+                            style="@style/PatientRegistrationStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Relationship With Patient">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_relationship"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:backgroundTint="#F8F5F5"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="100" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </FrameLayout>

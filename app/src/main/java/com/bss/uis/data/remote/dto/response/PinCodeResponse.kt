@@ -4,45 +4,23 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class PinCodeResponse(
-    @SerializedName("Name") @Expose
-    var name: String? = null,
-    @SerializedName("Description")
-    @Expose
-    var description: String? = null,
+    @SerializedName("Message"    ) var Message    : String?               = null,
+    @SerializedName("Status"     ) var Status     : String?               = null,
+    @SerializedName("PostOffice" ) var PostOffice : ArrayList<PostOffice> = arrayListOf()
+)
+data class PostOffice (
 
-    @SerializedName("BranchType")
-    @Expose
-    var branchType: String? = null,
+    @SerializedName("Name"           ) var Name           : String? = null,
+    @SerializedName("Description"    ) var Description    : String? = null,
+    @SerializedName("BranchType"     ) var BranchType     : String? = null,
+    @SerializedName("DeliveryStatus" ) var DeliveryStatus : String? = null,
+    @SerializedName("Circle"         ) var Circle         : String? = null,
+    @SerializedName("District"       ) var District       : String? = null,
+    @SerializedName("Division"       ) var Division       : String? = null,
+    @SerializedName("Region"         ) var Region         : String? = null,
+    @SerializedName("Block"          ) var Block          : String? = null,
+    @SerializedName("State"          ) var State          : String? = null,
+    @SerializedName("Country"        ) var Country        : String? = null,
+    @SerializedName("Pincode"        ) var Pincode        : String? = null
 
-    @SerializedName("DeliveryStatus")
-    @Expose
-    var deliveryStatus: String? = null,
-
-    @SerializedName("District")
-    @Expose
-    var district: String? = null,
-
-    @SerializedName("Division")
-    @Expose
-    var division: String? = null,
-
-    @SerializedName("Region")
-    @Expose
-    var region: String? = null,
-
-    @SerializedName("block")
-    @Expose
-    var Block: String? = null,
-
-    @SerializedName("State")
-    @Expose
-    var state: String? = null,
-
-    @SerializedName("Country")
-    @Expose
-    var country: String? = null,
-
-    @SerializedName("Pincode")
-    @Expose
-    var pincode: String? = null
 )

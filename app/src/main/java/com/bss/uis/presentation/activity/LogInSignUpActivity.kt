@@ -95,6 +95,8 @@ class LogInSignUpActivity : AppCompatActivity() {
     val identitylist: MutableList<String> = mutableListOf()
     val genederlist: MutableList<String> = mutableListOf()
     val occupationList: MutableList<String> = mutableListOf()
+    val cancerlist: MutableList<String> = mutableListOf()
+    val bllodgrouplist: MutableList<String> = mutableListOf()
 
 
     val fbPermission: MutableList<String> = arrayListOf("email", "public_profile")
@@ -610,6 +612,15 @@ class LogInSignUpActivity : AppCompatActivity() {
                             identitylist
                         )
 
+                    } else if (data.masterdataType.equals("illnesstype")) {
+                        cancerlist.add(data.masterdatadesc.toString())
+                        SharedPrefForRoomDb().storeCancerType(this@LogInSignUpActivity, cancerlist)
+                    } else if (data.masterdataType.equals("bloodgroup")) {
+                        bllodgrouplist.add(data.masterdatadesc.toString())
+                        SharedPrefForRoomDb().storeBloodgroup(
+                            this@LogInSignUpActivity,
+                            bllodgrouplist
+                        )
                     }
 
                 }
@@ -745,18 +756,25 @@ class LogInSignUpActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
-            || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_ID_MULTIPLE_PERMISSIONS)
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+            || ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                REQUEST_ID_MULTIPLE_PERMISSIONS
+            )
         } else {
-            Toast.makeText(this@LogInSignUpActivity,"allpermission granted", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@LogInSignUpActivity, "allpermission granted", Toast.LENGTH_LONG)
+                .show()
         }
     }
-
-
-
-
-
 
 
 //    private fun initView(logintype: String?) {
