@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/odisha"
-    tools:context=".activity.SplashActivity">
+    tools:context=".presentation.activity.SplashActivity">
     <LinearLayout
         android:id="@+id/splashToplayout"
         android:layout_width="match_parent"

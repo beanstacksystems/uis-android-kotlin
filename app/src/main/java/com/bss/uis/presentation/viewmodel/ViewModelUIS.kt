@@ -3,6 +3,7 @@ package com.bss.uis.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bss.uis.data.remote.dto.response.PinCodeResponse
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.usecase.*
 import com.bss.uis.util.Resource
@@ -25,7 +26,8 @@ class ViewModelUIS @Inject constructor(
     private val userRightUseCase: UserRightUseCase,
     private val loginUserUseCase: LoginUserUseCase,
     private val logOutUseCase: LogOutUseCase,
-    private val registerWithGoogleUsecase: RegisterWithGoogleUsecase
+    private val registerWithGoogleUsecase: RegisterWithGoogleUsecase,
+    private val pincodeUsecase: PincodeUsecase
 
 
 ) : ViewModel() {
@@ -43,6 +45,7 @@ class ViewModelUIS @Inject constructor(
         MutableLiveData()
     var userrightList: MutableLiveData<Resource<List<UserRightResponseDomain>>> =
         MutableLiveData()
+    var pincodedetailsList :MutableLiveData<Resource<List<PinCodeResponse?>>> = MutableLiveData()
 
     init {
         /** this scope is alive as-long-as viewModel **/
@@ -176,6 +179,21 @@ class ViewModelUIS @Inject constructor(
             launch(Dispatchers.Main) {
                 res.collectLatest {
                     authResponseDomain.value = it
+                }
+            }
+        }
+
+    }
+
+    suspend fun pincodeDetailsApi(
+
+        pin: String,
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = pincodeUsecase.invoke(pin)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    pincodedetailsList.value = it
                 }
             }
         }

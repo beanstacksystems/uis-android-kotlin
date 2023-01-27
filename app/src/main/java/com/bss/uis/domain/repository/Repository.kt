@@ -2,6 +2,7 @@ package com.bss.uis.domain.repository
 
 import com.bss.uis.data.remote.dto.response.AuthResponse
 import com.bss.uis.data.remote.dto.response.MasterDataResponse
+import com.bss.uis.data.remote.dto.response.PinCodeResponse
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -60,11 +61,14 @@ interface Repository {
     ): Flow<Resource<String>>
 
 
-    fun registerWithGogle(
+    suspend fun registerWithGogle(
         token: String?,
         serial: String?,
         model: String?,
         entitytype: String?
     ): Flow<Resource<AuthResponseDomain>>
+  suspend  fun pincodeDetails(
+        pin: String?
+    ): Flow<Resource<List<PinCodeResponse?>>>
 
 }

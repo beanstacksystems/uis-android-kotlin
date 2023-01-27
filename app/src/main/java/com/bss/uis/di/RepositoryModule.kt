@@ -2,6 +2,7 @@ package com.bss.uis.di
 
 
 import com.bss.uis.data.remote.ApiInterFace
+import com.bss.uis.data.remote.PincodeInterface
 import com.bss.uis.data.repository.RepositoryImpl
 import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
 import com.bss.uis.domain.repository.Repository
@@ -19,6 +20,7 @@ object RepositoryModule {
     @Provides
     fun provideRepository(
         apiInterFace: ApiInterFace,
+        pincodeInterface: PincodeInterface,
         authResponseDomainMapper: AuthResponseDomainMapper,
         masterDomainResponseMapper: MasterDomainResponseMapper,
         tabResponseDomainMapper: TabResponseDomainMapper,
@@ -31,7 +33,8 @@ object RepositoryModule {
             masterDataResponseDomainMaper = masterDomainResponseMapper,
             tabResponseDomainMapper = tabResponseDomainMapper,
             userRightsDomainMapper = userRightsDomainMapper,
-            userApiResponseDomainMapper = userApiResponseDomainMapper
+            userApiResponseDomainMapper = userApiResponseDomainMapper,
+            pincodeInterface = pincodeInterface
 
         )
     }

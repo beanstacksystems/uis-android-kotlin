@@ -1,4 +1,4 @@
-package com.bss.uis.activity
+package com.bss.uis.presentation.activity
 
 import android.app.Dialog
 import android.content.Intent
@@ -178,7 +178,7 @@ class SplashActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     Log.d("isServerReachable", it.data.toString())
-                    val intent = Intent(this@SplashActivity,LogInSignUpActivity::class.java)
+                    val intent = Intent(this@SplashActivity, LogInSignUpActivity::class.java)
                     startActivity(intent)
                     viewModelUIS.isServerReachableString.value = null
                 }

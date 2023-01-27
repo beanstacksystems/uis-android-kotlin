@@ -1,4 +1,4 @@
-package com.bss.uis.activity
+package com.bss.uis.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -18,15 +18,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bss.patientregistration.patientregistration.RegistrationActivity
-import com.bss.sharedpref.SharedPrefRoomDb
+
+
 import com.bss.uis.R
+import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.TabDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserRightResponseDomain
 import com.bss.uis.presentation.adapter.UserAdapter
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.MasterDao
 import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
 import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.roomdb.entity.HomeTabData
@@ -59,12 +61,17 @@ class DrawerMainActivity : AppCompatActivity() {
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
     lateinit var  recyclerviewView: RecyclerView
 
+    private lateinit var uisDatabase: UISDatabase
+    private lateinit var masterDao: MasterDao
+    private var userlist : ArrayList<String> = ArrayList()
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drawer_main)
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
         viewModelUIS = ViewModelProvider(this)[ViewModelUIS::class.java]
+        uisDatabase = UISDatabase.getInstance(this)
+        masterDao = uisDatabase.masterDAO
         initView()
         dataObserver()
     }
@@ -184,19 +191,33 @@ class DrawerMainActivity : AppCompatActivity() {
             return@setOnMenuItemClickListener true
         }
         fab.setOnClickListener {
-            startActivity(Intent(this@DrawerMainActivity, RegistrationActivity::class.java))
+            startActivity(Intent(this@DrawerMainActivity, AddPatientActivity::class.java))
         }
 //
 //        ioScOPe.launch {
 //            saveToMasterEntity()
 //            saveUserRights()
 //        }
+//        val masterDAORepository = MasterDaoRepository(masterDao)
+//        mainScope.launch {
+//            masterDAORepository.findAll()
+//            masterDAORepository.masterDataList.observe(this@DrawerMainActivity) {
+//                it.forEach { data ->
+//                    if (data.masterdataType.equals("occupationtype")) {
+//                        userlist.add(data.masterdatadesc.toString())
+//                    }
+//
+//                }
+//            }
+//        }
+
 
         recyclerviewView = findViewById(R.id.rv_iduserRequet)
         recyclerviewView.layoutManager = LinearLayoutManager(this)
 //        val items = fetchdata()
-        val adapter = UserAdapter(SharedPrefRoomDb.occupationlist(this@DrawerMainActivity))
+        val adapter = UserAdapter(SharedPrefForRoomDb().occupationlist(this@DrawerMainActivity))
         recyclerviewView.adapter =adapter
+        adapter.notifyDataSetChanged()
 
     }
 

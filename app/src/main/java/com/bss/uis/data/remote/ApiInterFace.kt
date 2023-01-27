@@ -2,11 +2,7 @@ package com.bss.uis.data.remote
 
 import com.bss.uis.data.remote.dto.response.*
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Url
+import retrofit2.http.*
 
 interface ApiInterFace {
     @POST("isserverreachable/")
@@ -68,4 +64,6 @@ interface ApiInterFace {
         @Field("devicemodel") model: String?,
         @Field("entitytype") entitytype: String?
     ): Call<AuthResponse?>?
+
+
 }

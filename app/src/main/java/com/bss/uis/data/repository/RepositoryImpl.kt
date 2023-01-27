@@ -1,6 +1,8 @@
 package com.bss.uis.data.repository
 
 import com.bss.uis.data.remote.ApiInterFace
+import com.bss.uis.data.remote.PincodeInterface
+import com.bss.uis.data.remote.dto.response.PinCodeResponse
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.repository.Repository
 import com.bss.uis.mapper.*
@@ -16,6 +18,7 @@ import javax.inject.Singleton
 @Singleton
 class RepositoryImpl @Inject constructor(
     private val apiInterFace: ApiInterFace,
+    private val pincodeInterface: PincodeInterface,
     private val authResponseDomainMapper: AuthResponseDomainMapper,
     private val masterDataResponseDomainMaper: MasterDomainResponseMapper,
     private val tabResponseDomainMapper: TabResponseDomainMapper,
@@ -112,12 +115,16 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun userData(token: String?, value:String?): Flow<Resource<UserApiResponseDomain>> {
+    override suspend fun userData(
+        token: String?,
+        value: String?
+    ): Flow<Resource<UserApiResponseDomain>> {
         return flow {
             emit(Resource.Loading(true))
             try {
                 val response =
-                    apiInterFace.userData(token, value
+                    apiInterFace.userData(
+                        token, value
                     )?.awaitRespo()
                 emit(Resource.Success(response?.let { userApiResponseDomainMapper.map(it) }))
             } catch (e: IOException) {
@@ -139,7 +146,8 @@ class RepositoryImpl @Inject constructor(
             emit(Resource.Loading(true))
             try {
                 val response =
-                    apiInterFace.userrights(token, roleidlist
+                    apiInterFace.userrights(
+                        token, roleidlist
                     )?.awaitRespo()
                 emit(Resource.Success(response?.let { userRightsDomainMapper.map(it) }))
             } catch (e: IOException) {
@@ -219,7 +227,25 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
-    override fun registerWithGogle(
+    override suspend fun pincodeDetails(pin: String?): Flow<Resource<List<PinCodeResponse?>>> {
+        return flow {
+            emit(Resource.Loading(true))
+            try {
+                val apiResponse =
+                    pincodeInterface.fetchPinData(pin).awaitRespo()
+                emit(Resource.Success(apiResponse))
+            } catch (e: IOException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: HttpException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: IllegalStateException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            }
+            emit(Resource.Loading(false))
+        }
+    }
+
+    override suspend fun registerWithGogle(
         token: String?,
         serial: String?,
         model: String?,
@@ -230,7 +256,7 @@ class RepositoryImpl @Inject constructor(
             try {
                 val response =
                     apiInterFace.registerWithGoogle(
-                        token,serial, model, entitytype
+                        token, serial, model, entitytype
                     )
                         ?.awaitRespo()
                 emit(Resource.Success(response?.let { authResponseDomainMapper.map(it) }))

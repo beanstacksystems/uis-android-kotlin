@@ -5,14 +5,11 @@ import android.app.Dialog
 import android.content.Context
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.Gravity
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.view.*
+import android.widget.*
 import com.bss.uis.domain.model.responsedomain.AuthResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserApiResponseDomain
+import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -91,6 +88,61 @@ open class AppUtil {
         button.setBackgroundResource(bgColor)
         if (null != btnText) button.text = btnText
     }
+    open fun getSelectPopupDialog(
+        context: Context?, title: String?, options: Array<String>,
+        view: TextView, genderLayout: TextInputLayout
+    ): Dialog? {
+        val dialog = Dialog(context!!)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(com.bss.uis.R.layout.popup_select)
+        val radioLinearLayout =
+            dialog.findViewById<RelativeLayout>(com.bss.uis.R.id.selectpopup_radioLayout)
+        radioLinearLayout.addView(
+            getRadioGroup(
+                context,
+                options,
+                LinearLayout.VERTICAL,
+                view,
+                dialog,
+                genderLayout
+            )
+        )
+        val headerText =
+            dialog.findViewById<TextView>(com.bss.uis.R.id.SelectPopUpHeader)
+        dialog.setTitle(title)
+        headerText.text = title
+        dialog.window!!.decorView.setBackgroundResource(R.color.transparent)
+        dialog.setOnDismissListener { view.clearFocus() }
+        return dialog
+    }
+    open fun getRadioGroup(
+        context: Context?, options: Array<String>,
+        orientation: Int, v: TextView, dialog: Dialog,
+        genderLayout: TextInputLayout
+    ): RadioGroup? {
+        val radioGroup = RadioGroup(context)
+        radioGroup.orientation = orientation
+        radioGroup.gravity = Gravity.LEFT
+        for (option in options) {
+            val radioButton = RadioButton(context)
+            radioButton.text = option
+            radioGroup.addView(radioButton)
+        }
+        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { rg, checkedId ->
+            for (i in 0 until rg.childCount) {
+                val btn = rg.getChildAt(i) as RadioButton
+                if (btn.id == checkedId) {
+                    v.text = btn.text.toString()
+                    dialog.dismiss()
+                    genderLayout.error = null
+                    return@OnCheckedChangeListener
+                }
+            }
+        })
+        return radioGroup
+    }
+
+
 }
 
 

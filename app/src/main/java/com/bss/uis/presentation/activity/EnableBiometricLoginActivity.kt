@@ -1,4 +1,4 @@
-package com.bss.uis.activity
+package com.bss.uis.presentation.activity
 
 import android.content.Context
 import android.content.Intent

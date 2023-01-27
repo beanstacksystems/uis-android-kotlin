@@ -1,6 +1,7 @@
 package com.bss.uis.di
 
 import com.bss.uis.data.remote.ApiInterFace
+import com.bss.uis.data.remote.PincodeInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,12 +30,33 @@ object NetworkModule {
             .retryOnConnectionFailure(true)
             .build()
         return  Retrofit.Builder()
-            .baseUrl("http://192.168.110.247:8000/api/")
+            .baseUrl("http://172.16.2.178:8000/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(client)
             .build()
             .create(ApiInterFace::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun pincodeClient(): PincodeInterface {
+        val loggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client: OkHttpClient = OkHttpClient.Builder().connectTimeout(1, TimeUnit.MINUTES)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
+            .addInterceptor(loggingInterceptor)
+            .retryOnConnectionFailure(true)
+            .build()
+        return  Retrofit.Builder()
+            .baseUrl("https://api.postalpincode.in/pincode/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .client(client)
+            .build()
+            .create(PincodeInterface::class.java)
     }
 
 

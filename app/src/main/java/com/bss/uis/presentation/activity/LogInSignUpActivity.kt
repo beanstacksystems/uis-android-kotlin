@@ -1,10 +1,13 @@
-package com.bss.uis.activity
+package com.bss.uis.presentation.activity
 
+
+import android.Manifest
 import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -14,12 +17,12 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
-import com.bss.sharedpref.SharedPrefRoomDb
-
 import com.bss.uis.R
-
+import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.domain.model.responsedomain.AuthResponseDomain
 import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.TabDataResponseDomain
@@ -41,8 +44,6 @@ import com.bss.uis.util.ContextPreferenceManager
 import com.bss.uis.util.Resource
 import com.bss.uis.validator.CustomTextValidator
 import com.facebook.*
-import com.facebook.appevents.AppEventsLogger
-import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -55,7 +56,6 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import org.json.JSONException
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -100,6 +100,7 @@ class LogInSignUpActivity : AppCompatActivity() {
     val fbPermission: MutableList<String> = arrayListOf("email", "public_profile")
 
     val RC_SIGN_IN = 9001
+    val REQUEST_ID_MULTIPLE_PERMISSIONS = 101
 
 
     private lateinit var auth: FirebaseAuth
@@ -115,6 +116,7 @@ class LogInSignUpActivity : AppCompatActivity() {
         callbackManager = CallbackManager.Factory.create()
         viewModelUIS = ViewModelProvider(this)[ViewModelUIS::class.java]
         initView()
+        checkPermissions()
         isValidate()
         dataObserver()
         ioScOPe.launch {
@@ -584,28 +586,28 @@ class LogInSignUpActivity : AppCompatActivity() {
                 it.forEach { data ->
                     if (data.masterdataType.equals("salutation")) {
                         salutationList.add(data.masterdatadesc.toString())
-                        SharedPrefRoomDb.storeSalutation(
+                        SharedPrefForRoomDb().storeSalutation(
                             this@LogInSignUpActivity,
-                            salutationList as java.util.ArrayList<String>?
+                            salutationList
                         )
                     } else if (data.masterdataType.equals("occupationtype")) {
                         occupationList.add(data.masterdatadesc.toString())
-                        SharedPrefRoomDb.storeOccupation(
+                        SharedPrefForRoomDb().storeOccupation(
                             this@LogInSignUpActivity,
-                            occupationList as java.util.ArrayList<String>?
+                            occupationList
                         )
 
                     } else if (data.masterdataType.equals("gender")) {
                         genederlist.add(data.masterdatadesc.toString())
-                        SharedPrefRoomDb.storeGender(
+                        SharedPrefForRoomDb().storeGender(
                             this@LogInSignUpActivity,
-                            genederlist as java.util.ArrayList<String>?
+                            genederlist
                         )
                     } else if (data.masterdataType.equals("identity")) {
                         identitylist.add(data.masterdatadesc.toString())
-                        SharedPrefRoomDb.storeIdentity(
+                        SharedPrefForRoomDb().storeIdentity(
                             this@LogInSignUpActivity,
-                            identitylist as java.util.ArrayList<String>?
+                            identitylist
                         )
 
                     }
@@ -741,6 +743,20 @@ class LogInSignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+            || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_ID_MULTIPLE_PERMISSIONS)
+        } else {
+            Toast.makeText(this@LogInSignUpActivity,"allpermission granted", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+
+
+
 
 
 //    private fun initView(logintype: String?) {

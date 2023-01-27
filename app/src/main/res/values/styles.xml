@@ -13,6 +13,14 @@
         <item name="android:textColorHint">@color/white</item>
         <item name="android:layout_margin">5dp</item>
     </style>
+    <style name="PatientRegistrationStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/blue</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="boxBackgroundColor">@color/codeGray</item>
+        <item name="android:textColorHint">#5C5A5A</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/uisOrange</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
