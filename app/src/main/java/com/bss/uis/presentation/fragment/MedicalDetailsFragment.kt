@@ -13,6 +13,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
+import androidx.navigation.Navigation
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.presentation.OnStepChangeListner
@@ -35,6 +37,8 @@ class MedicalDetailsFragment : BaseFragment(){
     lateinit var dateOfIdentificationInputLayout:TextInputLayout
     lateinit var otherdiseasetxtInputLayout:TextInputLayout
     lateinit var bloodGrpInputLayout:TextInputLayout
+    lateinit var btnNxt: AppCompatButton
+    lateinit var btnback: AppCompatButton
     var fragmentTitle: String? = null
 
     override fun onCreateView(
@@ -51,6 +55,17 @@ class MedicalDetailsFragment : BaseFragment(){
         otherdiseasetxt = fragmentView.findViewById(R.id.otherdiseasetxt)
         dateOfIdentification = fragmentView.findViewById(R.id.dateOfidentification)
         dateOfIdentificationInputLayout = fragmentView.findViewById(R.id.dateOfidentificationLayout)
+        btnback = fragmentView.findViewById(R.id.btnBackMedical)
+        btnNxt = fragmentView.findViewById(R.id.btnNextMedical)
+        btnNxt.setOnClickListener {
+            if (isValidDetails()){
+                Navigation.findNavController(requireView())
+                    .navigate(R.id.action_medicalHistoryFragment_to_attendantFragment)
+            }
+        }
+        btnback.setOnClickListener {
+            Navigation.findNavController(requireView()).popBackStack()
+        }
 
         dateOfIdentification.setOnClickListener {
             val datePickerDialog = DatePickerDialog(
@@ -125,7 +140,18 @@ class MedicalDetailsFragment : BaseFragment(){
 
 
     override fun isValidDetails(): Boolean {
-        TODO("Not yet implemented")
+        if (bloodGrp.text.toString() == "") {
+            bloodGrp.error = "Please input this field"
+            return false
+        } else if (cancerType.text.toString() == "") {
+            cancerType.error = "Please input this field"
+            return false
+        } else if (dateOfIdentification.text.toString() == "") {
+            dateOfIdentification.error = "Please input this field"
+            return false
+        }else{
+            return true
+        }
     }
 
     override fun fragmentName(): String {

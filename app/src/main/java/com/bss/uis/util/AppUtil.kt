@@ -3,13 +3,18 @@ package com.bss.uis.util
 import android.R
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.text.TextUtils
+import android.util.Base64
 import android.util.Patterns
 import android.view.*
 import android.widget.*
 import com.bss.uis.domain.model.responsedomain.AuthResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserApiResponseDomain
 import com.google.android.material.textfield.TextInputLayout
+import java.io.ByteArrayOutputStream
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -88,6 +93,7 @@ open class AppUtil {
         button.setBackgroundResource(bgColor)
         if (null != btnText) button.text = btnText
     }
+
     open fun getSelectPopupDialog(
         context: Context?, title: String?, options: Array<String>,
         view: TextView, genderLayout: TextInputLayout
@@ -115,6 +121,7 @@ open class AppUtil {
         dialog.setOnDismissListener { view.clearFocus() }
         return dialog
     }
+
     open fun getRadioGroup(
         context: Context?, options: Array<String>,
         orientation: Int, v: TextView, dialog: Dialog,
@@ -140,6 +147,22 @@ open class AppUtil {
             }
         })
         return radioGroup
+    }
+
+    fun imageEncode(imageView: ImageView): String? {
+        return try {
+
+            val drawable: Drawable = imageView.drawable
+            val bitmap: Bitmap = (drawable as BitmapDrawable).bitmap
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+            val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
+            val encoded: String = Base64.encodeToString(byteArray, Base64.DEFAULT)
+            encoded
+        }catch (e:java.lang.Exception){
+            null
+        }
+
     }
 
 

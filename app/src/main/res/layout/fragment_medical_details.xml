@@ -121,9 +121,38 @@
                                 android:maxLength="100" />
 
                         </com.google.android.material.textfield.TextInputLayout>
+                        <LinearLayout
+                            android:id="@+id/footer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:orientation="horizontal"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnBackMedical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.5"
+                                android:background="@color/uisOrange"
+                                android:text="Back"
+                                android:textColor="#ffffff" />
 
 
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnNextMedical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="0.5"
+                                android:background="@color/orange"
+                                android:text="Next"
+                                android:textColor="#ffffff" />
 
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>

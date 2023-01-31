@@ -47,13 +47,14 @@
         android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
+        android:visibility="gone"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnBack"
+            android:id="@+id/btnBackPersonalDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -65,7 +66,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnNext"
+            android:id="@+id/btnNextPersonalDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"

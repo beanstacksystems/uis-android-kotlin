@@ -13,7 +13,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.bss.uis.R
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
@@ -42,6 +44,9 @@ class AddressDetailsFragment : BaseFragment() {
     lateinit var stateInputLayout: TextInputLayout
     lateinit var pinLayout: TextInputLayout
     lateinit var onStepChangeListener: OnStepChangeListner
+    lateinit var btnNxt: AppCompatButton
+    lateinit var btnback: AppCompatButton
+
 
 
     override fun onCreateView(
@@ -69,6 +74,17 @@ class AddressDetailsFragment : BaseFragment() {
         distInputLayout = fragmentView.findViewById(R.id.distLayout)
         stateInputLayout = fragmentView.findViewById(R.id.stateLayout)
         pinLayout = fragmentView.findViewById(R.id.pincodeLayout)
+        btnback = fragmentView.findViewById(R.id.btnBackAddres)
+        btnNxt = fragmentView.findViewById(R.id.btnNextAddress)
+        btnNxt.setOnClickListener {
+            if (isValidDetails()){
+                Navigation.findNavController(requireView())
+                    .navigate(R.id.action_addressFragment_to_medicalHistoryFragment)
+            }
+        }
+        btnback.setOnClickListener {
+            Navigation.findNavController(requireView()).popBackStack()
+        }
         pin.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -139,7 +155,24 @@ class AddressDetailsFragment : BaseFragment() {
     }
 
     override fun isValidDetails(): Boolean {
-        TODO("Not yet implemented")
+        if (streetAdd.text.toString() == "") {
+            streetAdd.error = "Please input this field"
+            return false
+        } else if (city.text.toString() == "") {
+            city.error = "Please input this field"
+            return false
+        } else if (pin.text.toString() == "") {
+            pin.error = "Please input this field"
+            return false
+        } else if (dist.text.toString() == "") {
+            dist.error = "Please input this field"
+            return false
+        } else if (state.text.toString() == "") {
+            state.error = "Please input this field"
+            return false
+        }else{
+            return true
+        }
     }
 
     override fun fragmentName(): String {

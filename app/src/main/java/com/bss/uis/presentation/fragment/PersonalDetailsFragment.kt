@@ -19,8 +19,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.widget.addTextChangedListener
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.presentation.OnStepChangeListner
@@ -35,6 +40,8 @@ import java.util.*
 
 class PersonalDetailsFragment : BaseFragment() {
     lateinit var name: TextInputEditText
+    lateinit var btnNext: AppCompatButton
+    lateinit var btnBackApp: AppCompatButton
     lateinit var email: TextInputEditText
     lateinit var contact: TextInputEditText
     lateinit var dob: TextInputEditText
@@ -57,11 +64,11 @@ class PersonalDetailsFragment : BaseFragment() {
     lateinit var profileImage: CircleImageView
     lateinit var editImage: ImageView
     val PICK_IMAGE_REQUEST = 1111
-    val REQUEST_IMAGE_CAPTURE= 2222
+    val REQUEST_IMAGE_CAPTURE = 2222
     val ID_PICK_IMAGE_REQUEST = 3333
-    val ID_REQUEST_IMAGE_CAPTURE= 4444
-    lateinit var id_proof_layout:LinearLayout
-    lateinit var iv_idProof:ImageView
+    val ID_REQUEST_IMAGE_CAPTURE = 4444
+    lateinit var id_proof_layout: LinearLayout
+    lateinit var iv_idProof: ImageView
     var imagePath: String? = null
     lateinit var onStepChangeListener: OnStepChangeListner
 
@@ -80,6 +87,7 @@ class PersonalDetailsFragment : BaseFragment() {
     private fun initView(fragmentView: View) {
         nameInputLayout =
             fragmentView.findViewById(R.id.personNameLayout)
+
         eMailInputLayout =
             fragmentView.findViewById(R.id.Email_etLayout)
         contactInputLayout =
@@ -93,6 +101,25 @@ class PersonalDetailsFragment : BaseFragment() {
         editImage.setOnClickListener {
             selectImage()
         }
+        name.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (name.text.toString() == "") {
+                    nameInputLayout.error = "This Field Can Not Be Empty"
+
+                } else {
+                    nameInputLayout.error = null
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // code to be executed when text is changed
+
+            }
+        })
         email.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (!mailPartern(s.toString())) {
@@ -113,16 +140,85 @@ class PersonalDetailsFragment : BaseFragment() {
         })
 
         contact = fragmentView.findViewById(R.id.contact_et)
+        contact.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                 if (contact.text.toString() == "") {
+                    contactInputLayout.error = "This Field Can Not Be Empty"
+
+                }  else {
+                     contactInputLayout.error = null
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // code to be executed when text is changed
+
+            }
+        })
         income = fragmentView.findViewById(R.id.income_et)
+        income.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (income.text.toString() == "") {
+                    incomeInputLayout.error = "This Field Can Not Be Empty"
+
+                }  else {
+                    incomeInputLayout.error = null
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // code to be executed when text is changed
+
+            }
+        })
+
         panadharval = fragmentView.findViewById(R.id.panAdharval)
         panadharvaltextlayout =
             fragmentView.findViewById(R.id.idprooftxtLayout)
+        panadharval.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (panadharval.text.toString() == "") {
+                    panadharvaltextlayout.error = "This Field Can Not Be Empty"
+
+                }  else {
+                    panadharvaltextlayout.error = null
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // code to be executed when text is changed
+
+            }
+        })
         id_proof_layout = fragmentView.findViewById(R.id.id_proof_imageview_Layout)
         id_proof_layout.setOnClickListener {
             selectImageID()
         }
         iv_idProof = fragmentView.findViewById(R.id.iv_idProof)
+        btnNext = fragmentView.findViewById(R.id.btnNext)
+        btnBackApp = fragmentView.findViewById(R.id.btnBackApp)
+        btnNext.setOnClickListener {
+            if (isValidDetails()) {
+                Navigation.findNavController(requireView())
+                    .navigate(R.id.action_personalDetailFragment_to_addressFragment)
 
+            }
+        }
+        btnBackApp.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
         initDOB(fragmentView)
         initPanAdharView(fragmentView)
         initGenderView(fragmentView)
@@ -137,6 +233,25 @@ class PersonalDetailsFragment : BaseFragment() {
         dob = fragmentView.findViewById(R.id.dateOfBirth)
         dobInputLayout =
             fragmentView.findViewById(R.id.dateOfBirthLayout)
+        dob.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (dob.text.toString() == "") {
+                    dobInputLayout.error = "This Field Can Not Be Empty"
+
+                }  else {
+                    dobInputLayout.error = null
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // code to be executed when text is changed
+
+            }
+        })
         dob.setOnClickListener {
             val datePickerDialog = DatePickerDialog(
                 requireActivity(),
@@ -158,9 +273,6 @@ class PersonalDetailsFragment : BaseFragment() {
         panadhartxtLayout =
             fragmentView.findViewById(R.id.text_panadhar_layout)
         panadhar = fragmentView.findViewById(R.id.text_panadhar_select)
-        genderLayout =
-            fragmentView.findViewById(R.id.text_gender_layout)
-        gender = fragmentView.findViewById(R.id.text_gender)
         panadhar.showSoftInputOnFocus = false
         //        ArrayList<String> idproofVal = AppUtil.getMasterByType("identity");
         val idproofVal: ArrayList<String> = SharedPrefForRoomDb().identitylist(requireActivity())
@@ -191,7 +303,7 @@ class PersonalDetailsFragment : BaseFragment() {
             genderLayout.error = null
             val textInputEditText = v as TextInputEditText
             val text = textInputEditText.text.toString()
-            if (null == text || text.isEmpty()) genderLayout.error = "Gender can not be empty."
+            if (text.isEmpty()) genderLayout.error = "Gender can not be empty."
             if (hasFocus) {
                 val dialog: Dialog? = AppUtil().getSelectPopupDialog(
                     activity,
@@ -260,8 +372,82 @@ class PersonalDetailsFragment : BaseFragment() {
         }
     }
 
-    override fun isValidDetails(): Boolean {
+    fun validation(): Boolean {
+        if (name.text == null) {
+            nameInputLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (email.text == null) {
+            eMailInputLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (contact.text == null) {
+            contactInputLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (dob.text == null) {
+            dobInputLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (panadhar.text == null) {
+            panadhartxtLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (panadharval.text == null) {
+            panadharvaltextlayout.error = R.string.pls_input.toString()
+            return false
+        } else if (income.text == null) {
+            incomeInputLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (gender.text == null) {
+            genderLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (salutation.text == null) {
+            salutationLayout.error = R.string.pls_input.toString()
+            return false
+        } else if (occupation.text == null) {
+            occupationLayout.error = R.string.pls_input.toString()
+            return false
+        }
         return true
+    }
+
+    override fun isValidDetails(): Boolean {
+        if (name.text.toString() == "") {
+            nameInputLayout.error = "Please input this field"
+            return false
+        } else if (email.text.toString() == "") {
+            eMailInputLayout.error = "Please input this field"
+            return false
+        } else if (contact.text.toString() == "") {
+            contactInputLayout.error = "Please input this field"
+            return false
+        } else if (dob.text.toString() == "") {
+            dobInputLayout.error = "Please input this field"
+            return false
+        } else if (panadhar.text.toString() == "") {
+            panadhartxtLayout.error = "Please input this field"
+            return false
+        } else if (panadharval.text.toString() == "") {
+            panadharvaltextlayout.error = "Please input this field"
+            return false
+        } else if (income.text.toString() == "") {
+            incomeInputLayout.error = "Please input this field"
+            return false
+        } else if (gender.text.toString() == "") {
+            genderLayout.error = "Please input this field"
+            return false
+        } else if (salutation.text.toString() == "") {
+            salutationLayout.error = "Please input this field"
+            return false
+        } else if (occupation.text.toString() == "") {
+            occupationLayout.error = "Please input this field"
+            return false
+        }else if(AppUtil().imageEncode(profileImage) == null){
+            Toast.makeText(requireActivity(),"Please choose profile image",Toast.LENGTH_LONG).show()
+            return false
+        }else if(AppUtil().imageEncode(iv_idProof) == null){
+            Toast.makeText(requireActivity(),"Please upload the id proof",Toast.LENGTH_LONG).show()
+            return false
+        }else{
+            return true
+        }
+//
     }
 
     override fun fragmentName(): String {
@@ -274,7 +460,7 @@ class PersonalDetailsFragment : BaseFragment() {
     }
 
 
-
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
@@ -284,19 +470,19 @@ class PersonalDetailsFragment : BaseFragment() {
                     .load(imageUri)
                     .into(profileImage)
             }
-        }else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val photo= data?.extras?.get("data") as Bitmap
+        } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            val photo = data?.extras?.get("data") as Bitmap
             profileImage.setImageBitmap(photo)
 
-        }else  if (requestCode == ID_PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+        } else if (requestCode == ID_PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             if (data != null && data.data != null) {
                 val imageUri = data.data
                 Glide.with(this)
                     .load(imageUri)
                     .into(iv_idProof)
             }
-        }else if (requestCode == ID_REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val photo= data?.extras?.get("data") as Bitmap
+        } else if (requestCode == ID_REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            val photo = data?.extras?.get("data") as Bitmap
             iv_idProof.setImageBitmap(photo)
 
         }
@@ -319,6 +505,7 @@ class PersonalDetailsFragment : BaseFragment() {
         }
         builder.show()
     }
+
     fun selectImageID() {
         val options = arrayOf<CharSequence>("Take Photo", "Choose from Gallery", "Cancel")
         val builder = AlertDialog.Builder(
@@ -336,19 +523,23 @@ class PersonalDetailsFragment : BaseFragment() {
         }
         builder.show()
     }
+
     private fun takePicture() {
         val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(camera_intent, REQUEST_IMAGE_CAPTURE)
     }
+
     private fun takePictureID() {
         val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(camera_intent, ID_REQUEST_IMAGE_CAPTURE)
     }
+
     private fun imagePickID() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, ID_PICK_IMAGE_REQUEST)
     }
+
     private fun imagePick() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"

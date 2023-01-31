@@ -9,6 +9,7 @@
     <string name="facebook_app_id">947730725995178</string>
     <string name="fb_login_protocol_scheme">fb947730725995178</string>
     <string name="facebook_client_token">6ca38ffe8247c57dc12224ca456f4839</string>
+    <string name="pls_input">Please input this field</string>
 
 
     <string name="splashscreen">SplashScreen</string>
