@@ -552,14 +552,6 @@ class LogInSignUpActivity : AppCompatActivity() {
         userDAORepository.delete()
         userDAORepository.insertUserData(userRightDataList)
         userDAORepository.findAll()
-        mainScope.launch {
-            userDAORepository.userRightList.observe(this@LogInSignUpActivity) {
-                it.forEach { data ->
-                    Log.d("userDAORepository", data.userRightType.toString())
-
-                }
-            }
-        }
         startActivity(Intent(this@LogInSignUpActivity, DrawerMainActivity::class.java))
 
 
@@ -584,48 +576,46 @@ class LogInSignUpActivity : AppCompatActivity() {
         masterDAORepository.findAll()
 
         mainScope.launch {
-            masterDAORepository.masterDataList.observe(this@LogInSignUpActivity) {
-                it.forEach { data ->
-                    if (data.masterdataType.equals("salutation")) {
-                        salutationList.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeSalutation(
-                            this@LogInSignUpActivity,
-                            salutationList
-                        )
-                    } else if (data.masterdataType.equals("occupationtype")) {
-                        occupationList.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeOccupation(
-                            this@LogInSignUpActivity,
-                            occupationList
-                        )
+            masterDAORepository.masterDataList.forEach { data ->
+                if (data.masterdataType.equals("salutation")) {
+                    salutationList.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeSalutation(
+                        this@LogInSignUpActivity,
+                        salutationList
+                    )
+                } else if (data.masterdataType.equals("occupationtype")) {
+                    occupationList.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeOccupation(
+                        this@LogInSignUpActivity,
+                        occupationList
+                    )
 
-                    } else if (data.masterdataType.equals("gender")) {
-                        genederlist.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeGender(
-                            this@LogInSignUpActivity,
-                            genederlist
-                        )
-                    } else if (data.masterdataType.equals("identity")) {
-                        identitylist.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeIdentity(
-                            this@LogInSignUpActivity,
-                            identitylist
-                        )
+                } else if (data.masterdataType.equals("gender")) {
+                    genederlist.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeGender(
+                        this@LogInSignUpActivity,
+                        genederlist
+                    )
+                } else if (data.masterdataType.equals("identity")) {
+                    identitylist.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeIdentity(
+                        this@LogInSignUpActivity,
+                        identitylist
+                    )
 
-                    } else if (data.masterdataType.equals("illnesstype")) {
-                        cancerlist.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeCancerType(this@LogInSignUpActivity, cancerlist)
-                    } else if (data.masterdataType.equals("bloodgroup")) {
-                        bllodgrouplist.add(data.masterdatadesc.toString())
-                        SharedPrefForRoomDb().storeBloodgroup(
-                            this@LogInSignUpActivity,
-                            bllodgrouplist
-                        )
-                    }
-
+                } else if (data.masterdataType.equals("illnesstype")) {
+                    cancerlist.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeCancerType(this@LogInSignUpActivity, cancerlist)
+                } else if (data.masterdataType.equals("bloodgroup")) {
+                    bllodgrouplist.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storeBloodgroup(
+                        this@LogInSignUpActivity,
+                        bllodgrouplist
+                    )
                 }
 
             }
+
 
         }
 

@@ -12,7 +12,7 @@ import com.bss.uis.roomdb.entity.MasterData
 interface MasterDao {
 
     @Query("SELECT * FROM MasterData")
-    fun findAll(): LiveData<List<MasterData>>
+    fun findAll(): List<MasterData>
 
     @Query("SELECT * FROM HomeTabData")
     fun findAllTabData(): LiveData<List<HomeTabData>>

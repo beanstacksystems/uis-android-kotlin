@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,29 +18,43 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.Navigation
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
+import com.bss.uis.data.remote.dto.request.MedicaldetailsRequest
+import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.request.PersonlistRequest
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
+import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
 import com.bss.uis.util.AppUtil
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.collections.ArrayList
 
 
-class MedicalDetailsFragment : BaseFragment(){
+class MedicalDetailsFragment : BaseFragment() {
 
     lateinit var onStepChangeListener: OnStepChangeListner
 
     lateinit var cancerType: TextInputEditText
-    lateinit var dateOfIdentification:TextInputEditText
-    lateinit var otherdiseasetxt:TextInputEditText
-    lateinit var bloodGrp:TextInputEditText
+    lateinit var dateOfIdentification: TextInputEditText
+    lateinit var otherdiseasetxt: TextInputEditText
+    lateinit var bloodGrp: TextInputEditText
     lateinit var cancerTypeInputLayout: TextInputLayout
-    lateinit var dateOfIdentificationInputLayout:TextInputLayout
-    lateinit var otherdiseasetxtInputLayout:TextInputLayout
-    lateinit var bloodGrpInputLayout:TextInputLayout
+    lateinit var dateOfIdentificationInputLayout: TextInputLayout
+    lateinit var otherdiseasetxtInputLayout: TextInputLayout
+    lateinit var bloodGrpInputLayout: TextInputLayout
     lateinit var btnNxt: AppCompatButton
     lateinit var btnback: AppCompatButton
     var fragmentTitle: String? = null
+    lateinit var personlistRequest: PersonlistRequest
+    var masterid = 1
+    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,10 +62,13 @@ class MedicalDetailsFragment : BaseFragment(){
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_medical_details, container, false)
-        AddPatientActivity.fragmentName ="MedicalDetails"
+        AddPatientActivity.fragmentName = "MedicalDetails"
         initView(view)
-        return  view
+        personlistRequest = arguments?.getSerializable("dataA") as PersonlistRequest
+//        Log.d("argumentsdataA", personlistRequest.idproofdto?.imagedto?.imagedata.toString())
+        return view
     }
+
     private fun initView(fragmentView: View) {
         otherdiseasetxt = fragmentView.findViewById(R.id.otherdiseasetxt)
         dateOfIdentification = fragmentView.findViewById(R.id.dateOfidentification)
@@ -58,9 +76,23 @@ class MedicalDetailsFragment : BaseFragment(){
         btnback = fragmentView.findViewById(R.id.btnBackMedical)
         btnNxt = fragmentView.findViewById(R.id.btnNextMedical)
         btnNxt.setOnClickListener {
-            if (isValidDetails()){
-                Navigation.findNavController(requireView())
-                    .navigate(R.id.action_medicalHistoryFragment_to_attendantFragment)
+            if (isValidDetails()) {
+
+                ioScOPe.launch {
+                    val bundledata = async {
+                        requestBodyForPatientRegistartion()
+                    }
+                    val bundle = Bundle().apply {
+                        putSerializable("datam", bundledata.await())
+                    }
+                    requireActivity().runOnUiThread {
+                        Navigation.findNavController(requireView())
+                            .navigate(R.id.action_medicalHistoryFragment_to_attendantFragment,bundle)
+                    }
+
+                }
+
+
             }
         }
         btnback.setOnClickListener {
@@ -149,13 +181,13 @@ class MedicalDetailsFragment : BaseFragment(){
         } else if (dateOfIdentification.text.toString() == "") {
             dateOfIdentification.error = "Please input this field"
             return false
-        }else{
+        } else {
             return true
         }
     }
 
     override fun fragmentName(): String {
-       return "MedicalDetails"
+        return "MedicalDetails"
     }
 
     override fun onAttach(context: Context) {
@@ -171,6 +203,7 @@ class MedicalDetailsFragment : BaseFragment(){
         super.onResume()
         onStepChangeListener.onstepChange(3)
     }
+
     private fun otherCancerBox() {
         val builder = AlertDialog.Builder(requireActivity())
         builder.setTitle("Enter Other Cancer Type")
@@ -189,6 +222,61 @@ class MedicalDetailsFragment : BaseFragment(){
 
         val alert = builder.create()
         alert.show()
+    }
+
+    private fun requestBodyForPatientRegistartion(): PatientRegistatrtionRequest {
+        val medicaldetailsRequest = MedicaldetailsRequest(
+            medicalrecordid = 1,
+            patientid = 1,
+            illnesstypeid = getmasterId(cancerType.text.toString()),
+            illnessstageid = 1,
+            diagnosisdetails = 1,
+            imagelist = personlistRequest.imagelist,
+            diagnosisdate = "26/12/2022",
+            otherremarks = otherdiseasetxt.text.toString(),
+            isactive = "Y",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+
+        )
+        val personlistRequestlist: ArrayList<PersonlistRequest> = ArrayList()
+        personlistRequestlist.add(personlistRequest)
+
+        return PatientRegistatrtionRequest(
+            patientid = 1,
+            bloodgroup = getmasterId(bloodGrp.text.toString()),
+            attendanttypeids = arrayListOf(),
+            personlist = personlistRequestlist,
+            registrarid = 1,
+            referrerid = 1,
+            sponsorid = 1,
+            approverid = 1,
+            applicationurl = "/img/t.png",
+            isactive = "y",
+            isapproved = "y",
+            illnesstypes = arrayListOf(),
+            followupcounsellerid = 1,
+            medicaldetails = medicaldetailsRequest,
+            remarks = "",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+        )
+    }
+
+    private fun getmasterId(dataS: String): Int {
+        val masterdao = UISDatabase.getInstance(requireActivity()).masterDAO
+        val masterDaoRepository = MasterDaoRepository(masterdao)
+        masterDaoRepository.masterDataList.forEach { data ->
+            if (data.masterdatadesc!! == dataS) {
+                this.masterid = data.masterdataId
+                Log.d("masteridloop", this.masterid.toString())
+
+            }
+
+        }
+        return this.masterid
+
+
     }
 
 

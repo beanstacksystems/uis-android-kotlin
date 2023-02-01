@@ -10,7 +10,7 @@ import com.bss.uis.roomdb.entity.UserRightData
 @Dao
 interface UserDao {
     @Query("SELECT * FROM UserRightData")
-    fun findAll(): LiveData<List<UserRightData>>
+    fun findAll(): List<UserRightData>
 
     @Query("SELECT * FROM UserRightData WHERE userRoleId is:userRoleId")
     fun findByUserRightdataRoleType(userRoleId: Int): List<UserRightData?>?

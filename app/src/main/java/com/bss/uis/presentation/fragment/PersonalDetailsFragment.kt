@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -28,14 +29,24 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
+import com.bss.uis.data.remote.dto.request.*
+import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity.Companion.fragmentName
+import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
+import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.util.AppUtil
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class PersonalDetailsFragment : BaseFragment() {
@@ -71,6 +82,11 @@ class PersonalDetailsFragment : BaseFragment() {
     lateinit var iv_idProof: ImageView
     var imagePath: String? = null
     lateinit var onStepChangeListener: OnStepChangeListner
+    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+    var masterid = 1
+    lateinit var imageUri: Uri
+    var myData = PersonlistRequest()
 
 
     override fun onCreateView(
@@ -142,11 +158,11 @@ class PersonalDetailsFragment : BaseFragment() {
         contact = fragmentView.findViewById(R.id.contact_et)
         contact.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                 if (contact.text.toString() == "") {
+                if (contact.text.toString() == "") {
                     contactInputLayout.error = "This Field Can Not Be Empty"
 
-                }  else {
-                     contactInputLayout.error = null
+                } else {
+                    contactInputLayout.error = null
                 }
             }
 
@@ -165,7 +181,7 @@ class PersonalDetailsFragment : BaseFragment() {
                 if (income.text.toString() == "") {
                     incomeInputLayout.error = "This Field Can Not Be Empty"
 
-                }  else {
+                } else {
                     incomeInputLayout.error = null
                 }
             }
@@ -188,7 +204,7 @@ class PersonalDetailsFragment : BaseFragment() {
                 if (panadharval.text.toString() == "") {
                     panadharvaltextlayout.error = "This Field Can Not Be Empty"
 
-                }  else {
+                } else {
                     panadharvaltextlayout.error = null
                 }
             }
@@ -209,15 +225,31 @@ class PersonalDetailsFragment : BaseFragment() {
         iv_idProof = fragmentView.findViewById(R.id.iv_idProof)
         btnNext = fragmentView.findViewById(R.id.btnNext)
         btnBackApp = fragmentView.findViewById(R.id.btnBackApp)
+
         btnNext.setOnClickListener {
             if (isValidDetails()) {
-                Navigation.findNavController(requireView())
-                    .navigate(R.id.action_personalDetailFragment_to_addressFragment)
+                ioScOPe.launch {
+                    val bundledata = async {
+                        patientRegistartionDto()
+                    }
+                    val bundle = Bundle().apply {
+                        putSerializable("data", bundledata.await())
+                    }
+                    requireActivity().runOnUiThread {
+                        Navigation.findNavController(requireView())
+                            .navigate(R.id.action_personalDetailFragment_to_addressFragment, bundle)
+                    }
+
+                }
+
 
             }
         }
         btnBackApp.setOnClickListener {
             requireActivity().onBackPressed()
+        }
+        ioScOPe.launch {
+            Log.d("masterid", getmasterId("Mrs").toString())
         }
         initDOB(fragmentView)
         initPanAdharView(fragmentView)
@@ -229,6 +261,22 @@ class PersonalDetailsFragment : BaseFragment() {
 //    }
     }
 
+    private fun getmasterId(dataS: String): Int {
+        val masterdao = UISDatabase.getInstance(requireActivity()).masterDAO
+        val masterDaoRepository = MasterDaoRepository(masterdao)
+        masterDaoRepository.masterDataList.forEach { data ->
+            if (data.masterdatadesc!! == dataS) {
+                this.masterid = data.masterdataId
+                Log.d("masteridloop", this.masterid.toString())
+
+            }
+
+        }
+        return this.masterid
+
+
+    }
+
     private fun initDOB(fragmentView: View) {
         dob = fragmentView.findViewById(R.id.dateOfBirth)
         dobInputLayout =
@@ -238,7 +286,7 @@ class PersonalDetailsFragment : BaseFragment() {
                 if (dob.text.toString() == "") {
                     dobInputLayout.error = "This Field Can Not Be Empty"
 
-                }  else {
+                } else {
                     dobInputLayout.error = null
                 }
             }
@@ -438,13 +486,15 @@ class PersonalDetailsFragment : BaseFragment() {
         } else if (occupation.text.toString() == "") {
             occupationLayout.error = "Please input this field"
             return false
-        }else if(AppUtil().imageEncode(profileImage) == null){
-            Toast.makeText(requireActivity(),"Please choose profile image",Toast.LENGTH_LONG).show()
+        } else if (AppUtil().imageEncode(profileImage) == null) {
+            Toast.makeText(requireActivity(), "Please choose profile image", Toast.LENGTH_LONG)
+                .show()
             return false
-        }else if(AppUtil().imageEncode(iv_idProof) == null){
-            Toast.makeText(requireActivity(),"Please upload the id proof",Toast.LENGTH_LONG).show()
+        } else if (AppUtil().imageEncode(iv_idProof) == null) {
+            Toast.makeText(requireActivity(), "Please upload the id proof", Toast.LENGTH_LONG)
+                .show()
             return false
-        }else{
+        } else {
             return true
         }
 //
@@ -465,7 +515,7 @@ class PersonalDetailsFragment : BaseFragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             if (data != null && data.data != null) {
-                val imageUri = data.data
+                imageUri = data.data!!
                 Glide.with(this)
                     .load(imageUri)
                     .into(profileImage)
@@ -558,6 +608,83 @@ class PersonalDetailsFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
         onStepChangeListener.onstepChange(1)
+    }
+
+    private fun patientRegistartionDto(): PersonlistRequest {
+        val imagelist = ImagelistRquest(
+            imageid = 1,
+            medicalrecordid = 1,
+            entityid = 1,
+            entitytypeid = 1,
+            imagefilename = "profile.jpeg",
+            imagedata = AppUtil().imageEncode(profileImage),
+            imageurl = "",
+            imagetype = 1,
+            isactive = "y",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+        )
+        val imagelistd: ArrayList<ImagelistRquest> = ArrayList()
+        imagelistd.add(imagelist)
+        val imagedto = ImagedtoReqest(
+            imageid = 1,
+            medicalrecordid = 1,
+            entityid = 1,
+            entitytypeid = 1,
+            imagefilename = "id.jpeg",
+            imagedata = AppUtil().imageEncode(iv_idProof),
+            imageurl = "",
+            imagetype = 1,
+            isactive = "y",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+        )
+        val idproofdto = IdproofdtoRequest(
+            idproofid = 1,
+            entityid = 1,
+            entitytypeid = 1,
+            idtypeid = 1,
+            iddetails = "",
+            imagedto = imagedto,
+            isactive = "y",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+
+        )
+        val contactlist = ContactlistRequest(
+            contactid = 1,
+            entityid = 1,
+            entitytypeid = 1,
+            contacttypeid = 1,
+            contactdetails = contact.text.toString().toInt(),
+            isactive = "Y",
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+        )
+        val contactlistdata: ArrayList<ContactlistRequest> = ArrayList()
+        contactlistdata.add(contactlist)
+
+        val persondata = PersonlistRequest(
+            personid = 1,
+            entitytype = 1,
+            prefix = getmasterId(salutation.text.toString()),
+            name = name.text.toString(),
+            suffix = 1,
+            dateofbirth = dob.text.toString(),
+            gender = getmasterId(gender.text.toString()),
+            imagelist = imagelistd,
+            relationwithpatient = 1,
+            incomeperyear = income.text.toString().toInt(),
+            occupation = getmasterId(occupation.text.toString()),
+            isactive = "y",
+            idproofdto = idproofdto,
+            contactlist = contactlistdata,
+            createddate = "26/12/2022",
+            updatedate = "26/12/2022"
+
+        )
+        return persondata
+
     }
 
 

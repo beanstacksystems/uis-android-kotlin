@@ -25,19 +25,28 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
+import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
 import com.bss.uis.presentation.adapter.TabAdaptaer
+import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.util.AppUtil
+import com.bss.uis.util.ContextPreferenceManager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.*
 
 
@@ -69,10 +78,15 @@ class AttendantDetailsFragment : BaseFragment() {
     lateinit var panadharvaltextlayout: TextInputLayout
     lateinit var profileImage: CircleImageView
     lateinit var editImage: ImageView
+    lateinit var requestBody: PatientRegistatrtionRequest
+    private lateinit var viewModelUIS: ViewModelUIS
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+    private val ioScOPe = CoroutineScope(Dispatchers.IO)
 
     val PICK_IMAGE_REQUEST = 1112
     val REQUEST_IMAGE_CAPTURE = 2223
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -80,6 +94,14 @@ class AttendantDetailsFragment : BaseFragment() {
         // Inflate the layout for this fragment
         val fragmentView = inflater.inflate(R.layout.fragment_attendant_details, container, false)
         AddPatientActivity.fragmentName = "submit"
+        requestBody = arguments?.getSerializable("datam") as PatientRegistatrtionRequest
+//        Log.d("patientregistrationRequestBody",requestBody.toString())
+//        Log.d("basicDetails",requestBody.personlist[0].idproofdto?.imagedto?.imagedata.toString())
+        Log.d("addresDetails", requestBody.personlist[0].addressdto?.pincode.toString())
+        Log.d("medicalDetails", requestBody.medicaldetails?.illnesstypeid.toString())
+        viewModelUIS = ViewModelProvider(requireActivity())[ViewModelUIS::class.java]
+
+
         initView(fragmentView)
 
         return fragmentView
@@ -189,7 +211,15 @@ class AttendantDetailsFragment : BaseFragment() {
             if (isValidDetails()) {
 //                Navigation.findNavController(requireView())
 //                    .navigate(R.id.action_personalDetailFragment_to_addressFragment)
-                Toast.makeText(requireActivity(),"Submitted successfully",Toast.LENGTH_LONG).show()
+                mainScope.launch {
+                    viewModelUIS.patientRegistartion(
+                        ContextPreferenceManager().getToken("token", requireActivity())
+                            .toString(), requestBody
+                    )
+                }
+
+                Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
+                    .show()
 
             }
         }
@@ -216,7 +246,7 @@ class AttendantDetailsFragment : BaseFragment() {
         } else if (dob.text.toString() == "") {
             dobInputLayout.error = "Please input this field"
             return false
-        }  else if (income.text.toString() == "") {
+        } else if (income.text.toString() == "") {
             incomeInputLayout.error = "Please input this field"
             return false
         } else if (gender.text.toString() == "") {
@@ -228,10 +258,11 @@ class AttendantDetailsFragment : BaseFragment() {
         } else if (occupation.text.toString() == "") {
             occupationLayout.error = "Please input this field"
             return false
-        }else if(AppUtil().imageEncode(profileImage) == null){
-            Toast.makeText(requireActivity(),"Please choose profile image",Toast.LENGTH_LONG).show()
+        } else if (AppUtil().imageEncode(profileImage) == null) {
+            Toast.makeText(requireActivity(), "Please choose profile image", Toast.LENGTH_LONG)
+                .show()
             return false
-        }else{
+        } else {
             return true
         }
     }

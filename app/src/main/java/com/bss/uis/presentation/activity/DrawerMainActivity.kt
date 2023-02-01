@@ -34,6 +34,7 @@ import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.roomdb.entity.HomeTabData
 import com.bss.uis.roomdb.entity.MasterData
 import com.bss.uis.roomdb.entity.UserRightData
+import com.bss.uis.util.AppConstant
 import com.bss.uis.util.AppUtil
 import com.bss.uis.util.ContextPreferenceManager
 import com.bss.uis.util.Resource
@@ -76,75 +77,23 @@ class DrawerMainActivity : AppCompatActivity() {
         dataObserver()
     }
 
-    private suspend fun saveUserRights(
-    ) {
-        val userDao = UISDatabase.getInstance(this).userDAO
-        val userDAORepository = UserDaoRepository(userDao)
-        userDAORepository.findAll()
-        mainScope.launch {
-            userDAORepository.userRightList.observe(this@DrawerMainActivity) {
-                it.forEach { data ->
-                    Log.d("userDAORepositorydrawer", data.userRightType.toString())
 
 
-                }
-            }
-        }
 
-
-    }
-
-
-    private suspend fun saveTabData(tabValueDTOList: List<TabDataResponseDomain>) {
-        val masterDao = UISDatabase.getInstance(this).masterDAO
-        val homeTabDataList: MutableList<HomeTabData> = ArrayList()
-        tabValueDTOList.forEach {
-            val homeTabData = HomeTabData()
-            homeTabData.tabname = it.tabname
-            homeTabData.tabdata = it.tabdata
-            homeTabData.tabdesc = it.tabdesc
-            homeTabData.tabseq = it.tabseq!!
-            homeTabDataList.add(homeTabData)
-        }
-
-        val masterDAORepository = MasterDaoRepository(masterDao)
-        masterDAORepository.deleteTabData()
-        masterDAORepository.insertTabData(homeTabDataList)
-    }
-    private suspend fun saveToMasterEntity() {
-        val masterDao = UISDatabase.getInstance(applicationContext).masterDAO
-        val masterDAORepository = MasterDaoRepository(masterDao)
-        masterDAORepository.findAll()
-        masterDAORepository.findmasterDataByType("salutation")
-        mainScope.launch {
-            masterDAORepository.masterDataList.observe(this@DrawerMainActivity) {
-                it.forEach { data ->
-                    Log.d("masterDAORepository12drawer", data.masterdataval.toString())
-
+    private  fun fabbtn() {
+        val userdao = UISDatabase.getInstance(this).userDAO
+        val userDaoRepository = UserDaoRepository(userdao)
+        userDaoRepository.userRightList.forEach { data->
+                Log.d("getuserRightList",data.userRightType.toString())
+                if (data.userRoleId == AppUtil.userCurrentRole && data.userRightType.equals(AppConstant.registerPatient)){
+                    fab.visibility = View.VISIBLE
+                }else{
+                    fab.visibility = View.GONE
                 }
 
-            }
-//            masterDAORepository.masterdataBytype.observe(this@DrawerMainActivity){
-//                val salutationList : MutableList<String> = mutableListOf()
-//                it.forEach { data ->
-//                    Log.d("Masterdatatypewheredrawer",data.masterdatadesc.toString())
-//                    salutationList.add(data.masterdatadesc.toString())
-//                }
-
-//                SharedPrefRoomDb.storeSalutation(applicationContext,
-//                    salutationList as java.util.ArrayList<String>?
-//                )
-//                SharedPrefRoomDb.salutTationList(applicationContext).forEach { pref->
-//                    Log.d("MasterdatatypewhereSharedprefdrawer",pref.toString())
-//
-//                }
-//            }
-
         }
-
-
-
     }
+
 
     private fun initView() {
         toolbar = findViewById(R.id.toolbar)
@@ -210,6 +159,9 @@ class DrawerMainActivity : AppCompatActivity() {
 //                }
 //            }
 //        }
+//       ioScOPe.launch {
+//           fabbtn()
+//       }
 
 
         recyclerviewView = findViewById(R.id.rv_iduserRequet)

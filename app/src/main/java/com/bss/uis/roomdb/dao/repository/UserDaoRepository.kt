@@ -6,8 +6,8 @@ import com.bss.uis.roomdb.entity.MasterData
 import com.bss.uis.roomdb.entity.UserRightData
 
 class UserDaoRepository(private val userDao: UserDao) {
-     var userRightList: LiveData<List<UserRightData>> = userDao.findAll()
-    suspend fun findAll(){
+     var userRightList: List<UserRightData> = userDao.findAll()
+    suspend fun findAll() {
         userRightList= userDao.findAll()
     }
 

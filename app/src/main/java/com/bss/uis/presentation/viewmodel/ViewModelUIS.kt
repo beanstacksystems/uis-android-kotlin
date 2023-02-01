@@ -3,6 +3,8 @@ package com.bss.uis.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
 import com.bss.uis.data.remote.dto.response.PinCodeResponse
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.usecase.*
@@ -27,7 +29,8 @@ class ViewModelUIS @Inject constructor(
     private val loginUserUseCase: LoginUserUseCase,
     private val logOutUseCase: LogOutUseCase,
     private val registerWithGoogleUsecase: RegisterWithGoogleUsecase,
-    private val pincodeUsecase: PincodeUsecase
+    private val pincodeUsecase: PincodeUsecase,
+    private val patientRegistrationUsecase: PatientRegistrationUsecase
 
 
 ) : ViewModel() {
@@ -46,6 +49,8 @@ class ViewModelUIS @Inject constructor(
     var userrightList: MutableLiveData<Resource<List<UserRightResponseDomain>>> =
         MutableLiveData()
     var pincodedetailsList :MutableLiveData<Resource<List<PinCodeResponse?>>> = MutableLiveData()
+    var patientRegistrationResReqList: MutableLiveData<Resource<PatientRegistrationResReq?>> =
+        MutableLiveData()
 
     init {
         /** this scope is alive as-long-as viewModel **/
@@ -194,6 +199,21 @@ class ViewModelUIS @Inject constructor(
             launch(Dispatchers.Main) {
                 res.collectLatest {
                     pincodedetailsList.value = it
+                }
+            }
+        }
+
+    }
+    suspend fun patientRegistartion(
+
+        token: String,
+        patientRegistrationResReq: PatientRegistatrtionRequest
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = patientRegistrationUsecase.invoke(token, patientRegistrationResReq)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    patientRegistrationResReqList.value = it
                 }
             }
         }
