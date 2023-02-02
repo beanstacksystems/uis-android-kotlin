@@ -55,7 +55,7 @@ interface ApiInterFace {
         @Field("password") password: String?
     ): Call<AuthResponse?>?
 
-    @POST("logout/")
+    @GET("logout/")
     fun logout(@Header("Authorization") token: String?): Call<String?>?
 
     @FormUrlEncoded

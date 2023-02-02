@@ -142,11 +142,11 @@ class LogInSignUpActivity : AppCompatActivity() {
         }
 
         FacebookSdk.setApplicationId(getString(R.string.facebook_app_id))
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_SECURE,
-            WindowManager.LayoutParams.FLAG_SECURE
-        )
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_SECURE,
+//            WindowManager.LayoutParams.FLAG_SECURE
+//        )
+//        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
 //        LoginManager.getInstance().registerCallback(
 //            callbackManager,
