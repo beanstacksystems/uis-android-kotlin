@@ -246,7 +246,7 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/tabviewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
+            android:layout_height="match_parent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/home_tabLayout"
@@ -257,7 +257,7 @@
             app:tabIndicatorColor="@color/greenlite"
             app:tabMode="scrollable"
             app:tabTextColor="@color/orange"
-            tools:ignore="MissingConstraints"></com.google.android.material.tabs.TabLayout>
+            tools:ignore="MissingConstraints" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView

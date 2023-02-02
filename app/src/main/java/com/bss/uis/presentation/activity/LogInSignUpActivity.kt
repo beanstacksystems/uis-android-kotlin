@@ -136,6 +136,7 @@ class LogInSignUpActivity : AppCompatActivity() {
                         EnableBiometricLoginActivity::class.java
                     )
                 )
+                finish()
 
             }
         }

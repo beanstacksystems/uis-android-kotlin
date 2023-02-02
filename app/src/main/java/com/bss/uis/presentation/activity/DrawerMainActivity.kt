@@ -60,11 +60,12 @@ class DrawerMainActivity : AppCompatActivity() {
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
-    lateinit var  recyclerviewView: RecyclerView
+    lateinit var recyclerviewView: RecyclerView
 
     private lateinit var uisDatabase: UISDatabase
     private lateinit var masterDao: MasterDao
-    private var userlist : ArrayList<String> = ArrayList()
+    private var userlist: ArrayList<String> = ArrayList()
+
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,22 +75,26 @@ class DrawerMainActivity : AppCompatActivity() {
         uisDatabase = UISDatabase.getInstance(this)
         masterDao = uisDatabase.masterDAO
         initView()
+        ioScOPe.launch {
+            fabbtn()
+        }
+
         dataObserver()
     }
 
 
-
-
-    private  fun fabbtn() {
+    private fun fabbtn() {
         val userdao = UISDatabase.getInstance(this).userDAO
         val userDaoRepository = UserDaoRepository(userdao)
-        userDaoRepository.userRightList.forEach { data->
-                Log.d("getuserRightList",data.userRightType.toString())
-                if (data.userRoleId == AppUtil.userCurrentRole && data.userRightType.equals(AppConstant.registerPatient)){
+        userDaoRepository.userRightList.forEach  { data ->
+            if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
+                runOnUiThread {
                     fab.visibility = View.VISIBLE
-                }else{
-                    fab.visibility = View.GONE
                 }
+                Log.d("dataDrawear", data.userRightType.toString())
+                return@forEach
+            }
+
 
         }
     }
@@ -125,7 +130,7 @@ class DrawerMainActivity : AppCompatActivity() {
 //
 //        }
         logout.setOnMenuItemClickListener {
-           MaterialAlertDialogBuilder(this@DrawerMainActivity)
+            MaterialAlertDialogBuilder(this@DrawerMainActivity)
                 .setTitle("Log out")
                 .setMessage(resources.getString(R.string.logout))
                 .setNegativeButton("YES") { _, _ ->
@@ -168,7 +173,7 @@ class DrawerMainActivity : AppCompatActivity() {
         recyclerviewView.layoutManager = LinearLayoutManager(this)
 //        val items = fetchdata()
         val adapter = UserAdapter(SharedPrefForRoomDb().occupationlist(this@DrawerMainActivity))
-        recyclerviewView.adapter =adapter
+        recyclerviewView.adapter = adapter
         adapter.notifyDataSetChanged()
 
     }
@@ -185,9 +190,10 @@ class DrawerMainActivity : AppCompatActivity() {
     private suspend fun logout() {
         viewModelUIS.logOut(ContextPreferenceManager().getToken("token", this@DrawerMainActivity))
     }
+
     @OptIn(ExperimentalCoroutinesApi::class)
-    private fun dataObserver(){
-        viewModelUIS.logoutResponse.observe(this){
+    private fun dataObserver() {
+        viewModelUIS.logoutResponse.observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     AppUtil().loadingDialog(this@DrawerMainActivity)

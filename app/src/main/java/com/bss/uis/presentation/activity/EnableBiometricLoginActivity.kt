@@ -57,6 +57,7 @@ class EnableBiometricLoginActivity : AppCompatActivity() {
 
         }
         startActivity(Intent(this@EnableBiometricLoginActivity, DrawerMainActivity::class.java))
+        finish()
     }
 }
 

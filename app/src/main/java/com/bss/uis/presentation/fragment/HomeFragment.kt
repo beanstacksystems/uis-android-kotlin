@@ -36,8 +36,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val view =  inflater.inflate(R.layout.fragment_home, container, false)
-        imagePanel = view.findViewById<View>(R.id.imagesliderDots) as LinearLayout
-        val mViewPager = view.findViewById<View>(R.id.imgviewPagerMain)
+
 
         return view
     }
