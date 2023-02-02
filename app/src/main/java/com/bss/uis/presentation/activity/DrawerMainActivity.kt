@@ -38,6 +38,7 @@ import com.bss.uis.util.AppConstant
 import com.bss.uis.util.AppUtil
 import com.bss.uis.util.ContextPreferenceManager
 import com.bss.uis.util.Resource
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -57,6 +58,10 @@ class DrawerMainActivity : AppCompatActivity() {
     lateinit var navHeaderPersonName: TextView
     lateinit var navHeaderPersonEmail: TextView
     lateinit var navHeaderProfileImage: ImageView
+    lateinit var userCard :MaterialCardView
+    lateinit var admincard :MaterialCardView
+    lateinit var tvAdmin :TextView
+
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
@@ -90,6 +95,10 @@ class DrawerMainActivity : AppCompatActivity() {
             if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
+                    userCard.visibility = View.GONE
+                    admincard.visibility =View.VISIBLE
+                    tvAdmin.visibility = View.VISIBLE
+
                 }
                 Log.d("dataDrawear", data.userRightType.toString())
                 return@forEach
@@ -115,6 +124,9 @@ class DrawerMainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         fab = findViewById(R.id.fab)
+        userCard = findViewById(R.id.user_card)
+        admincard = findViewById(R.id.adminWrkcard)
+        tvAdmin = findViewById(R.id.adminWrkspace)
         navigationView = findViewById(R.id.nav_view)
         val navHeaderView = navigationView.getHeaderView(0)
         val navMenu = navigationView.menu

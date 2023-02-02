@@ -241,7 +241,7 @@ class LogInSignUpActivity : AppCompatActivity() {
         fbLoginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 // Handle successful login
-                Log.d("handleFacebookAccessToken", loginResult.accessToken.token)
+                Log.d("kk", loginResult.accessToken.token)
 
                 handleFacebookAccessToken(loginResult.accessToken)
             }

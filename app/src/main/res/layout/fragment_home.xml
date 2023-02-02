@@ -234,8 +234,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/user_card"
         android:layout_margin="1dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -266,6 +267,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
+        android:visibility="gone"
         android:text="@string/admin_work"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -274,10 +276,12 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/adminWrkcard"
         android:layout_margin="5dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
+        android:visibility="gone"
         app:cardMaxElevation="10dp"
         app:cardPreventCornerOverlap="true"
         app:strokeWidth="0dp">
