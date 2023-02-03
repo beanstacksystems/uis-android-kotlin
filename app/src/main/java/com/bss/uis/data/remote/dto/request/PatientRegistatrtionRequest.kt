@@ -93,7 +93,7 @@ data class ContactlistRequest(
     var entityid: Int? = null,
     var entitytypeid: Int? = null,
     var contacttypeid: Int? = null,
-    var contactdetails: Int? = null,
+    var contactdetails: String? = null,
     var isactive: String? = null,
     var createddate: String? = null,
     var updatedate: String? = null

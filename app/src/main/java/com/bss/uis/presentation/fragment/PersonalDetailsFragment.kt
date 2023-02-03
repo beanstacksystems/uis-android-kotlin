@@ -24,9 +24,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.data.remote.dto.request.*
@@ -35,7 +33,6 @@ import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity.Companion.fragmentName
 import com.bss.uis.roomdb.UISDatabase
 import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
-import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.util.AppUtil
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
@@ -634,7 +631,7 @@ class PersonalDetailsFragment : BaseFragment() {
             entityid = 1,
             entitytypeid = 1,
             contacttypeid = 1,
-            contactdetails = contact.text.toString().toInt(),
+            contactdetails = contact.text.toString(),
             isactive = "Y",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
