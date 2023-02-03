@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bss.uis.R
 
-class UserAdapter(private val userList: List<String>) :
+class UserAdapter(private val userList: List<String>, private val listener: OnItemClickListener?) :
     RecyclerView.Adapter<UserAdapter.UerViewHolder>() {
 
 
@@ -18,6 +18,10 @@ class UserAdapter(private val userList: List<String>) :
 
     override fun onBindViewHolder(holder: UerViewHolder, position: Int) {
         holder.title.text = userList[position]
+        holder.itemView.setOnClickListener {
+            listener?.onItemClick(position)
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -27,6 +31,10 @@ class UserAdapter(private val userList: List<String>) :
     class UerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val title: TextView = itemView.findViewById(R.id.tv_userName)
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 
 

@@ -262,7 +262,13 @@ class AttendantDetailsFragment : BaseFragment() {
             Toast.makeText(requireActivity(), "Please choose profile image", Toast.LENGTH_LONG)
                 .show()
             return false
-        } else {
+        }else if(contact.text?.length != 10){
+            contact.error = "Please input 10 didgit"
+            return false
+        }else if(!mailPartern(email.text.toString())) {
+            eMailInputLayout.error = "Please input a valid Email!"
+            return false
+        }  else {
             return true
         }
     }
@@ -464,17 +470,21 @@ class AttendantDetailsFragment : BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if (data != null && data.data != null) {
-                val imageUri = data.data
-                Glide.with(this)
-                    .load(imageUri)
-                    .into(profileImage)
-            }
-        } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val photo = data?.extras?.get("data") as Bitmap
-            profileImage.setImageBitmap(photo)
+        try{
+            if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+                if (data != null && data.data != null) {
+                    val imageUri = data.data
+                    Glide.with(this)
+                        .load(imageUri)
+                        .into(profileImage)
+                }
+            } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+                val photo = data?.extras?.get("data") as Bitmap
+                profileImage.setImageBitmap(photo)
 
+            }
+        }catch (e:Exception){
+            Toast.makeText(requireActivity(),"Please Upload Photo Less than 1 mb",Toast.LENGTH_LONG).show()
         }
     }
 

@@ -420,40 +420,7 @@ class PersonalDetailsFragment : BaseFragment() {
         }
     }
 
-    fun validation(): Boolean {
-        if (name.text == null) {
-            nameInputLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (email.text == null) {
-            eMailInputLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (contact.text == null) {
-            contactInputLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (dob.text == null) {
-            dobInputLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (panadhar.text == null) {
-            panadhartxtLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (panadharval.text == null) {
-            panadharvaltextlayout.error = R.string.pls_input.toString()
-            return false
-        } else if (income.text == null) {
-            incomeInputLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (gender.text == null) {
-            genderLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (salutation.text == null) {
-            salutationLayout.error = R.string.pls_input.toString()
-            return false
-        } else if (occupation.text == null) {
-            occupationLayout.error = R.string.pls_input.toString()
-            return false
-        }
-        return true
-    }
+
 
     override fun isValidDetails(): Boolean {
         if (name.text.toString() == "") {
@@ -494,7 +461,13 @@ class PersonalDetailsFragment : BaseFragment() {
             Toast.makeText(requireActivity(), "Please upload the id proof", Toast.LENGTH_LONG)
                 .show()
             return false
-        } else {
+        }else if(contact.text?.length != 10){
+            contact.error = "Please input 10 didgit"
+            return false
+        }else if(!mailPartern(email.text.toString())) {
+            eMailInputLayout.error = "Please input a valid Email!"
+            return false
+        }  else {
             return true
         }
 //
@@ -513,29 +486,34 @@ class PersonalDetailsFragment : BaseFragment() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if (data != null && data.data != null) {
-                imageUri = data.data!!
-                Glide.with(this)
-                    .load(imageUri)
-                    .into(profileImage)
-            }
-        } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val photo = data?.extras?.get("data") as Bitmap
-            profileImage.setImageBitmap(photo)
+      try {
+          if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+              if (data != null && data.data != null) {
+                  imageUri = data.data!!
+                  Glide.with(this)
+                      .load(imageUri)
+                      .into(profileImage)
+              }
+          } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+              val photo = data?.extras?.get("data") as Bitmap
+              profileImage.setImageBitmap(photo)
 
-        } else if (requestCode == ID_PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if (data != null && data.data != null) {
-                val imageUri = data.data
-                Glide.with(this)
-                    .load(imageUri)
-                    .into(iv_idProof)
-            }
-        } else if (requestCode == ID_REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            val photo = data?.extras?.get("data") as Bitmap
-            iv_idProof.setImageBitmap(photo)
+          } else if (requestCode == ID_PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+              if (data != null && data.data != null) {
+                  val imageUri = data.data
+                  Glide.with(this)
+                      .load(imageUri)
+                      .into(iv_idProof)
+              }
+          } else if (requestCode == ID_REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+              val photo = data?.extras?.get("data") as Bitmap
+              iv_idProof.setImageBitmap(photo)
 
-        }
+          }
+      }catch (e:java.lang.Exception){
+          e.printStackTrace()
+          Toast.makeText(requireActivity(),"Please Choose photo less than 1 mb",Toast.LENGTH_LONG ).show()
+      }
     }
 
     fun selectImage() {

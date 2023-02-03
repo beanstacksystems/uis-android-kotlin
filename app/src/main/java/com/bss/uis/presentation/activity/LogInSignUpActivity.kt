@@ -109,8 +109,10 @@ class LogInSignUpActivity : AppCompatActivity() {
     private var callbackManager: CallbackManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         FacebookSdk.sdkInitialize(applicationContext)
         setContentView(R.layout.activity_log_in_sign_up)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
         uisDatabase = UISDatabase.getInstance(this)
         masterDao = uisDatabase.masterDAO
 

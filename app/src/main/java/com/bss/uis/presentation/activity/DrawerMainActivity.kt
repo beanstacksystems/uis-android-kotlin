@@ -16,6 +16,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -50,17 +53,14 @@ class DrawerMainActivity : AppCompatActivity() {
 
     lateinit var fab: FloatingActionButton
     var toolbar: Toolbar? = null
-    private var userRightDataList: List<UserRightData> = ArrayList()
     lateinit var drawerLayout: DrawerLayout
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     lateinit var navigationView: NavigationView
-    lateinit var naveHeaderdate: TextView
+
     lateinit var navHeaderPersonName: TextView
     lateinit var navHeaderPersonEmail: TextView
     lateinit var navHeaderProfileImage: ImageView
-    lateinit var userCard :MaterialCardView
-    lateinit var admincard :MaterialCardView
-    lateinit var tvAdmin :TextView
+
 
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
@@ -70,6 +70,7 @@ class DrawerMainActivity : AppCompatActivity() {
     private lateinit var uisDatabase: UISDatabase
     private lateinit var masterDao: MasterDao
     private var userlist: ArrayList<String> = ArrayList()
+    lateinit var navController: NavController
 
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,14 +92,10 @@ class DrawerMainActivity : AppCompatActivity() {
     private fun fabbtn() {
         val userdao = UISDatabase.getInstance(this).userDAO
         val userDaoRepository = UserDaoRepository(userdao)
-        userDaoRepository.userRightList.forEach  { data ->
+        userDaoRepository.userRightList.forEach { data ->
             if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
-                    userCard.visibility = View.GONE
-                    admincard.visibility =View.VISIBLE
-                    tvAdmin.visibility = View.VISIBLE
-
                 }
                 Log.d("dataDrawear", data.userRightType.toString())
                 return@forEach
@@ -124,9 +121,10 @@ class DrawerMainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         fab = findViewById(R.id.fab)
-        userCard = findViewById(R.id.user_card)
-        admincard = findViewById(R.id.adminWrkcard)
-        tvAdmin = findViewById(R.id.adminWrkspace)
+//        userCard = findViewById(R.id.user_card)
+//        admincard = findViewById(R.id.adminWrkcard)
+//        tvAdmin = findViewById(R.id.adminWrkspace)
+
         navigationView = findViewById(R.id.nav_view)
         val navHeaderView = navigationView.getHeaderView(0)
         val navMenu = navigationView.menu
@@ -181,12 +179,7 @@ class DrawerMainActivity : AppCompatActivity() {
 //       }
 
 
-        recyclerviewView = findViewById(R.id.rv_iduserRequet)
-        recyclerviewView.layoutManager = LinearLayoutManager(this)
-//        val items = fetchdata()
-        val adapter = UserAdapter(SharedPrefForRoomDb().occupationlist(this@DrawerMainActivity))
-        recyclerviewView.adapter = adapter
-        adapter.notifyDataSetChanged()
+
 
     }
 
@@ -227,6 +220,8 @@ class DrawerMainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
 
 }

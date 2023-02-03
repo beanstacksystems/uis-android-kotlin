@@ -5,24 +5,38 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.bss.uis.R
+import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.presentation.adapter.ScrollImageAdapter
+import com.bss.uis.presentation.adapter.UserAdapter
+import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.roomdb.entity.HomeTabData
+import com.bss.uis.util.AppConstant
 import com.bss.uis.util.AppUtil
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),UserAdapter.OnItemClickListener {
 
 //    private val homeViewModel: HomeViewModel? = null
      lateinit var imageViews: Array<ImageView?>
@@ -30,16 +44,71 @@ class HomeFragment : Fragment() {
     lateinit var imagePanel: LinearLayout
     private val tabLayout: TabLayout? = null
 
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    lateinit var recyclerviewView: RecyclerView
+    lateinit var userCard: MaterialCardView
+    lateinit var admincard: MaterialCardView
+    lateinit var tvAdmin: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         val view =  inflater.inflate(R.layout.fragment_home, container, false)
+        recyclerviewView = view.findViewById(R.id.rv_iduserRequet)
+        recyclerviewView.layoutManager = LinearLayoutManager(requireActivity())
+//        val items = fetchdata()
 
+
+        val adapter = UserAdapter(SharedPrefForRoomDb().occupationlist(requireActivity()),this)
+        recyclerviewView.adapter = adapter
+
+        userCard = view.findViewById(R.id.user_card)
+        admincard = view.findViewById(R.id.adminWrkcard)
+        tvAdmin = view.findViewById(R.id.adminWrkspace)
+
+        adapter.notifyDataSetChanged()
+        ioScOPe.launch {
+            fabbtn()
+        }
 
         return view
     }
+
+    private fun fabbtn() {
+        val userdao = UISDatabase.getInstance(requireActivity()).userDAO
+        val userDaoRepository = UserDaoRepository(userdao)
+        userDaoRepository.userRightList.forEach { data ->
+            if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
+                requireActivity().runOnUiThread {
+
+                    userCard.visibility = View.GONE
+                    admincard.visibility = View.VISIBLE
+                    tvAdmin.visibility = View.VISIBLE
+
+                }
+                Log.d("dataDrawear", data.userRightType.toString())
+                return@forEach
+            }
+
+
+        }
+    }
+
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        // Save the state of the fragment
+//        outState.putString("some_key", someValue)
+//    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        // Restore the state of the fragment
+//        if (savedInstanceState != null) {
+//            someValue = savedInstanceState.getString("some_key")
+//        }
+//    }
     fun updateScrollImageView(imgViewPager: ViewPager) {
         val imageList: MutableList<String> = ArrayList()
         val noOfPatients: Int = 2
@@ -96,6 +165,12 @@ class HomeFragment : Fragment() {
                 handler.post(Update)
             }
         }, 500, 2000)
+    }
+
+    override fun onItemClick(position: Int) {
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment)
+
     }
 //
 //    @RequiresApi(api = Build.VERSION_CODES.N)

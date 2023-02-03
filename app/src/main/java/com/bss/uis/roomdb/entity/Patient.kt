@@ -38,5 +38,8 @@ class Patient(
     var diseasesName: String? = null,
 
     @ColumnInfo(name = "socialId")
-    var socialId: String? = null
+    var socialId: String? = null,
+
+    @ColumnInfo(name = "patientImage")
+    var patientImage: String? = null,
 )

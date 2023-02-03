@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.bss.uis.R
 import com.bss.uis.StepViewRegistration
@@ -36,6 +37,7 @@ class AddPatientActivity : AppCompatActivity(), OnStepChangeListner{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_patient)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
         initView()
     }
 

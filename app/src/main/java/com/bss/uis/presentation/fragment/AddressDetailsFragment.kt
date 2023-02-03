@@ -19,9 +19,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.bss.uis.R
 import com.bss.uis.data.remote.dto.request.AddressdtoRequest
-import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+
 import com.bss.uis.data.remote.dto.request.PersonlistRequest
-import com.bss.uis.data.remote.dto.response.Personlist
+
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
 import com.bss.uis.presentation.viewmodel.ViewModelUIS

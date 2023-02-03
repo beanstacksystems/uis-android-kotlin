@@ -180,6 +180,7 @@ class SplashActivity : AppCompatActivity() {
                     Log.d("isServerReachable", it.data.toString())
                     val intent = Intent(this@SplashActivity, LogInSignUpActivity::class.java)
                     startActivity(intent)
+                    finish()
                     viewModelUIS.isServerReachableString.value = null
                 }
                 is Resource.Error -> {
