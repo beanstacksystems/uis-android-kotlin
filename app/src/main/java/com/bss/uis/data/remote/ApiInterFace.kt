@@ -72,6 +72,11 @@ interface ApiInterFace {
         @Header("Authorization") token: String,
         @Body patientRegistrationResReq: PatientRegistatrtionRequest
     ): Call<PatientRegistrationResReq?>?
+    @POST("fetchUserRequests/")
+    fun fetchUserRequest(
+        @Header("Authorization") token: String,
+    ): Call<List<FetchUserListResponse>?>?
+
 
 
 }

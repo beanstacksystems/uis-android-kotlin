@@ -18,27 +18,26 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.viewpager.widget.ViewPager
 import com.bss.uis.R
 import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
 import com.bss.uis.presentation.OnStepChangeListner
 import com.bss.uis.presentation.activity.AddPatientActivity
-import com.bss.uis.presentation.adapter.TabAdaptaer
+import com.bss.uis.presentation.activity.DrawerMainActivity
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
+import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.PatientDaoRepository
+import com.bss.uis.roomdb.entity.Patient
 import com.bss.uis.util.AppUtil
 import com.bss.uis.util.ContextPreferenceManager
+import com.bss.uis.util.Resource
 import com.bumptech.glide.Glide
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import de.hdodenhof.circleimageview.CircleImageView
@@ -46,7 +45,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.*
 
 
@@ -95,6 +93,7 @@ class AttendantDetailsFragment : BaseFragment() {
         val fragmentView = inflater.inflate(R.layout.fragment_attendant_details, container, false)
         AddPatientActivity.fragmentName = "submit"
         requestBody = arguments?.getSerializable("datam") as PatientRegistatrtionRequest
+        arguments?.clear()
 //        Log.d("patientregistrationRequestBody",requestBody.toString())
 //        Log.d("basicDetails",requestBody.personlist[0].idproofdto?.imagedto?.imagedata.toString())
         Log.d("addresDetails", requestBody.personlist[0].addressdto?.pincode.toString())
@@ -103,10 +102,12 @@ class AttendantDetailsFragment : BaseFragment() {
 
 
         initView(fragmentView)
+        dataObserver()
 
         return fragmentView
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     private fun initView(fragmentView: View) {
         nameInputLayout =
             fragmentView.findViewById(R.id.personNameLayout)
@@ -232,6 +233,53 @@ class AttendantDetailsFragment : BaseFragment() {
         initOccupationView(fragmentView)
 
     }
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun dataObserver(){
+        viewModelUIS.patientRegistrationResReqList.observe(requireActivity()){
+            when (it) {
+                is Resource.Loading -> {
+                    viewModelUIS.patientRegistrationResReqList.value = null
+                }
+                is Resource.Success -> {
+
+                    viewModelUIS.patientRegistrationResReqList.value = it
+                    ioScOPe.launch {
+                        it.data?.let { it1 -> savePatientData(it1) }
+                    }
+                    Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
+                        .show()
+                    viewModelUIS.patientRegistrationResReqList.value = null
+
+                }
+                is Resource.Error -> {
+                    AppUtil().dialogDismiss(requireContext())
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_LONG).show()
+
+                    viewModelUIS.authResponseDomain.value = null
+                }
+            }
+        }
+    }
+    private suspend fun savePatientData(data: PatientRegistrationResReq) {
+        val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
+       val patient = Patient(
+           patientId = data.patientId!!,
+           name = data.patientName,
+           idproof = data.patientId.toString(),
+           emailId = "",
+           contact = data.patientContact,
+           gender = "",
+           dob = data.patientAge,
+           diseasesName = data.patientCancerType,
+           patientImage = data.patientImage
+       )
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        patientDaoRepository.insertPatientData(patient)
+        startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
+        requireActivity().finish()
+
+
+    }
 
     override fun isValidDetails(): Boolean {
         if (name.text.toString() == "") {
@@ -258,11 +306,7 @@ class AttendantDetailsFragment : BaseFragment() {
         } else if (occupation.text.toString() == "") {
             occupationLayout.error = "Please input this field"
             return false
-        } else if (AppUtil().imageEncode(profileImage) == null) {
-            Toast.makeText(requireActivity(), "Please choose profile image", Toast.LENGTH_LONG)
-                .show()
-            return false
-        }else if(contact.text?.length != 10){
+        } else if(contact.text?.length != 10){
             contact.error = "Please input 10 digit"
             return false
         }else if(!mailPartern(email.text.toString())) {

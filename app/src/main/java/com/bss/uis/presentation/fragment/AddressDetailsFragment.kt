@@ -65,6 +65,7 @@ class AddressDetailsFragment : BaseFragment() {
         AddPatientActivity.fragmentName = "AddressDetails"
         initView(view)
         personlistRequest = arguments?.getSerializable("data") as PersonlistRequest
+        arguments?.clear()
 //        Log.d("arguments", personlistRequest.toString())
         createPinPopup()
         dataobserver()

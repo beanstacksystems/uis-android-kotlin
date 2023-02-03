@@ -65,6 +65,7 @@ class MedicalDetailsFragment : BaseFragment() {
         AddPatientActivity.fragmentName = "MedicalDetails"
         initView(view)
         personlistRequest = arguments?.getSerializable("dataA") as PersonlistRequest
+        arguments?.clear()
 //        Log.d("argumentsdataA", personlistRequest.idproofdto?.imagedto?.imagedata.toString())
         return view
     }
@@ -241,11 +242,13 @@ class MedicalDetailsFragment : BaseFragment() {
         )
         val personlistRequestlist: ArrayList<PersonlistRequest> = ArrayList()
         personlistRequestlist.add(personlistRequest)
+        val list:ArrayList<String> =java.util.ArrayList()
+        list.add("string")
 
         return PatientRegistatrtionRequest(
             patientid = 1,
             bloodgroup = getmasterId(bloodGrp.text.toString()),
-            attendanttypeids = arrayListOf(),
+            attendanttypeids = list,
             personlist = personlistRequestlist,
             registrarid = 1,
             referrerid = 1,
@@ -254,10 +257,10 @@ class MedicalDetailsFragment : BaseFragment() {
             applicationurl = "/img/t.png",
             isactive = "y",
             isapproved = "y",
-            illnesstypes = arrayListOf(),
+            illnesstypes = list,
             followupcounsellerid = 1,
             medicaldetails = medicaldetailsRequest,
-            remarks = "",
+            remarks = "tytkjjkty",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
         )

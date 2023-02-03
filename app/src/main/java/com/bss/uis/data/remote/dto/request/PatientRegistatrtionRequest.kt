@@ -1,8 +1,8 @@
 package com.bss.uis.data.remote.dto.request
 
 
-
 data class PatientRegistatrtionRequest(
+
     var patientid: Int? = null,
     var bloodgroup: Int? = null,
     var attendanttypeids: ArrayList<String> = arrayListOf(),
@@ -20,9 +20,11 @@ data class PatientRegistatrtionRequest(
     var remarks: String? = null,
     var createddate: String? = null,
     var updatedate: String? = null
-):java.io.Serializable
 
-data class ImagelistRquest(
+) : java.io.Serializable
+
+data class ImagelistRequest(
+
     var imageid: Int? = null,
     var medicalrecordid: Int? = null,
     var entityid: Int? = null,
@@ -35,7 +37,7 @@ data class ImagelistRquest(
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
+) : java.io.Serializable
 
 data class AddressdtoRequest(
 
@@ -55,9 +57,9 @@ data class AddressdtoRequest(
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
+) : java.io.Serializable
 
-data class ImagedtoReqest(
+data class ImagedtoRequest(
 
     var imageid: Int? = null,
     var medicalrecordid: Int? = null,
@@ -71,7 +73,7 @@ data class ImagedtoReqest(
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
+) : java.io.Serializable
 
 data class IdproofdtoRequest(
 
@@ -80,12 +82,12 @@ data class IdproofdtoRequest(
     var entitytypeid: Int? = null,
     var idtypeid: Int? = null,
     var iddetails: String? = null,
-    var imagedto: ImagedtoReqest? = ImagedtoReqest(),
+    var imagedto: ImagedtoRequest? = ImagedtoRequest(),
     var isactive: String? = null,
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
+) : java.io.Serializable
 
 data class ContactlistRequest(
 
@@ -97,8 +99,7 @@ data class ContactlistRequest(
     var isactive: String? = null,
     var createddate: String? = null,
     var updatedate: String? = null
-
-):java.io.Serializable
+) : java.io.Serializable
 
 data class PersonlistRequest(
 
@@ -109,7 +110,7 @@ data class PersonlistRequest(
     var suffix: Int? = null,
     var dateofbirth: String? = null,
     var gender: Int? = null,
-    var imagelist: ArrayList<ImagelistRquest> = arrayListOf(),
+    var imagelist: ArrayList<ImagelistRequest> = arrayListOf(),
     var relationwithpatient: Int? = null,
     var incomeperyear: Int? = null,
     var occupation: Int? = null,
@@ -120,8 +121,7 @@ data class PersonlistRequest(
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
-
+) : java.io.Serializable
 
 data class MedicaldetailsRequest(
 
@@ -130,11 +130,11 @@ data class MedicaldetailsRequest(
     var illnesstypeid: Int? = null,
     var illnessstageid: Int? = null,
     var diagnosisdetails: Int? = null,
-    var imagelist: ArrayList<ImagelistRquest> = arrayListOf(),
+    var imagelist: ArrayList<ImagelistRequest> = arrayListOf(),
     var diagnosisdate: String? = null,
     var otherremarks: String? = null,
     var isactive: String? = null,
     var createddate: String? = null,
     var updatedate: String? = null
 
-):java.io.Serializable
+) : java.io.Serializable

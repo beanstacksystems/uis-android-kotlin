@@ -586,22 +586,22 @@ class PersonalDetailsFragment : BaseFragment() {
     }
 
     private fun patientRegistartionDto(): PersonlistRequest {
-        val imagelist = ImagelistRquest(
+        val imagelist = ImagelistRequest(
             imageid = 1,
             medicalrecordid = 1,
             entityid = 1,
-            entitytypeid = 1,
+            entitytypeid = 16,
             imagefilename = "profile.jpeg",
             imagedata = AppUtil().imageEncode(profileImage),
             imageurl = "",
-            imagetype = 1,
+            imagetype = 24,
             isactive = "y",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
         )
-        val imagelistd: ArrayList<ImagelistRquest> = ArrayList()
+        val imagelistd: ArrayList<ImagelistRequest> = ArrayList()
         imagelistd.add(imagelist)
-        val imagedto = ImagedtoReqest(
+        val imagedto = ImagedtoRequest(
             imageid = 1,
             medicalrecordid = 1,
             entityid = 1,
@@ -619,7 +619,7 @@ class PersonalDetailsFragment : BaseFragment() {
             entityid = 1,
             entitytypeid = 1,
             idtypeid = 1,
-            iddetails = "",
+            iddetails = panadhar.text.toString(),
             imagedto = imagedto,
             isactive = "y",
             createddate = "26/12/2022",
@@ -648,7 +648,7 @@ class PersonalDetailsFragment : BaseFragment() {
             dateofbirth = dob.text.toString(),
             gender = getmasterId(gender.text.toString()),
             imagelist = imagelistd,
-            relationwithpatient = 1,
+            relationwithpatient = 12,
             incomeperyear = income.text.toString().toInt(),
             occupation = getmasterId(occupation.text.toString()),
             isactive = "y",

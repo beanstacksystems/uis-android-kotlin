@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.response.FetchUserListResponse
 import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
 import com.bss.uis.data.remote.dto.response.PinCodeResponse
 import com.bss.uis.domain.model.responsedomain.*
@@ -30,7 +31,8 @@ class ViewModelUIS @Inject constructor(
     private val logOutUseCase: LogOutUseCase,
     private val registerWithGoogleUsecase: RegisterWithGoogleUsecase,
     private val pincodeUsecase: PincodeUsecase,
-    private val patientRegistrationUsecase: PatientRegistrationUsecase
+    private val patientRegistrationUsecase: PatientRegistrationUsecase,
+    private val fetchUserUseCase: FetchUserUseCase
 
 
 ) : ViewModel() {
@@ -50,6 +52,8 @@ class ViewModelUIS @Inject constructor(
         MutableLiveData()
     var pincodedetailsList :MutableLiveData<Resource<List<PinCodeResponse?>>> = MutableLiveData()
     var patientRegistrationResReqList: MutableLiveData<Resource<PatientRegistrationResReq?>> =
+        MutableLiveData()
+    var fetchUserList: MutableLiveData<Resource<List<FetchUserListResponse>?>> =
         MutableLiveData()
 
     init {
@@ -218,6 +222,16 @@ class ViewModelUIS @Inject constructor(
             }
         }
 
+    }
+    suspend fun fetchUserList(token:String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = fetchUserUseCase.invoke(token)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    fetchUserList.value = it
+                }
+            }
+        }
     }
 
 

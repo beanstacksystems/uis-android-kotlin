@@ -8,24 +8,32 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bss.uis.R
-import com.bss.uis.SharedPrefForRoomDb
 import com.bss.uis.presentation.adapter.ScrollImageAdapter
 import com.bss.uis.presentation.adapter.UserAdapter
+import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.PatientDaoRepository
 import com.bss.uis.roomdb.dao.repository.UserDaoRepository
+import com.bss.uis.roomdb.entity.Patient
 import com.bss.uis.util.AppConstant
+import com.bss.uis.util.AppUtil
+import com.bss.uis.util.ContextPreferenceManager
+import com.bss.uis.util.Resource
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -39,13 +47,15 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     private val tabLayout: TabLayout? = null
     lateinit var viewPager: ViewPager2
 
-    private val mainScope = CoroutineScope(Dispatchers.Main)
-    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+
     lateinit var recyclerviewView: RecyclerView
     lateinit var userCard: MaterialCardView
     lateinit var admincard: MaterialCardView
     lateinit var tvAdmin: TextView
     lateinit var my_tablayout: TabLayout
+    private lateinit var viewModelUIS: ViewModelUIS
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+    private val ioScOPe = CoroutineScope(Dispatchers.IO)
 
 
     override fun onCreateView(
@@ -54,25 +64,30 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        viewModelUIS = ViewModelProvider(requireActivity())[ViewModelUIS::class.java]
         recyclerviewView = view.findViewById(R.id.rv_iduserRequet)
         recyclerviewView.layoutManager = LinearLayoutManager(requireActivity())
         viewPager = view.findViewById(R.id.imgviewPagerMain)
         my_tablayout = view.findViewById(R.id.my_tablayout)
 
-        val adapter = UserAdapter(SharedPrefForRoomDb().occupationlist(requireActivity()), this)
-        recyclerviewView.adapter = adapter
-        my_tablayout.isVisible=true
+
+        my_tablayout.isVisible = true
 
 
         userCard = view.findViewById(R.id.user_card)
         admincard = view.findViewById(R.id.adminWrkcard)
         tvAdmin = view.findViewById(R.id.adminWrkspace)
 
-        adapter.notifyDataSetChanged()
+
+        mainScope.launch {
+            fetchuserList()
+        }
         ioScOPe.launch {
             fabbtn()
+            getPatientdata()
         }
-        scrollPatient()
+        dataObserver()
+
 
         return view
     }
@@ -96,15 +111,63 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
 
         }
     }
-    private fun scrollPatient(){
-       val  scrollImageAdapter =
-            ScrollImageAdapter(requireActivity(), SharedPrefForRoomDb().occupationlist(requireActivity()))
+
+    private suspend fun getPatientdata() {
+        val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
+
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        mainScope.launch {
+            patientDaoRepository.listPatient.observe(requireActivity()) {
+
+                    scrollPatient(it)
+
+            }
+        }
+
+
+    }
+
+    private fun scrollPatient(patients: List<Patient>) {
+        val scrollImageAdapter =
+            ScrollImageAdapter(requireActivity(), patients)
         viewPager.adapter = scrollImageAdapter
         TabLayoutMediator(
             my_tablayout,
             viewPager
         ) { tab, position -> }.attach()
 
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    suspend fun fetchuserList() {
+        viewModelUIS.fetchUserList(
+            ContextPreferenceManager().getToken("token", requireActivity())
+                .toString()
+        )
+    }
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun dataObserver(){
+        viewModelUIS.fetchUserList.observe(requireActivity()){
+            when (it) {
+                is Resource.Loading -> {
+                    viewModelUIS.fetchUserList.value = null
+                }
+                is Resource.Success -> {
+
+                    viewModelUIS.fetchUserList.value = it
+                    val adapter = it.data?.let { it1 -> UserAdapter(it1, this) }
+                    recyclerviewView.adapter = adapter
+                    viewModelUIS.fetchUserList.value = null
+
+                }
+                is Resource.Error -> {
+                    AppUtil().dialogDismiss(requireActivity())
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_LONG).show()
+
+                    viewModelUIS.fetchUserList.value = null
+                }
+            }
+        }
     }
 
     //    override fun onSaveInstanceState(outState: Bundle) {

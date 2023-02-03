@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bss.uis.R
+import com.bss.uis.data.remote.dto.response.FetchUserListResponse
 
-class UserAdapter(private val userList: List<String>, private val listener: OnItemClickListener?) :
+class UserAdapter(private val userList: List<FetchUserListResponse>, private val listener: OnItemClickListener?) :
     RecyclerView.Adapter<UserAdapter.UerViewHolder>() {
 
 
@@ -17,7 +18,7 @@ class UserAdapter(private val userList: List<String>, private val listener: OnIt
     }
 
     override fun onBindViewHolder(holder: UerViewHolder, position: Int) {
-        holder.title.text = userList[position]
+        holder.title.text = userList[position].userName
         holder.itemView.setOnClickListener {
             listener?.onItemClick(position)
         }
