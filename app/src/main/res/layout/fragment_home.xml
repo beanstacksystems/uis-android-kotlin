@@ -18,54 +18,35 @@
         app:cardMaxElevation="15dp"
         app:cardPreventCornerOverlap="true">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/imgviewPagerMain"
                 android:layout_width="match_parent"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/imageProp"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/my_tablayout"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@id/imgviewPagerMain"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="left"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/imagePersonName"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:gravity="left"
-                    android:text="First"
-                    android:textColor="@color/orange"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/imagePersonDiese"
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:gravity="left"
-                    android:text="Second"
-                    android:textColor="@color/orange"
-                    android:textSize="10sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/imagesliderDots"
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_alignBottom="@id/imageProp"
-                android:gravity="center_vertical|center_horizontal"
-                android:orientation="horizontal" />
-        </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgviewPagerMain"
+                app:tabBackground="@drawable/indicator_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteY="102dp"></com.google.android.material.tabs.TabLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
@@ -232,9 +213,9 @@
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/user_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/user_card"
         android:layout_margin="1dp"
         android:visibility="visible"
         app:cardBackgroundColor="@color/white"
@@ -267,21 +248,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:visibility="gone"
         android:text="@string/admin_work"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/adminWrkcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/adminWrkcard"
         android:layout_margin="5dp"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        android:visibility="gone"
         app:cardMaxElevation="10dp"
         app:cardPreventCornerOverlap="true"
         app:strokeWidth="0dp">

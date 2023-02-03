@@ -1,43 +1,56 @@
 package com.bss.uis.presentation.adapter
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.util.Base64
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
 import android.widget.ImageView
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
+import androidx.annotation.NonNull
+import androidx.recyclerview.widget.RecyclerView
+import com.bss.uis.R
+import com.bumptech.glide.Glide
+
 
 class ScrollImageAdapter(
-     mContext: Context? = null,
-     imageList: List<String>? = null
-) : PagerAdapter() {
-    var mContext: Context? = mContext
-    private val imageList: List<String>? = imageList
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object` as ImageView
+    private val context: Context,
+    modelArrayList: MutableList<String>,
+) :
+    RecyclerView.Adapter<ScrollImageAdapter.ViewHolder>() {
+    private var modelArrayList: MutableList<String> = mutableListOf()
+    private var isPlaying = false
+//    var onClick: OnClick
+//    var animationClose: Animation? = null
+
+    //    BannerModel model = new BannerModel();
+    init {
+        this.modelArrayList = modelArrayList
+//        this.onClick = onClick
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val imageView = ImageView(mContext)
-        imageView.scaleType = ImageView.ScaleType.FIT_XY
-        imageView.layoutParams = AbsListView.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-        )
-        val decodedString: ByteArray = Base64.decode(imageList?.get(position), Base64.DEFAULT)
-        val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-        imageView.setImageBitmap(decodedByte)
-        (container as ViewPager).addView(imageView, 0)
-        return imageView
+    @NonNull
+    override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.patient_slider, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        (container as ViewPager).removeView(`object` as ImageView)
+    override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
+
     }
 
-    override fun getCount(): Int {
-        return imageList?.size!!
+    override fun getItemCount(): Int {
+        return modelArrayList.size
+    }
+
+    inner class ViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
+        init {
+
+        }
+    }
+
+    interface OnClick {
+        fun onClick(click: Boolean)
     }
 }
