@@ -190,7 +190,7 @@
                                     android:backgroundTint="#F8F5F5"
                                     android:gravity="center"
                                     android:inputType="text"
-                                    android:maxLength="100"
+                                    android:maxLength="16"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -247,7 +247,7 @@
                                 android:backgroundTint="#F8F5F5"
                                 android:gravity="center"
                                 android:inputType="number"
-                                android:maxLength="100" />
+                                android:maxLength="12" />
 
                         </com.google.android.material.textfield.TextInputLayout>
                         <com.google.android.material.textfield.TextInputLayout

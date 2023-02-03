@@ -4,12 +4,11 @@
     android:id="@+id/nameTV"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/blue">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +23,7 @@
                 android:id="@+id/iv_patient"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="@dimen/_20sdp"
+
                 android:src="@drawable/ic_man"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +37,8 @@
                 android:text="Name :"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.384"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.153"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -49,8 +48,8 @@
                 android:text="Age:"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.368"
-                app:layout_constraintStart_toStartOf="@+id/iv_patient"
+                app:layout_constraintHorizontal_bias="0.144"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
             <TextView
@@ -61,8 +60,8 @@
                 android:text="Cancer:"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.387"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.155"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
                 app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
             <TextView
@@ -70,11 +69,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:layout_marginTop="4dp"
                 android:text="Phone Number :"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.453"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.194"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
                 app:layout_constraintTop_toBottomOf="@+id/tv_illnessType" />
 
             <TextView
@@ -114,11 +114,11 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="9348067631"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.076"
+                app:layout_constraintHorizontal_bias="0.055"
                 app:layout_constraintStart_toEndOf="@+id/tv_phoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 

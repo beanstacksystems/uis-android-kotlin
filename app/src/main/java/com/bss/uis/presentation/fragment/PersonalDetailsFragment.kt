@@ -459,7 +459,7 @@ class PersonalDetailsFragment : BaseFragment() {
                 .show()
             return false
         }else if(contact.text?.length != 10){
-            contact.error = "Please input 10 didgit"
+            contact.error = "Please input 10 digit"
             return false
         }else if(!mailPartern(email.text.toString())) {
             eMailInputLayout.error = "Please input a valid Email!"

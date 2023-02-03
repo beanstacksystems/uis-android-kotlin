@@ -263,7 +263,7 @@ class AttendantDetailsFragment : BaseFragment() {
                 .show()
             return false
         }else if(contact.text?.length != 10){
-            contact.error = "Please input 10 didgit"
+            contact.error = "Please input 10 digit"
             return false
         }else if(!mailPartern(email.text.toString())) {
             eMailInputLayout.error = "Please input a valid Email!"
@@ -446,12 +446,17 @@ class AttendantDetailsFragment : BaseFragment() {
         )
         builder.setTitle("Add Photo!")
         builder.setItems(options) { dialog, item ->
-            if (options[item] == "Take Photo") {
-                takePicture()
-            } else if (options[item] == "Choose from Gallery") {
-                imagePick()
-            } else if (options[item] == "Cancel") {
-                dialog.dismiss()
+            try {
+                if (options[item] == "Take Photo") {
+                    takePicture()
+                } else if (options[item] == "Choose from Gallery") {
+                    imagePick()
+                } else if (options[item] == "Cancel") {
+                    dialog.dismiss()
+                }
+            }catch (e:Exception){
+                Toast.makeText(requireActivity(),"Please Upload Photo Less than 1 mb",Toast.LENGTH_LONG).show()
+
             }
         }
         builder.show()
