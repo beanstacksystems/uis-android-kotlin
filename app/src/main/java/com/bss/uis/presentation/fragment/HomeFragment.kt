@@ -1,5 +1,6 @@
 package com.bss.uis.presentation.fragment
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bss.uis.R
+import com.bss.uis.data.remote.dto.response.FetchUserListResponse
 import com.bss.uis.presentation.adapter.ScrollImageAdapter
 import com.bss.uis.presentation.adapter.UserAdapter
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
@@ -52,10 +54,13 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     lateinit var userCard: MaterialCardView
     lateinit var admincard: MaterialCardView
     lateinit var tvAdmin: TextView
+    lateinit var tvnoRegistration: TextView
+
     lateinit var my_tablayout: TabLayout
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    var userlist:MutableList<FetchUserListResponse> = mutableListOf()
 
 
     override fun onCreateView(
@@ -67,6 +72,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         viewModelUIS = ViewModelProvider(requireActivity())[ViewModelUIS::class.java]
         recyclerviewView = view.findViewById(R.id.rv_iduserRequet)
         recyclerviewView.layoutManager = LinearLayoutManager(requireActivity())
+        tvnoRegistration = view.findViewById(R.id.tv_no_registartion)
         viewPager = view.findViewById(R.id.imgviewPagerMain)
         my_tablayout = view.findViewById(R.id.my_tablayout)
 
@@ -118,8 +124,11 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         val patientDaoRepository = PatientDaoRepository(patientdao)
         mainScope.launch {
             patientDaoRepository.listPatient.observe(requireActivity()) {
+                if (it.isNotEmpty()) {
+                    tvnoRegistration.visibility = View.GONE
+                }
+                scrollPatient(it)
 
-                    scrollPatient(it)
 
             }
         }
@@ -145,9 +154,10 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                 .toString()
         )
     }
+
     @OptIn(ExperimentalCoroutinesApi::class)
-    private fun dataObserver(){
-        viewModelUIS.fetchUserList.observe(requireActivity()){
+    private fun dataObserver() {
+        viewModelUIS.fetchUserList.observe(requireActivity()) {
             when (it) {
                 is Resource.Loading -> {
                     viewModelUIS.fetchUserList.value = null
@@ -155,6 +165,9 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                 is Resource.Success -> {
 
                     viewModelUIS.fetchUserList.value = it
+                    it.data?.forEach {data->
+                        userlist.add(data)
+                    }
                     val adapter = it.data?.let { it1 -> UserAdapter(it1, this) }
                     recyclerviewView.adapter = adapter
                     viewModelUIS.fetchUserList.value = null
@@ -241,8 +254,11 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
 //    }
 
     override fun onItemClick(position: Int) {
+        val bundle = Bundle().apply {
+            putSerializable("datauser", userlist[position])
+        }
         Navigation.findNavController(requireView())
-            .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment)
+            .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment,bundle)
 
     }
 //

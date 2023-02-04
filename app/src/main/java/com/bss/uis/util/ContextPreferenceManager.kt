@@ -63,4 +63,17 @@ class ContextPreferenceManager {
             context, GoogleSignInOptions.DEFAULT_SIGN_IN
         ).signOut()
     }
+
+    fun saveUsername(
+        username: String?,
+        email: String?,
+        context: Context
+    ) {
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("logindetails", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.putString("email", email)
+        editor.apply()
+    }
+
 }

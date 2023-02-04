@@ -367,6 +367,7 @@ class LogInSignUpActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     viewModelUIS.userApiResponse.value = it
+                    ContextPreferenceManager().saveUsername(it.data?.username,it.data?.useremail,this@LogInSignUpActivity)
                     val roleidlist: MutableList<Int> = mutableListOf()
                     it.data?.userrole?.forEach { rollId ->
                         roleidlist.add(rollId.userroleid!!)

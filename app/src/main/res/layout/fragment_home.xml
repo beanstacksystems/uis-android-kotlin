@@ -22,6 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tv_no_registartion"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:gravity="center"
+                android:text="No Patient Register Yet"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/imgviewPagerMain"
                 android:layout_width="match_parent"

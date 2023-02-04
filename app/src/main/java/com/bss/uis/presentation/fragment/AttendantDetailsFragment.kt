@@ -80,6 +80,7 @@ class AttendantDetailsFragment : BaseFragment() {
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    private lateinit var dialog: Dialog
 
     val PICK_IMAGE_REQUEST = 1112
     val REQUEST_IMAGE_CAPTURE = 2223
@@ -210,8 +211,8 @@ class AttendantDetailsFragment : BaseFragment() {
         btnBackApp = fragmentView.findViewById(R.id.btnBackAttendant)
         btnSubmit.setOnClickListener {
             if (isValidDetails()) {
-//                Navigation.findNavController(requireView())
-//                    .navigate(R.id.action_personalDetailFragment_to_addressFragment)
+                showLoader()
+
                 mainScope.launch {
                     viewModelUIS.patientRegistartion(
                         ContextPreferenceManager().getToken("token", requireActivity())
@@ -219,8 +220,6 @@ class AttendantDetailsFragment : BaseFragment() {
                     )
                 }
 
-                Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
-                    .show()
 
             }
         }
@@ -246,8 +245,10 @@ class AttendantDetailsFragment : BaseFragment() {
                     ioScOPe.launch {
                         it.data?.let { it1 -> savePatientData(it1) }
                     }
+                    dialogDismiss()
                     Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
                         .show()
+
                     viewModelUIS.patientRegistrationResReqList.value = null
 
                 }
@@ -275,6 +276,7 @@ class AttendantDetailsFragment : BaseFragment() {
        )
         val patientDaoRepository = PatientDaoRepository(patientdao)
         patientDaoRepository.insertPatientData(patient)
+        dialogDismiss()
         startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
         requireActivity().finish()
 
@@ -536,6 +538,17 @@ class AttendantDetailsFragment : BaseFragment() {
             Toast.makeText(requireActivity(),"Please Upload Photo Less than 1 mb",Toast.LENGTH_LONG).show()
         }
     }
+    private fun showLoader(){
+            dialog = Dialog(requireActivity())
+            dialog.setContentView(com.bss.uis.R.layout.dialog_loading)
+            dialog.show()
+
+    }
+    fun dialogDismiss() {
+
+        dialog.dismiss()
+    }
+
 
 
 }

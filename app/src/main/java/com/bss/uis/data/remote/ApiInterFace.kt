@@ -1,16 +1,17 @@
 package com.bss.uis.data.remote
 
+import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
 import com.bss.uis.data.remote.dto.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterFace {
-    @POST("isserverreachable/")
+    @POST("isserverreachable")
     fun isServerReachable(): Call<String>
 
     @FormUrlEncoded
-    @POST("register/")
+    @POST("register")
     fun register(
         @Field("username") userName: String?,
         @Field("useremail") userEmail: String?,
@@ -21,20 +22,20 @@ interface ApiInterFace {
         @Field("entitytype") entitytype: String?
     ): Call<AuthResponse?>?
 
-    @POST("masterAll/")
+    @POST("masterAll")
     fun masters(@Header("Authorization") token: String?): Call<List<MasterDataResponse?>?>?
 
-    @POST("tabdata/")
+    @POST("tabdata")
     fun tabData(@Header("Authorization") token: String?): Call<List<TabDataResponse?>?>?
 
-    @POST("user/")
+    @POST("user")
     fun userData(
         @Header("Authorization") token: String?,
         @Header("Accept") value: String?
     ): Call<UserApiResponse?>?
 
     @FormUrlEncoded
-    @POST("userrights/")
+    @POST("userrights")
     fun userrights(
         @Header("Authorization") token: String?,
         @Field("roleidlist[]") roleidlist: List<Int?>?
@@ -42,24 +43,24 @@ interface ApiInterFace {
 
 
     @FormUrlEncoded
-    @POST("login/")
+    @POST("login")
     fun login(
         @Field("useremail") userName: String?,
         @Field("password") password: String?
     ): Call<AuthResponse?>?
 
     @FormUrlEncoded
-    @POST("resetPassword/")
+    @POST("resetPassword")
     fun resetPassword(
         @Field("username") userName: String?,
         @Field("password") password: String?
     ): Call<AuthResponse?>?
 
-    @GET("logout/")
+    @GET("logout")
     fun logout(@Header("Authorization") token: String?): Call<String?>?
 
     @FormUrlEncoded
-    @POST("google/")
+    @POST("google")
     fun registerWithGoogle(
         @Field("token") token: String?,
         @Field("deviceid") serial: String?,
@@ -67,15 +68,22 @@ interface ApiInterFace {
         @Field("entitytype") entitytype: String?
     ): Call<AuthResponse?>?
 
-    @POST("registerPatient/")
+    @POST("registerPatient")
     fun patientRegistratiin(
         @Header("Authorization") token: String,
         @Body patientRegistrationResReq: PatientRegistatrtionRequest
     ): Call<PatientRegistrationResReq?>?
-    @POST("fetchUserRequests/")
+    @POST("fetchUserRequests")
     fun fetchUserRequest(
         @Header("Authorization") token: String,
     ): Call<List<FetchUserListResponse>?>?
+
+
+    @POST("updateAdminApproval")
+    fun adminApproval(
+        @Header("Authorization") token: String,
+        @Body approveUserRequestBody: ApproveUserRequestBody
+    ): Call<ApproveUserResponse?>?
 
 
 

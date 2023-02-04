@@ -3,7 +3,9 @@ package com.bss.uis.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.response.ApproveUserResponse
 import com.bss.uis.data.remote.dto.response.FetchUserListResponse
 import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
 import com.bss.uis.data.remote.dto.response.PinCodeResponse
@@ -32,7 +34,8 @@ class ViewModelUIS @Inject constructor(
     private val registerWithGoogleUsecase: RegisterWithGoogleUsecase,
     private val pincodeUsecase: PincodeUsecase,
     private val patientRegistrationUsecase: PatientRegistrationUsecase,
-    private val fetchUserUseCase: FetchUserUseCase
+    private val fetchUserUseCase: FetchUserUseCase,
+    private val approveUserUseCase: ApproveUserUseCase
 
 
 ) : ViewModel() {
@@ -54,6 +57,8 @@ class ViewModelUIS @Inject constructor(
     var patientRegistrationResReqList: MutableLiveData<Resource<PatientRegistrationResReq?>> =
         MutableLiveData()
     var fetchUserList: MutableLiveData<Resource<List<FetchUserListResponse>?>> =
+        MutableLiveData()
+    var approveUseResp: MutableLiveData<Resource<ApproveUserResponse>> =
         MutableLiveData()
 
     init {
@@ -229,6 +234,16 @@ class ViewModelUIS @Inject constructor(
             launch(Dispatchers.Main) {
                 res.collectLatest {
                     fetchUserList.value = it
+                }
+            }
+        }
+    }
+    suspend fun approveUser(token:String,approveUserRequestBody: ApproveUserRequestBody){
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = approveUserUseCase.invoke(token,approveUserRequestBody)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    approveUseResp.value = it
                 }
             }
         }

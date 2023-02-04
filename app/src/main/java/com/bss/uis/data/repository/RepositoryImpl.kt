@@ -2,7 +2,9 @@ package com.bss.uis.data.repository
 
 import com.bss.uis.data.remote.ApiInterFace
 import com.bss.uis.data.remote.PincodeInterface
+import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.response.ApproveUserResponse
 import com.bss.uis.data.remote.dto.response.FetchUserListResponse
 import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
 import com.bss.uis.data.remote.dto.response.PinCodeResponse
@@ -272,6 +274,27 @@ class RepositoryImpl @Inject constructor(
             try {
                 val apiResponse =
                     apiInterFace.fetchUserRequest(token.toString())?.awaitRespo()
+                emit(Resource.Success(apiResponse))
+            } catch (e: IOException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: HttpException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: IllegalStateException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            }
+            emit(Resource.Loading(false))
+        }
+    }
+
+    override suspend fun approveUser(
+        token: String?,
+        approveUserRequestBody: ApproveUserRequestBody
+    ): Flow<Resource<ApproveUserResponse>> {
+        return flow {
+            emit(Resource.Loading(true))
+            try {
+                val apiResponse =
+                    apiInterFace.adminApproval(token.toString(),approveUserRequestBody)?.awaitRespo()
                 emit(Resource.Success(apiResponse))
             } catch (e: IOException) {
                 e.message?.let { emit(Resource.Error(it)) }

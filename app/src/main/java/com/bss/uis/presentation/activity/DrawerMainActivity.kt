@@ -136,6 +136,9 @@ class DrawerMainActivity : AppCompatActivity() {
             navHeaderView.findViewById<View>(R.id.navHeaderPersonEmail) as TextView
         navHeaderProfileImage =
             navHeaderView.findViewById<View>(R.id.navHeaderProfileImage) as ImageView
+        navHeaderPersonName.text = ContextPreferenceManager().getToken("username",this@DrawerMainActivity)
+        navHeaderPersonEmail.text = ContextPreferenceManager().getToken("email",this@DrawerMainActivity)
+
 //        switchRole.setOnMenuItemClickListener {
 //
 //        }

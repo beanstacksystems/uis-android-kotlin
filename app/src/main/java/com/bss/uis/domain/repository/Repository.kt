@@ -1,5 +1,6 @@
 package com.bss.uis.domain.repository
 
+import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
 import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
@@ -77,5 +78,9 @@ interface Repository {
         token: String?,
 
     ): Flow<Resource<List<FetchUserListResponse>?>>
+    suspend fun approveUser(
+        token: String?,
+        approveUserRequestBody: ApproveUserRequestBody
+    ): Flow<Resource<ApproveUserResponse>>
 
 }

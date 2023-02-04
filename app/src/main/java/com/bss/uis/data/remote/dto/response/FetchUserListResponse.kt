@@ -11,4 +11,4 @@ data class FetchUserListResponse(
     @SerializedName("userRequestedRole" ) var userRequestedRole : String? = null,
     @SerializedName("userCreatedDate"   ) var userCreatedDate   : String? = null,
     @SerializedName("userProfileImage"  ) var userProfileImage  : String? = null
-)
+):java.io.Serializable
