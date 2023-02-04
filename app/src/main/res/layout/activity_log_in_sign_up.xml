@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.activity.LogInSignUpActivity">
 
@@ -45,7 +46,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/login_bottom_layout"
@@ -63,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@color/white"
             android:isScrollContainer="false">
 
             <LinearLayout
@@ -72,6 +74,7 @@
                 android:layout_margin="5dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:background="@color/white"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -231,7 +234,7 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:id="@+id/login_bottom_layout"

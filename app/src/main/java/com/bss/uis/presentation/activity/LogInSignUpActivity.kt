@@ -33,6 +33,7 @@ import com.bss.uis.roomdb.UISDatabase
 import com.bss.uis.roomdb.dao.MasterDao
 import com.bss.uis.roomdb.dao.repository.ApplicationRepository
 import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
+import com.bss.uis.roomdb.dao.repository.PatientDaoRepository
 import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.roomdb.entity.AppConfig
 import com.bss.uis.roomdb.entity.HomeTabData
@@ -125,6 +126,7 @@ class LogInSignUpActivity : AppCompatActivity() {
         dataObserver()
         ioScOPe.launch {
             updateLocalDB()
+            deletePatientDAta()
         }
         if (!ContextPreferenceManager().isUserLogedOut(this@LogInSignUpActivity)) {
             mainScope.launch {
@@ -367,7 +369,11 @@ class LogInSignUpActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     viewModelUIS.userApiResponse.value = it
-                    ContextPreferenceManager().saveUsername(it.data?.username,it.data?.useremail,this@LogInSignUpActivity)
+                    ContextPreferenceManager().saveUsername(
+                        it.data?.username,
+                        it.data?.useremail,
+                        this@LogInSignUpActivity
+                    )
                     val roleidlist: MutableList<Int> = mutableListOf()
                     it.data?.userrole?.forEach { rollId ->
                         roleidlist.add(rollId.userroleid!!)
@@ -556,8 +562,9 @@ class LogInSignUpActivity : AppCompatActivity() {
         userDAORepository.delete()
         userDAORepository.insertUserData(userRightDataList)
         userDAORepository.findAll()
+        deletePatientDAta()
         startActivity(Intent(this@LogInSignUpActivity, DrawerMainActivity::class.java))
-
+        finish()
 
     }
 
@@ -640,6 +647,12 @@ class LogInSignUpActivity : AppCompatActivity() {
         val masterDAORepository = MasterDaoRepository(masterDao)
         masterDAORepository.deleteTabData()
         masterDAORepository.insertTabData(homeTabDataList)
+
+    }
+    private suspend fun deletePatientDAta(){
+        val patientdao = UISDatabase.getInstance(this@LogInSignUpActivity).patientDao
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        patientDaoRepository.deletePatientData()
     }
 
     private fun handleFacebookAccessToken(token: AccessToken) {

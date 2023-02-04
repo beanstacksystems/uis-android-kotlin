@@ -27,6 +27,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:contentPadding="4dp"
+        android:background="#A9B5D3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
@@ -34,7 +35,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="#A9B5D3">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Name :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.213"
@@ -63,6 +65,7 @@
                 android:layout_height="wrap_content"
 
                 android:text="Age :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.203"
@@ -76,6 +79,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Email :"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.211"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -89,6 +93,7 @@
 
                 android:text="Contact No :"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -101,6 +106,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Aditya Narayan Pradhan"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.061"
                 app:layout_constraintStart_toEndOf="@+id/textView"
@@ -112,6 +118,7 @@
                 android:layout_height="wrap_content"
 
                 android:text="24"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.105"
@@ -126,6 +133,7 @@
                 android:layout_marginTop="4dp"
                 android:text="adnarayan@gmail.com"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.102"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -137,6 +145,7 @@
                 android:layout_height="wrap_content"
                 android:text="9348067631"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.163"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -152,6 +161,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:contentPadding="4dp"
+        android:background="#A9B5D3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -159,7 +169,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@color/white">
+            android:background="#A9B5D3">
 
             <TextView
                 android:id="@+id/textView13"
@@ -168,6 +178,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="RequestType :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -178,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Admin"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.044"
@@ -191,6 +203,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
                 android:text="Registartion Date:"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -203,6 +216,7 @@
 
                 android:text="29/09/2022"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.105"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
@@ -215,32 +229,22 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Asignee Role :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-            <TextView
-                android:id="@+id/tv_choose_roll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Choose Role"
-                android:textColor="@color/black"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.079"
-                app:layout_constraintStart_toEndOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <Spinner
                 android:id="@+id/spinner2"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="8dp"
+
+                android:layout_marginTop="12dp"
                 android:gravity="start"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.005"
-                app:layout_constraintStart_toEndOf="@+id/tv_choose_roll"
+                app:layout_constraintHorizontal_bias="0.113"
+                app:layout_constraintStart_toEndOf="@+id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
 

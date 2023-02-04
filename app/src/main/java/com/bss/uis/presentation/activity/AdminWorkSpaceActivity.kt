@@ -17,7 +17,7 @@ class AdminWorkSpaceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_work_space)
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
-        tvChooseroll = findViewById(R.id.tv_choose_roll)
+
         tvChooseroll.setOnClickListener {
 
         }

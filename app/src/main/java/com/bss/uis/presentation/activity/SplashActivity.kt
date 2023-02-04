@@ -185,8 +185,8 @@ class SplashActivity : AppCompatActivity() {
                 }
                 is Resource.Error -> {
                     AestheticDialog.Builder(this, DialogStyle.FLAT, DialogType.ERROR)
-                        .setTitle("Server Connection")
-                        .setMessage("You are not connected to Server")
+                        .setTitle("Internal Server Error")
+                        .setMessage("Please contact with Systems Administrators")
                         .setCancelable(false)
                         .setDarkMode(true)
                         .setGravity(Gravity.CENTER)

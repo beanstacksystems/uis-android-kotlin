@@ -83,4 +83,9 @@ interface Repository {
         approveUserRequestBody: ApproveUserRequestBody
     ): Flow<Resource<ApproveUserResponse>>
 
+    suspend fun fetchPatientList(
+        token: String?,
+
+    ): Flow<Resource<List<FetchPatientList>?>>
+
 }

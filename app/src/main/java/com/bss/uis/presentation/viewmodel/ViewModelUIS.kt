@@ -5,10 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
-import com.bss.uis.data.remote.dto.response.ApproveUserResponse
-import com.bss.uis.data.remote.dto.response.FetchUserListResponse
-import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
-import com.bss.uis.data.remote.dto.response.PinCodeResponse
+import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.usecase.*
 import com.bss.uis.util.Resource
@@ -35,8 +32,8 @@ class ViewModelUIS @Inject constructor(
     private val pincodeUsecase: PincodeUsecase,
     private val patientRegistrationUsecase: PatientRegistrationUsecase,
     private val fetchUserUseCase: FetchUserUseCase,
-    private val approveUserUseCase: ApproveUserUseCase
-
+    private val approveUserUseCase: ApproveUserUseCase,
+    private val fetchPatientListUsecase: FetchPatientListUsecase
 
 ) : ViewModel() {
     var isServerReachableString: MutableLiveData<Resource<String>> =
@@ -59,6 +56,8 @@ class ViewModelUIS @Inject constructor(
     var fetchUserList: MutableLiveData<Resource<List<FetchUserListResponse>?>> =
         MutableLiveData()
     var approveUseResp: MutableLiveData<Resource<ApproveUserResponse>> =
+        MutableLiveData()
+    var patientlist: MutableLiveData<Resource<List<FetchPatientList>?>> =
         MutableLiveData()
 
     init {
@@ -244,6 +243,16 @@ class ViewModelUIS @Inject constructor(
             launch(Dispatchers.Main) {
                 res.collectLatest {
                     approveUseResp.value = it
+                }
+            }
+        }
+    }
+    suspend fun fetchPatientList(token:String,count: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = fetchPatientListUsecase.invoke(token)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    patientlist.value = it
                 }
             }
         }

@@ -48,7 +48,7 @@
                             android:layout_height="78dp"
                             android:layout_marginTop="5dp"
                             android:src="@drawable/ic_person"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             app:civ_border_color="#FF000000"
                             app:civ_border_width="2dp" />
 
@@ -56,7 +56,7 @@
                             android:id="@+id/profile_image_edit_layout"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:layout_marginLeft="65dp"
                             android:src="@drawable/ic_edit_image"
                             android:layout_marginTop="60dp"
@@ -285,9 +285,10 @@
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="5dp"
                                 android:layout_weight="0.5"
-                                android:background="@color/uisOrange"
-                                android:text="Back"
-                                android:textColor="#ffffff" />
+                                android:background="@drawable/rounded_corner_button"
+                                android:text="back"
+                                android:foreground="?android:attr/selectableItemBackground"
+                                android:textColor="#000000" />
 
 
                             <androidx.appcompat.widget.AppCompatButton
@@ -297,9 +298,10 @@
                                 android:layout_marginStart="5dp"
                                 android:layout_marginEnd="10dp"
                                 android:layout_weight="0.5"
-                                android:background="@color/orange"
+                                android:background="@drawable/rounded_green_button"
                                 android:text="Submit"
-                                android:textColor="#ffffff" />
+                                android:foreground="?android:attr/selectableItemBackground"
+                                android:textColor="#000000" />
 
                         </LinearLayout>
 

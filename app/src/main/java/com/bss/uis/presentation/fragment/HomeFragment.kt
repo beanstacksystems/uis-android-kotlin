@@ -1,6 +1,6 @@
 package com.bss.uis.presentation.fragment
 
-import android.opengl.Visibility
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,27 +16,28 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.bss.uis.R
+import com.bss.uis.data.remote.dto.response.FetchPatientList
 import com.bss.uis.data.remote.dto.response.FetchUserListResponse
+import com.bss.uis.presentation.activity.DrawerMainActivity
 import com.bss.uis.presentation.adapter.ScrollImageAdapter
+import com.bss.uis.presentation.adapter.TabAdaptaer
 import com.bss.uis.presentation.adapter.UserAdapter
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
+import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
 import com.bss.uis.roomdb.dao.repository.PatientDaoRepository
 import com.bss.uis.roomdb.dao.repository.UserDaoRepository
 import com.bss.uis.roomdb.entity.Patient
-import com.bss.uis.util.AppConstant
 import com.bss.uis.util.AppUtil
 import com.bss.uis.util.ContextPreferenceManager
 import com.bss.uis.util.Resource
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.util.*
 
 
@@ -46,7 +47,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     lateinit var imageViews: Array<ImageView?>
 
     lateinit var imagePanel: LinearLayout
-    private val tabLayout: TabLayout? = null
+    lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager2
 
 
@@ -60,9 +61,10 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
-    var userlist:MutableList<FetchUserListResponse> = mutableListOf()
+    var userlist: MutableList<FetchUserListResponse> = mutableListOf()
 
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -75,8 +77,6 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         tvnoRegistration = view.findViewById(R.id.tv_no_registartion)
         viewPager = view.findViewById(R.id.imgviewPagerMain)
         my_tablayout = view.findViewById(R.id.my_tablayout)
-
-
         my_tablayout.isVisible = true
 
 
@@ -84,43 +84,30 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         admincard = view.findViewById(R.id.adminWrkcard)
         tvAdmin = view.findViewById(R.id.adminWrkspace)
 
+        tabLayout = view.findViewById(R.id.home_tabLayout)
+        ioScOPe.launch {
+            getTabFragmentList(view)
+
+        }
 
         mainScope.launch {
             fetchuserList()
+            fetchPatientList()
         }
         ioScOPe.launch {
-            fabbtn()
-            getPatientdata()
+            getuserRightData()
         }
+
+
         dataObserver()
 
 
         return view
     }
 
-    private fun fabbtn() {
-        val userdao = UISDatabase.getInstance(requireActivity()).userDAO
-        val userDaoRepository = UserDaoRepository(userdao)
-        userDaoRepository.userRightList.forEach { data ->
-            if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
-                requireActivity().runOnUiThread {
-
-                    userCard.visibility = View.GONE
-                    admincard.visibility = View.VISIBLE
-                    tvAdmin.visibility = View.VISIBLE
-
-                }
-                Log.d("dataDrawear", data.userRightType.toString())
-                return@forEach
-            }
-
-
-        }
-    }
 
     private suspend fun getPatientdata() {
         val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
-
         val patientDaoRepository = PatientDaoRepository(patientdao)
         mainScope.launch {
             patientDaoRepository.listPatient.observe(requireActivity()) {
@@ -156,6 +143,14 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
+    suspend fun fetchPatientList() {
+        viewModelUIS.fetchPatientList(
+            ContextPreferenceManager().getToken("token", requireActivity())
+                .toString(), 2
+        )
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
     private fun dataObserver() {
         viewModelUIS.fetchUserList.observe(requireActivity()) {
             when (it) {
@@ -165,11 +160,13 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                 is Resource.Success -> {
 
                     viewModelUIS.fetchUserList.value = it
-                    it.data?.forEach {data->
-                        userlist.add(data)
-                    }
-                    val adapter = it.data?.let { it1 -> UserAdapter(it1, this) }
-                    recyclerviewView.adapter = adapter
+                   if (it.data != null){
+                       it.data.forEach { data ->
+                           userlist.add(data)
+                       }
+                       val adapter = it.data?.let { it1 -> UserAdapter(it1, this) }
+                       recyclerviewView.adapter = adapter
+                   }
                     viewModelUIS.fetchUserList.value = null
 
                 }
@@ -181,6 +178,116 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                 }
             }
         }
+
+
+        viewModelUIS.patientlist.observe(requireActivity()) {
+            when (it) {
+                is Resource.Loading -> {
+                    viewModelUIS.patientlist.value = null
+                }
+                is Resource.Success -> {
+
+                    viewModelUIS.patientlist.value = it
+
+                    ioScOPe.launch {
+                        it.data?.forEach { data ->
+                            savePatientData(data)
+                        }
+
+                        getPatientdata()
+                    }
+                    viewModelUIS.patientlist.value = null
+                }
+                is Resource.Error -> {
+//                    AppUtil().dialogDismiss(requireActivity())
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_LONG).show()
+
+                    viewModelUIS.patientlist.value = null
+                }
+            }
+        }
+    }
+
+    private fun getTabFragmentList(view: View) {
+        val tabFragList: MutableList<DynamicTabFragment> = mutableListOf()
+        val masterDao = UISDatabase.getInstance(requireActivity()).masterDAO
+        val masterDaoRepository = MasterDaoRepository(masterDao)
+        mainScope.launch {
+            masterDaoRepository.tabDataList.forEach { data ->
+                Log.d("tabdata", data.tabdesc.toString())
+                val dynamicTabFragment = DynamicTabFragment.newInstance(
+                    tabTitle = data.tabname,
+                    tabData = data.tabdata,
+                    tabDescription = data.tabdesc,
+                    isCustomLayoutNeeded = false,
+                    customLayoutId = data.tabseq
+                )
+                tabFragList.add(dynamicTabFragment)
+            }
+            for (frag in tabFragList) tabLayout.addTab(
+                tabLayout.newTab().setText(frag.tabTitle)
+            )
+            val tabAdapter = TabAdaptaer(activity!!.supportFragmentManager, tabFragList)
+            val tabViewPager = view.findViewById<View>(R.id.tabviewPager) as ViewPager
+            tabViewPager.adapter = tabAdapter
+            tabViewPager.offscreenPageLimit = 1
+            tabViewPager.addOnPageChangeListener(
+                TabLayout.TabLayoutOnPageChangeListener(
+                    tabLayout
+                )
+            )
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    tabViewPager.currentItem = tab.position
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {}
+                override fun onTabReselected(tab: TabLayout.Tab?) {}
+            })
+
+
+        }
+
+
+    }
+
+    private suspend fun savePatientData(data: FetchPatientList) {
+        val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
+        val patient = Patient(
+            patientId = data.patientId!!,
+            name = data.patientName,
+            idproof = data.patientId.toString(),
+            emailId = "",
+            contact = data.patientContact,
+            gender = "",
+            dob = data.patientAge,
+            diseasesName = data.patientCancerType,
+            patientImage = data.patientImage
+        )
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        patientDaoRepository.insertPatientData(patient)
+
+//        startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
+//        requireActivity().finish()
+
+
+    }
+
+    private suspend fun getuserRightData() {
+        val userDao = UISDatabase.getInstance(requireActivity()).userDAO
+        val userDaoRepository = UserDaoRepository(userDao)
+        userDaoRepository.userRightList.forEach {
+            if (it.userRightDataId == 2) {
+                mainScope.launch {
+                    userCard.visibility = View.GONE
+                    admincard.visibility = View.VISIBLE
+                    tvAdmin.visibility = View.VISIBLE
+                }
+                return@forEach
+            }
+
+        }
+
     }
 
     //    override fun onSaveInstanceState(outState: Bundle) {
@@ -258,7 +365,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
             putSerializable("datauser", userlist[position])
         }
         Navigation.findNavController(requireView())
-            .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment,bundle)
+            .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment, bundle)
 
     }
 //

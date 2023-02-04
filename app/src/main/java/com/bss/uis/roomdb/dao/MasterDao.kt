@@ -15,7 +15,7 @@ interface MasterDao {
     fun findAll(): List<MasterData>
 
     @Query("SELECT * FROM HomeTabData")
-    fun findAllTabData(): LiveData<List<HomeTabData>>
+    fun findAllTabData(): List<HomeTabData>
 
     @Query("SELECT * FROM MasterData WHERE masterdataType  = :masterdataType")
     fun findByMasterdataType(masterdataType: String): List<MasterData>

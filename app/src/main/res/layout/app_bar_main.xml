@@ -30,10 +30,11 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_margin="10dp"
         app:srcCompat="@drawable/ic_add"
         tools:ignore="VectorDrawableCompat"
-        app:backgroundTint="#0ED800"/>
+        app:backgroundTint="#0ED800"
+        android:contentDescription="uiui" />
 
 
 

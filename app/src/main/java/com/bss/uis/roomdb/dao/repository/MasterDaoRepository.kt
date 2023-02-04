@@ -8,7 +8,7 @@ import com.bss.uis.roomdb.entity.MasterData
 class MasterDaoRepository(private val masterDao: MasterDao) {
 
     var masterDataList: List<MasterData> = masterDao.findAll()
-    val tabDataList: LiveData<List<HomeTabData>> = masterDao.findAllTabData()
+    val tabDataList: List<HomeTabData> = masterDao.findAllTabData()
     lateinit var masterdataBytype: List<MasterData>
 
     suspend fun findAll() {

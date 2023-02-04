@@ -243,9 +243,11 @@ class AttendantDetailsFragment : BaseFragment() {
 
                     viewModelUIS.patientRegistrationResReqList.value = it
                     ioScOPe.launch {
-                        it.data?.let { it1 -> savePatientData(it1) }
+                        deletePatientDAta()
                     }
                     dialogDismiss()
+                    startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
+                    requireActivity().finish()
                     Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
                         .show()
 
@@ -281,6 +283,11 @@ class AttendantDetailsFragment : BaseFragment() {
         requireActivity().finish()
 
 
+    }
+    private suspend fun deletePatientDAta(){
+        val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        patientDaoRepository.deletePatientData()
     }
 
     override fun isValidDetails(): Boolean {

@@ -11,6 +11,9 @@ class PatientDaoRepository(private val patientDao: PatientDao) {
     suspend fun insertPatientData(patient: Patient){
         patientDao.insertPatient(patient)
     }
+    suspend fun deletePatientData(){
+        patientDao.delete()
+    }
     suspend fun insertImageList(patientImageList:List<PatientImages> ){
         patientDao.insertPatientImages(patientImageList)
 

@@ -4,10 +4,7 @@ import com.bss.uis.data.remote.ApiInterFace
 import com.bss.uis.data.remote.PincodeInterface
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
-import com.bss.uis.data.remote.dto.response.ApproveUserResponse
-import com.bss.uis.data.remote.dto.response.FetchUserListResponse
-import com.bss.uis.data.remote.dto.response.PatientRegistrationResReq
-import com.bss.uis.data.remote.dto.response.PinCodeResponse
+import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.repository.Repository
 import com.bss.uis.mapper.*
@@ -295,6 +292,26 @@ class RepositoryImpl @Inject constructor(
             try {
                 val apiResponse =
                     apiInterFace.adminApproval(token.toString(),approveUserRequestBody)?.awaitRespo()
+                emit(Resource.Success(apiResponse))
+            } catch (e: IOException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: HttpException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: IllegalStateException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            }
+            emit(Resource.Loading(false))
+        }
+    }
+
+    override suspend fun fetchPatientList(
+        token: String?
+    ): Flow<Resource<List<FetchPatientList>?>> {
+        return flow {
+            emit(Resource.Loading(true))
+            try {
+                val apiResponse =
+                    apiInterFace.fetchpatientList(token.toString())?.awaitRespo()
                 emit(Resource.Success(apiResponse))
             } catch (e: IOException) {
                 e.message?.let { emit(Resource.Error(it)) }

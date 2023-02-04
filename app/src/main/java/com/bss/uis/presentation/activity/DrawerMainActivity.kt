@@ -128,7 +128,7 @@ class DrawerMainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.nav_view)
         val navHeaderView = navigationView.getHeaderView(0)
         val navMenu = navigationView.menu
-        val switchRole = navMenu.findItem(R.id.switchrolemenu)
+//        val switchRole = navMenu.findItem(R.id.switchrolemenu)
         val logout = navMenu.findItem(R.id.logout)
 //        naveHeaderdate = navHeaderView.findViewById<View>(R.id.naveHeaderdate) as TextView
         navHeaderPersonName = navHeaderView.findViewById<View>(R.id.navHeaderPersonName) as TextView

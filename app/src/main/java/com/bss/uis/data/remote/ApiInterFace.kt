@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterFace {
-    @POST("isserverreachable")
+    @POST("isserverreachable/")
     fun isServerReachable(): Call<String>
 
     @FormUrlEncoded
@@ -84,6 +84,11 @@ interface ApiInterFace {
         @Header("Authorization") token: String,
         @Body approveUserRequestBody: ApproveUserRequestBody
     ): Call<ApproveUserResponse?>?
+
+    @GET("getLatestPatientByCount/5")
+    fun fetchpatientList(
+        @Header("Authorization") token: String,
+    ): Call<List<FetchPatientList>?>?
 
 
 

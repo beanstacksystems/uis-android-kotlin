@@ -32,6 +32,9 @@ interface PatientDao {
     @Delete
     fun deletePatient(patient: Patient?)
 
+    @Query("DELETE FROM Patient")
+    fun delete()
+
     @Delete
     fun deletePatientImages(patientImageList: List<PatientImages?>?)
 
