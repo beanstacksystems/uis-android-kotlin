@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterFace {
-    @POST("isserverreachable/")
+    @POST("isserverreachable")
     fun isServerReachable(): Call<String>
 
     @FormUrlEncoded

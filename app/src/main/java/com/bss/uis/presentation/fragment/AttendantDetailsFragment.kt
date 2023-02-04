@@ -94,8 +94,8 @@ class AttendantDetailsFragment : BaseFragment() {
         val fragmentView = inflater.inflate(R.layout.fragment_attendant_details, container, false)
         AddPatientActivity.fragmentName = "submit"
         requestBody = arguments?.getSerializable("datam") as PatientRegistatrtionRequest
-        arguments?.clear()
-//        Log.d("patientregistrationRequestBody",requestBody.toString())
+//        arguments?.clear()
+//      /  Log.d("patientregistrationRequestBody",requestBody.toString())
 //        Log.d("basicDetails",requestBody.personlist[0].idproofdto?.imagedto?.imagedata.toString())
         Log.d("addresDetails", requestBody.personlist[0].addressdto?.pincode.toString())
         Log.d("medicalDetails", requestBody.medicaldetails?.illnesstypeid.toString())
@@ -246,10 +246,11 @@ class AttendantDetailsFragment : BaseFragment() {
                         deletePatientDAta()
                     }
                     dialogDismiss()
-                    startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
-                    requireActivity().finish()
                     Toast.makeText(requireActivity(), "Submitted successfully", Toast.LENGTH_LONG)
                         .show()
+                    startActivity(Intent(requireActivity(), DrawerMainActivity::class.java))
+                    requireActivity().finish()
+
 
                     viewModelUIS.patientRegistrationResReqList.value = null
 

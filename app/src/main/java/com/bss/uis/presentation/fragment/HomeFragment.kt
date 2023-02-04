@@ -190,6 +190,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                     viewModelUIS.patientlist.value = it
 
                     ioScOPe.launch {
+                        deletePatientDAta()
                         it.data?.forEach { data ->
                             savePatientData(data)
                         }
@@ -277,7 +278,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         val userDao = UISDatabase.getInstance(requireActivity()).userDAO
         val userDaoRepository = UserDaoRepository(userDao)
         userDaoRepository.userRightList.forEach {
-            if (it.userRightDataId == 2) {
+            if (it.userRoleId == 2) {
                 mainScope.launch {
                     userCard.visibility = View.GONE
                     admincard.visibility = View.VISIBLE
@@ -367,6 +368,11 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
         Navigation.findNavController(requireView())
             .navigate(R.id.action_nav_home_to_adminWorkSpaceFragment, bundle)
 
+    }
+    private suspend fun deletePatientDAta(){
+        val patientdao = UISDatabase.getInstance(requireActivity()).patientDao
+        val patientDaoRepository = PatientDaoRepository(patientdao)
+        patientDaoRepository.deletePatientData()
     }
 //
 //    @RequiresApi(api = Build.VERSION_CODES.N)

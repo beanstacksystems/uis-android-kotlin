@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.bss.uis.R
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PersonlistRequest
@@ -125,10 +126,10 @@ class AdminWorkSpaceFragment : Fragment() {
                     viewModelUIS.approveUseResp.value = null
                 }
                 is Resource.Success -> {
-                    Toast.makeText(requireActivity(), it.data?.messagedetails, Toast.LENGTH_LONG)
+                    Toast.makeText(activity, it.data?.messagedetails, Toast.LENGTH_LONG)
                         .show()
                     dialogDismiss()
-                    requireActivity().onBackPressed()
+                    Navigation.findNavController(requireView()).popBackStack()
                     viewModelUIS.approveUseResp.value = null
                 }
                 is Resource.Error -> {

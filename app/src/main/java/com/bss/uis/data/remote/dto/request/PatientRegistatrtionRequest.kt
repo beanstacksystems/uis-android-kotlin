@@ -112,7 +112,7 @@ data class PersonlistRequest(
     var gender: Int? = null,
     var imagelist: ArrayList<ImagelistRequest> = arrayListOf(),
     var relationwithpatient: Int? = null,
-    var incomeperyear: Int? = null,
+    var incomeperyear: String? = null,
     var occupation: Int? = null,
     var isactive: String? = null,
     var addressdto: AddressdtoRequest? = AddressdtoRequest(),

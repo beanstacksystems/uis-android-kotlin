@@ -40,9 +40,13 @@ class ScrollImageAdapter(
         holder.cancerType.text = modelArrayList[position].diseasesName
         holder.dob.text = modelArrayList[position].dob
         holder.name.text = modelArrayList[position].name
-//        val byteArray = Base64.decode(modelArrayList[position].patientImage, Base64.DEFAULT)
-//        val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-//        holder.ivPatient.setImageBitmap(bitmap)
+       try{
+           val byteArray = Base64.decode(modelArrayList[position].patientImage, Base64.DEFAULT)
+           val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+           holder.ivPatient.setImageBitmap(bitmap)
+       }catch (e:Exception){
+           e.printStackTrace()
+       }
     }
 
     override fun getItemCount(): Int {

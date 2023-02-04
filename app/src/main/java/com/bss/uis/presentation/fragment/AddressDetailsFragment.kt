@@ -65,7 +65,7 @@ class AddressDetailsFragment : BaseFragment() {
         AddPatientActivity.fragmentName = "AddressDetails"
         initView(view)
         personlistRequest = arguments?.getSerializable("data") as PersonlistRequest
-        arguments?.clear()
+//        arguments?.clear()
 //        Log.d("arguments", personlistRequest.toString())
         createPinPopup()
         dataobserver()
@@ -169,12 +169,14 @@ class AddressDetailsFragment : BaseFragment() {
                 is Resource.Success -> {
 
                     viewModelUIS.pincodedetailsList.value = it
-                    Log.d("district", it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
+                 if (it.data != null){
+                     Log.d("district", it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
 
-                    state.text = Editable.Factory.getInstance()
-                        .newEditable(it.data?.get(0)?.PostOffice?.get(0)?.State.toString())
-                    dist.text = Editable.Factory.getInstance()
-                        .newEditable(it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
+                     state.text = Editable.Factory.getInstance()
+                         .newEditable(it.data?.get(0)?.PostOffice?.get(0)?.State.toString())
+                     dist.text = Editable.Factory.getInstance()
+                         .newEditable(it.data?.get(0)?.PostOffice?.get(0)?.District.toString())
+                 }
                     viewModelUIS.pincodedetailsList.value = null
 
                 }

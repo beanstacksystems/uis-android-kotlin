@@ -649,7 +649,7 @@ class PersonalDetailsFragment : BaseFragment() {
             gender = getmasterId(gender.text.toString()),
             imagelist = imagelistd,
             relationwithpatient = 12,
-            incomeperyear = income.text.toString().toInt(),
+            incomeperyear = income.text.toString(),
             occupation = getmasterId(occupation.text.toString()),
             isactive = "y",
             idproofdto = idproofdto,

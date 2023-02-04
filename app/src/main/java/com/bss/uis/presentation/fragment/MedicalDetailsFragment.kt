@@ -65,7 +65,7 @@ class MedicalDetailsFragment : BaseFragment() {
         AddPatientActivity.fragmentName = "MedicalDetails"
         initView(view)
         personlistRequest = arguments?.getSerializable("dataA") as PersonlistRequest
-        arguments?.clear()
+//        arguments?.clear()
 //        Log.d("argumentsdataA", personlistRequest.idproofdto?.imagedto?.imagedata.toString())
         return view
     }
