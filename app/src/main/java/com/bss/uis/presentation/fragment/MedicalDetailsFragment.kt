@@ -243,7 +243,7 @@ class MedicalDetailsFragment : BaseFragment() {
         val personlistRequestlist: ArrayList<PersonlistRequest> = ArrayList()
         personlistRequestlist.add(personlistRequest)
         val list:ArrayList<String> =java.util.ArrayList()
-        list.add("string")
+        list.add(getmasterId(cancerType.text.toString()).toString())
 
         return PatientRegistatrtionRequest(
             patientid = 1,

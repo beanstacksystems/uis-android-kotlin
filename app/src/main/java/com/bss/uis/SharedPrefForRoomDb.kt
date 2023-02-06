@@ -116,4 +116,22 @@ class SharedPrefForRoomDb {
         val gson = Gson()
         return gson.fromJson(json, type)
     }
+
+    fun storerelationship(context: Context, occupationlit: MutableList<String>) {
+        val sharedPref = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = gson.toJson(occupationlit)
+        val editor = sharedPref.edit()
+        editor.putString("relationship", json)
+        editor.apply()
+    }
+    fun relationlist(context: Context): ArrayList<String> {
+        val sharedPref =
+            context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val json = sharedPref.getString("relationship", null)
+        val type =
+            object : TypeToken<ArrayList<String?>?>() {}.type
+        val gson = Gson()
+        return gson.fromJson(json, type)
+    }
 }

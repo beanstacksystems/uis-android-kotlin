@@ -93,7 +93,7 @@ class DrawerMainActivity : AppCompatActivity() {
         val userdao = UISDatabase.getInstance(this).userDAO
         val userDaoRepository = UserDaoRepository(userdao)
         userDaoRepository.userRightList.forEach { data ->
-            if (data.userRoleId == data.userRightId && data.userRightType.equals(AppConstant.registerPatient)) {
+            if (data.userRoleId == ContextPreferenceManager().getToken("rollid",this@DrawerMainActivity)?.toInt() && data.userRightType.equals(AppConstant.registerPatient)) {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
                 }

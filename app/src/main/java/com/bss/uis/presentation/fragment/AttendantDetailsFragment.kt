@@ -84,6 +84,8 @@ class AttendantDetailsFragment : BaseFragment() {
 
     val PICK_IMAGE_REQUEST = 1112
     val REQUEST_IMAGE_CAPTURE = 2223
+    lateinit var relationshipet: TextInputEditText
+    lateinit var relationshipLayout: TextInputLayout
 
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun onCreateView(
@@ -230,6 +232,7 @@ class AttendantDetailsFragment : BaseFragment() {
         initGenderView(fragmentView)
         initSalutationView(fragmentView)
         initOccupationView(fragmentView)
+        relationShipView(fragmentView)
 
     }
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -555,6 +558,27 @@ class AttendantDetailsFragment : BaseFragment() {
     fun dialogDismiss() {
 
         dialog.dismiss()
+    }
+    private fun relationShipView(fragmentView: View) {
+        relationshipLayout =
+            fragmentView.findViewById(R.id.relationship_layout)
+        relationshipet = fragmentView.findViewById(R.id.et_relationship)
+        gender.showSoftInputOnFocus = false
+
+        val genderValue = SharedPrefForRoomDb().relationlist(requireActivity())
+        relationshipet.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            relationshipLayout.error = null
+            val textInputEditText = v as TextInputEditText
+            val text = textInputEditText.text.toString()
+            if (text.isEmpty()) relationshipLayout.error = "Relationship can not be Empty."
+            if (hasFocus) {
+                val dialog: Dialog? = AppUtil().getSelectPopupDialog(
+                    activity,
+                    "Relationsip", genderValue.toTypedArray(), relationshipet, relationshipLayout
+                )
+                dialog?.show()
+            }
+        }
     }
 
 

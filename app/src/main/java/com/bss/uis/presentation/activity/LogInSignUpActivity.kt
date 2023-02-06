@@ -98,6 +98,7 @@ class LogInSignUpActivity : AppCompatActivity() {
     val occupationList: MutableList<String> = mutableListOf()
     val cancerlist: MutableList<String> = mutableListOf()
     val bllodgrouplist: MutableList<String> = mutableListOf()
+    val relationlist: MutableList<String> = mutableListOf()
 
 
     val fbPermission: MutableList<String> = arrayListOf("email", "public_profile")
@@ -374,11 +375,14 @@ class LogInSignUpActivity : AppCompatActivity() {
                         it.data?.useremail,
                         this@LogInSignUpActivity
                     )
+                    it.data?.userid?.let { it1 -> ContextPreferenceManager().saveuserIf(it1,this@LogInSignUpActivity) }
+
                     val roleidlist: MutableList<Int> = mutableListOf()
                     it.data?.userrole?.forEach { rollId ->
                         roleidlist.add(rollId.userroleid!!)
                         if (rollId.isdefaultrole.equals("Y")) {
                             AppUtil.userCurrentRole = rollId.userroleid!!
+                            ContextPreferenceManager().saveUserRoll(rollId.userroleid!!,this@LogInSignUpActivity)
                             Log.d("userCurrentRole", AppUtil.userCurrentRole.toString())
                         }
 
@@ -622,6 +626,12 @@ class LogInSignUpActivity : AppCompatActivity() {
                     SharedPrefForRoomDb().storeBloodgroup(
                         this@LogInSignUpActivity,
                         bllodgrouplist
+                    )
+                }else if (data.masterdataType.equals("relationship")) {
+                    relationlist.add(data.masterdatadesc.toString())
+                    SharedPrefForRoomDb().storerelationship(
+                        this@LogInSignUpActivity,
+                        relationlist
                     )
                 }
 

@@ -76,4 +76,23 @@ class ContextPreferenceManager {
         editor.apply()
     }
 
+    fun saveUserRoll(
+        rollid: Int,
+        context: Context
+    ) {
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("logindetails", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("rollid", rollid.toString())
+        editor.apply()
+    }
+    fun saveuserIf(
+        rollid: Int,
+        context: Context
+    ) {
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("logindetails", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("userid", rollid.toString())
+        editor.apply()
+    }
+
 }
