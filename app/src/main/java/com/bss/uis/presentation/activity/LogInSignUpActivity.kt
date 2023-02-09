@@ -28,6 +28,7 @@ import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.TabDataResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserRightResponseDomain
 import com.bss.uis.listner.TextInputLayoutFocusChangeListener
+import com.bss.uis.presentation.composeDesign.MainActivity
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
 import com.bss.uis.roomdb.dao.MasterDao
@@ -567,7 +568,7 @@ class LogInSignUpActivity : AppCompatActivity() {
         userDAORepository.insertUserData(userRightDataList)
         userDAORepository.findAll()
         deletePatientDAta()
-        startActivity(Intent(this@LogInSignUpActivity, DrawerMainActivity::class.java))
+        startActivity(Intent(this@LogInSignUpActivity, MainActivity::class.java))
         finish()
 
     }

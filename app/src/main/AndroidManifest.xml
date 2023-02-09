@@ -24,9 +24,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
             android:name=".presentation.activity.AdminWorkSpaceActivity"
             android:exported="false"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
             android:name=".presentation.activity.AddPatientActivity"
             android:exported="false"
