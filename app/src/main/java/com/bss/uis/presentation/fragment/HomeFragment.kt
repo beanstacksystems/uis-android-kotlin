@@ -1,6 +1,5 @@
 package com.bss.uis.presentation.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,7 +20,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bss.uis.R
 import com.bss.uis.data.remote.dto.response.FetchPatientList
 import com.bss.uis.data.remote.dto.response.FetchUserListResponse
-import com.bss.uis.presentation.activity.DrawerMainActivity
 import com.bss.uis.presentation.adapter.ScrollImageAdapter
 import com.bss.uis.presentation.adapter.TabAdaptaer
 import com.bss.uis.presentation.adapter.UserAdapter
@@ -41,7 +39,7 @@ import kotlinx.coroutines.*
 import java.util.*
 
 
-class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
+class HomeFragment : Fragment(), UserAdapter.OnItemClickListener ,ScrollImageAdapter.OnItemClickListener{
 
     //    private val homeViewModel: HomeViewModel? = null
     lateinit var imageViews: Array<ImageView?>
@@ -62,6 +60,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
     var userlist: MutableList<FetchUserListResponse> = mutableListOf()
+    var patientlist: MutableList<FetchPatientList> = mutableListOf()
 
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -125,7 +124,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
 
     private fun scrollPatient(patients: List<Patient>) {
         val scrollImageAdapter =
-            ScrollImageAdapter(requireActivity(), patients)
+            ScrollImageAdapter(requireActivity(), patients,this)
         viewPager.adapter = scrollImageAdapter
         TabLayoutMediator(
             my_tablayout,
@@ -192,6 +191,7 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
                     ioScOPe.launch {
                         deletePatientDAta()
                         it.data?.forEach { data ->
+                            patientlist.add(data)
                             savePatientData(data)
                         }
 
@@ -393,5 +393,15 @@ class HomeFragment : Fragment(), UserAdapter.OnItemClickListener {
 //        }
 //        return tabFragList
 //    }
+
+
+    override fun onItemClickPatient(position: Int) {
+        val bundle = Bundle().apply {
+            putSerializable("datapatient", patientlist[position])
+        }
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_nav_home_to_detailsFragment, bundle)
+
+    }
 
 }

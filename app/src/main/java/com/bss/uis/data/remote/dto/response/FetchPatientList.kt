@@ -13,7 +13,8 @@ data class FetchPatientList(
     @SerializedName("attendantIds"      ) var attendantIds      : String?         = null,
     @SerializedName("patientAddress"    ) var patientAddress    : PatientAddress? = PatientAddress()
 
-)
+):java.io.Serializable
+
 data class PatientAddress (
 
     @SerializedName("address_id"             ) var addressId           : Int?    = null,
@@ -32,4 +33,5 @@ data class PatientAddress (
     @SerializedName("created_date_time"      ) var createdDateTime     : String? = null,
     @SerializedName("last_updated_date_time" ) var lastUpdatedDateTime : String? = null
 
-)
+):java.io.Serializable
+

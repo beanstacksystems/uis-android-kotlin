@@ -8,15 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.bss.uis.R
 import com.bss.uis.roomdb.entity.Patient
+import com.google.android.material.card.MaterialCardView
 
 
 class ScrollImageAdapter(
     private val context: Context,
     private val modelArrayList: List<Patient>,
+    private val listner:OnItemClickListener,
 ) :
     RecyclerView.Adapter<ScrollImageAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,6 +26,7 @@ class ScrollImageAdapter(
         val dob: TextView = itemView.findViewById(R.id.tv_patient_dob)
         val cancerType: TextView = itemView.findViewById(R.id.tv_cancer_type)
         val contact: TextView = itemView.findViewById(R.id.tv_contact)
+        val card: MaterialCardView = itemView.findViewById(R.id.slider_card_view)
     }
 
     override fun onCreateViewHolder(
@@ -47,10 +49,17 @@ class ScrollImageAdapter(
        }catch (e:Exception){
            e.printStackTrace()
        }
+      holder.itemView.setOnClickListener {
+          listner.onItemClickPatient(position)
+      }
     }
 
     override fun getItemCount(): Int {
         return modelArrayList.size
+    }
+
+    interface OnItemClickListener {
+        fun onItemClickPatient(position: Int)
     }
 
 }

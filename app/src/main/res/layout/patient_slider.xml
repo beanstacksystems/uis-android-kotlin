@@ -7,6 +7,7 @@
     android:background="#D806B9">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/slider_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#D806B9"
