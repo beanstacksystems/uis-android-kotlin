@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.UnityISStrength" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.UnityISStrength" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/uisOrange</item>
         <item name="colorPrimaryVariant">@color/uisOrange</item>

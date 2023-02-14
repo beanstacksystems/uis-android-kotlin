@@ -141,14 +141,14 @@ class AdminWorkSpaceFragment : Fragment() {
         }
     }
     private fun showLoader(){
-        dialog = Dialog(requireActivity())
-        dialog.setContentView(com.bss.uis.R.layout.dialog_loading)
+        this.dialog = Dialog(requireActivity())
+        dialog.setContentView(R.layout.dialog_loading)
         dialog.show()
 
     }
-    fun dialogDismiss() {
+    private fun dialogDismiss() {
 
-        dialog.dismiss()
+        this.dialog.dismiss()
     }
 
 

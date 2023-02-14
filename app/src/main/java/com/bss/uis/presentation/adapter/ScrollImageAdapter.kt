@@ -10,13 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bss.uis.R
+import com.bss.uis.data.remote.dto.response.FetchPatientList
 import com.bss.uis.roomdb.entity.Patient
 import com.google.android.material.card.MaterialCardView
 
 
 class ScrollImageAdapter(
     private val context: Context,
-    private val modelArrayList: List<Patient>,
+    var patientlist: MutableList<FetchPatientList>,
     private val listner:OnItemClickListener,
 ) :
     RecyclerView.Adapter<ScrollImageAdapter.ViewHolder>() {
@@ -39,11 +40,11 @@ class ScrollImageAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.cancerType.text = modelArrayList[position].diseasesName
-        holder.dob.text = modelArrayList[position].dob
-        holder.name.text = modelArrayList[position].name
+        holder.cancerType.text = patientlist[position].patientCancerType
+        holder.dob.text = patientlist[position].patientAge
+        holder.name.text = patientlist[position].patientName
        try{
-           val byteArray = Base64.decode(modelArrayList[position].patientImage, Base64.DEFAULT)
+           val byteArray = Base64.decode(patientlist[position].patientImage, Base64.DEFAULT)
            val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
            holder.ivPatient.setImageBitmap(bitmap)
        }catch (e:Exception){
@@ -55,7 +56,7 @@ class ScrollImageAdapter(
     }
 
     override fun getItemCount(): Int {
-        return modelArrayList.size
+        return patientlist.size
     }
 
     interface OnItemClickListener {
