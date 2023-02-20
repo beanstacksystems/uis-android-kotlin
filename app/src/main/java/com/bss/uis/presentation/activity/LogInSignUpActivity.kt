@@ -104,7 +104,7 @@ class LogInSignUpActivity : AppCompatActivity() {
     val fbPermission: MutableList<String> = arrayListOf("email", "public_profile")
 
     val RC_SIGN_IN = 9001
-    val REQUEST_ID_MULTIPLE_PERMISSIONS = 101
+    private val REQUEST_ID_MULTIPLE_PERMISSIONS = 101
 
 
     private lateinit var auth: FirebaseAuth

@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
@@ -58,6 +59,7 @@ class DrawerMainActivity : AppCompatActivity() {
     lateinit var navigationView: NavigationView
 
     lateinit var navHeaderPersonName: TextView
+    lateinit var profilelayout: ConstraintLayout
     lateinit var navHeaderPersonEmail: TextView
     lateinit var navHeaderProfileImage: ImageView
 
@@ -130,7 +132,10 @@ class DrawerMainActivity : AppCompatActivity() {
         val navMenu = navigationView.menu
 //        val switchRole = navMenu.findItem(R.id.switchrolemenu)
         val logout = navMenu.findItem(R.id.logout)
-//        naveHeaderdate = navHeaderView.findViewById<View>(R.id.naveHeaderdate) as TextView
+        profilelayout = navHeaderView.findViewById<View>(R.id.profile_details_layout) as ConstraintLayout
+        profilelayout.setOnClickListener {
+            startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
+        }
         navHeaderPersonName = navHeaderView.findViewById<View>(R.id.navHeaderPersonName) as TextView
         navHeaderPersonEmail =
             navHeaderView.findViewById<View>(R.id.navHeaderPersonEmail) as TextView
