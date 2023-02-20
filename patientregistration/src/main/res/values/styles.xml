@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInputLayoutStyleBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/uisBlue</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/grey</item>
+        <item name="android:textColorHint">@color/state_background_text_color</item>
+        <item name="android:colorError">@color/uisRed</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+        <style name="TextInputStyleBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:singleLine">true</item>
+            <item name="android:layout_marginTop">5dp</item>
+            <item name="android:layout_marginBottom">5dp</item>
+            <item name="android:paddingTop">10dp</item>
+            <item name="android:paddingStart">10dp</item>
+            <item name="android:paddingEnd">10dp</item>
+            <item name="android:gravity">fill</item>
+        </style>
+    <style name="CustomDropDownTilStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/uisBlue</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/grey</item>
+        <item name="android:textColorHint">@color/state_background_color</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:colorError">@color/uisRed</item>
+    </style>
+
+
+
+
+</resources>

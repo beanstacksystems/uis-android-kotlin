@@ -1,0 +1,91 @@
+com.bss.uis.app-firebase-common-20.3.0-0 C:\Users\Admin\.gradle\caches\transforms-3\066fe55238e53360d5342a5a9c8107b0\transformed\firebase-common-20.3.0\res
+com.bss.uis.app-ui-util-1.3.3-1 C:\Users\Admin\.gradle\caches\transforms-3\07216f4699a7acc88e43e9a06f5ee6e9\transformed\ui-util-1.3.3\res
+com.bss.uis.app-savedstate-1.2.0-2 C:\Users\Admin\.gradle\caches\transforms-3\073011bb8a069de07558b288cef5d099\transformed\savedstate-1.2.0\res
+com.bss.uis.app-emoji2-views-helper-1.2.0-3 C:\Users\Admin\.gradle\caches\transforms-3\089af48f20b3cc1bd0ae2f944289ec9a\transformed\emoji2-views-helper-1.2.0\res
+com.bss.uis.app-navigation-ui-2.5.3-4 C:\Users\Admin\.gradle\caches\transforms-3\0c1d5db0d285e25aeaf536c4c37daa9b\transformed\navigation-ui-2.5.3\res
+com.bss.uis.app-drawerlayout-1.1.1-5 C:\Users\Admin\.gradle\caches\transforms-3\0ca05703f23554c0ed4839424b46d18b\transformed\drawerlayout-1.1.1\res
+com.bss.uis.app-coordinatorlayout-1.1.0-6 C:\Users\Admin\.gradle\caches\transforms-3\0d03011f449f39ca5104accbf1c32425\transformed\coordinatorlayout-1.1.0\res
+com.bss.uis.app-room-runtime-2.5.0-7 C:\Users\Admin\.gradle\caches\transforms-3\11ce107c03c77a2de46e217dd09993de\transformed\room-runtime-2.5.0\res
+com.bss.uis.app-lifecycle-livedata-core-2.5.1-8 C:\Users\Admin\.gradle\caches\transforms-3\16f9adfca46c48c1738ee4912ed96d03\transformed\lifecycle-livedata-core-2.5.1\res
+com.bss.uis.app-material-1.9.0-alpha01-9 C:\Users\Admin\.gradle\caches\transforms-3\1badce3b380dc4bd487c01308a0799fd\transformed\material-1.9.0-alpha01\res
+com.bss.uis.app-transition-1.3.0-10 C:\Users\Admin\.gradle\caches\transforms-3\20c91f7d0b2a4f8df7dc4caec1be8cb1\transformed\transition-1.3.0\res
+com.bss.uis.app-work-runtime-2.7.1-11 C:\Users\Admin\.gradle\caches\transforms-3\2793f5fe7e774f7d76f62f0fc6539c93\transformed\work-runtime-2.7.1\res
+com.bss.uis.app-facebook-share-8.1.0-12 C:\Users\Admin\.gradle\caches\transforms-3\28f9a724732642f1afd464de5f7b78a1\transformed\facebook-share-8.1.0\res
+com.bss.uis.app-sqlite-framework-2.3.0-13 C:\Users\Admin\.gradle\caches\transforms-3\2bf648c3d344fda36febf5bd75a2b264\transformed\sqlite-framework-2.3.0\res
+com.bss.uis.app-lifecycle-viewmodel-2.5.1-14 C:\Users\Admin\.gradle\caches\transforms-3\2e1cb24f6aefa8e287b175467d2b8501\transformed\lifecycle-viewmodel-2.5.1\res
+com.bss.uis.app-lifecycle-process-2.4.1-15 C:\Users\Admin\.gradle\caches\transforms-3\331fe811b9b346734b6e49b0a05de1d7\transformed\lifecycle-process-2.4.1\res
+com.bss.uis.app-navigation-common-ktx-2.5.3-16 C:\Users\Admin\.gradle\caches\transforms-3\355957b97375201026d1c13e2ea9d92f\transformed\navigation-common-ktx-2.5.3\res
+com.bss.uis.app-animation-core-1.1.1-17 C:\Users\Admin\.gradle\caches\transforms-3\399025c55c3ee0ce7ac1329a1878cfdc\transformed\animation-core-1.1.1\res
+com.bss.uis.app-circleimageview-3.1.0-18 C:\Users\Admin\.gradle\caches\transforms-3\3ae11a9347e74d880983a7e3d93d5427\transformed\circleimageview-3.1.0\res
+com.bss.uis.app-activity-1.6.0-19 C:\Users\Admin\.gradle\caches\transforms-3\3c0391c41bee88be3559d3e5b3f120cf\transformed\activity-1.6.0\res
+com.bss.uis.app-ui-text-1.3.3-20 C:\Users\Admin\.gradle\caches\transforms-3\3f2da9c4892ba8882eb76d456b589600\transformed\ui-text-1.3.3\res
+com.bss.uis.app-work-runtime-ktx-2.7.1-21 C:\Users\Admin\.gradle\caches\transforms-3\3fa59fc15de8bf64bb646b9d5f2d750e\transformed\work-runtime-ktx-2.7.1\res
+com.bss.uis.app-facebook-messenger-8.1.0-22 C:\Users\Admin\.gradle\caches\transforms-3\402297eb5f4890167c9b86c2c7b05029\transformed\facebook-messenger-8.1.0\res
+com.bss.uis.app-material-1.3.1-23 C:\Users\Admin\.gradle\caches\transforms-3\40a7c51b76747d78530385d8a311f3f5\transformed\material-1.3.1\res
+com.bss.uis.app-emoji2-1.2.0-24 C:\Users\Admin\.gradle\caches\transforms-3\426bb1f79a0e2fdc9deda343feaa85e7\transformed\emoji2-1.2.0\res
+com.bss.uis.app-appcompat-1.6.0-25 C:\Users\Admin\.gradle\caches\transforms-3\4301047c427d93cbad12087de0dbd9fb\transformed\appcompat-1.6.0\res
+com.bss.uis.app-lifecycle-runtime-2.5.1-26 C:\Users\Admin\.gradle\caches\transforms-3\438d0e8f03993d5b2fb2b07027f94e54\transformed\lifecycle-runtime-2.5.1\res
+com.bss.uis.app-media-1.0.0-27 C:\Users\Admin\.gradle\caches\transforms-3\4739417cb753cf789e1836aaf4d897b4\transformed\media-1.0.0\res
+com.bss.uis.app-material-ripple-1.3.1-28 C:\Users\Admin\.gradle\caches\transforms-3\4b5cf776487e9f6f17c713c79ff51aa5\transformed\material-ripple-1.3.1\res
+com.bss.uis.app-ui-unit-1.3.3-29 C:\Users\Admin\.gradle\caches\transforms-3\50ed2db60194c24fb3f51b35c64c064b\transformed\ui-unit-1.3.3\res
+com.bss.uis.app-lifecycle-viewmodel-ktx-2.5.1-30 C:\Users\Admin\.gradle\caches\transforms-3\56ea10a057566c02f3987a2a5ff0f2bd\transformed\lifecycle-viewmodel-ktx-2.5.1\res
+com.bss.uis.app-ui-graphics-1.3.3-31 C:\Users\Admin\.gradle\caches\transforms-3\5c3e8a18c5769906a136468c7da8d5e4\transformed\ui-graphics-1.3.3\res
+com.bss.uis.app-foundation-layout-1.2.0-32 C:\Users\Admin\.gradle\caches\transforms-3\5e36581b9023e30219a8192262b7ecef\transformed\foundation-layout-1.2.0\res
+com.bss.uis.app-profileinstaller-1.2.0-33 C:\Users\Admin\.gradle\caches\transforms-3\680e781de61f8ce1ed1405360b384216\transformed\profileinstaller-1.2.0\res
+com.bss.uis.app-recyclerview-1.1.0-34 C:\Users\Admin\.gradle\caches\transforms-3\6aebda9f819f12f7841a59c510cb6003\transformed\recyclerview-1.1.0\res
+com.bss.uis.app-annotation-experimental-1.3.0-35 C:\Users\Admin\.gradle\caches\transforms-3\6b5bc26a0624581db51d01b4ce400faa\transformed\annotation-experimental-1.3.0\res
+com.bss.uis.app-room-ktx-2.5.0-36 C:\Users\Admin\.gradle\caches\transforms-3\6e7ce514735a767df8a12cd1fced4507\transformed\room-ktx-2.5.0\res
+com.bss.uis.app-hilt-work-1.0.0-37 C:\Users\Admin\.gradle\caches\transforms-3\73bbb4c14e5b5507ef3dc6e380b1661a\transformed\hilt-work-1.0.0\res
+com.bss.uis.app-sdp-android-1.0.6-38 C:\Users\Admin\.gradle\caches\transforms-3\74e5a2b04e6c79dac41177410fad4134\transformed\sdp-android-1.0.6\res
+com.bss.uis.app-ui-geometry-1.3.3-39 C:\Users\Admin\.gradle\caches\transforms-3\75ecc647c5ad46aa8d948b515678d473\transformed\ui-geometry-1.3.3\res
+com.bss.uis.app-runtime-1.3.3-40 C:\Users\Admin\.gradle\caches\transforms-3\7ce4521a4353f134145a134637b4ccff\transformed\runtime-1.3.3\res
+com.bss.uis.app-constraintlayout-2.1.4-41 C:\Users\Admin\.gradle\caches\transforms-3\7de2f8b3c65718507b8ea40fa8421a2a\transformed\constraintlayout-2.1.4\res
+com.bss.uis.app-lottiedialog-1.0.0-42 C:\Users\Admin\.gradle\caches\transforms-3\7e7180a0b5cfc0aee6e6b867f0bd76ac\transformed\lottiedialog-1.0.0\res
+com.bss.uis.app-runtime-saveable-1.3.3-43 C:\Users\Admin\.gradle\caches\transforms-3\84068fa1eaa5b5061c6a896c4deec89e\transformed\runtime-saveable-1.3.3\res
+com.bss.uis.app-material-icons-core-1.3.1-44 C:\Users\Admin\.gradle\caches\transforms-3\85a5eaee4ba993066105b48a5186e380\transformed\material-icons-core-1.3.1\res
+com.bss.uis.app-biometric-1.1.0-45 C:\Users\Admin\.gradle\caches\transforms-3\8af256cea76be864a9ae37724f6ea699\transformed\biometric-1.1.0\res
+com.bss.uis.app-animation-1.1.1-46 C:\Users\Admin\.gradle\caches\transforms-3\9c125e227c2f5f1c0f83ffdcd029ce13\transformed\animation-1.1.1\res
+com.bss.uis.app-startup-runtime-1.1.1-47 C:\Users\Admin\.gradle\caches\transforms-3\9f0846bdd9b9f03aa2bf7371783a8e85\transformed\startup-runtime-1.1.1\res
+com.bss.uis.app-facebook-common-8.1.0-48 C:\Users\Admin\.gradle\caches\transforms-3\a2a54a066a409bf470c0e8d612d6e28f\transformed\facebook-common-8.1.0\res
+com.bss.uis.app-lifecycle-viewmodel-savedstate-2.5.1-49 C:\Users\Admin\.gradle\caches\transforms-3\a4f49aa050a6fe01721934b3c41af802\transformed\lifecycle-viewmodel-savedstate-2.5.1\res
+com.bss.uis.app-foundation-1.2.0-50 C:\Users\Admin\.gradle\caches\transforms-3\a7f0ea1231f2c1b0ea458631f3814ff9\transformed\foundation-1.2.0\res
+com.bss.uis.app-play-services-base-18.1.0-51 C:\Users\Admin\.gradle\caches\transforms-3\ab29ba6dd3c04502babb6588f29e9183\transformed\play-services-base-18.1.0\res
+com.bss.uis.app-sqlite-2.3.0-52 C:\Users\Admin\.gradle\caches\transforms-3\abc2e5f81ed5223f70566a02420a1361\transformed\sqlite-2.3.0\res
+com.bss.uis.app-fragment-1.5.0-53 C:\Users\Admin\.gradle\caches\transforms-3\addebe99f84fe8fc84f673bfd8e4677d\transformed\fragment-1.5.0\res
+com.bss.uis.app-lifecycle-runtime-ktx-2.5.1-54 C:\Users\Admin\.gradle\caches\transforms-3\b500981b187258d51fd86161a0437105\transformed\lifecycle-runtime-ktx-2.5.1\res
+com.bss.uis.app-lottie-4.2.0-55 C:\Users\Admin\.gradle\caches\transforms-3\b570708cdc4dde7c992708a55828697a\transformed\lottie-4.2.0\res
+com.bss.uis.app-navigation-runtime-ktx-2.5.3-56 C:\Users\Admin\.gradle\caches\transforms-3\b64ceaf7add504f44ec5682b7eed5c5c\transformed\navigation-runtime-ktx-2.5.3\res
+com.bss.uis.app-ui-test-manifest-1.3.3-57 C:\Users\Admin\.gradle\caches\transforms-3\ba8a89c7a4584aff0c8b8e5195025d4e\transformed\ui-test-manifest-1.3.3\res
+com.bss.uis.app-navigation-ui-ktx-2.5.3-58 C:\Users\Admin\.gradle\caches\transforms-3\baa1d50b19d5dd461048b83e1459cf5b\transformed\navigation-ui-ktx-2.5.3\res
+com.bss.uis.app-core-ktx-1.9.0-59 C:\Users\Admin\.gradle\caches\transforms-3\bf1315437a9ec1c00ec3b1d8ff0336c8\transformed\core-ktx-1.9.0\res
+com.bss.uis.app-cardview-1.0.0-60 C:\Users\Admin\.gradle\caches\transforms-3\c3b837eb65c4c39057bcdd4b291b8dd2\transformed\cardview-1.0.0\res
+com.bss.uis.app-core-1.9.0-61 C:\Users\Admin\.gradle\caches\transforms-3\c576bbdc4f589aed7bd3c564ddf6e1cc\transformed\core-1.9.0\res
+com.bss.uis.app-play-services-auth-20.4.0-62 C:\Users\Admin\.gradle\caches\transforms-3\c5ad75ec5693abd1f9f4458a511b387c\transformed\play-services-auth-20.4.0\res
+com.bss.uis.app-customview-poolingcontainer-1.0.0-63 C:\Users\Admin\.gradle\caches\transforms-3\cbd6970da6ba7d60f0594315035c257a\transformed\customview-poolingcontainer-1.0.0\res
+com.bss.uis.app-AestheticDialogs-1.3.6-64 C:\Users\Admin\.gradle\caches\transforms-3\cd4dddba48a848c5dec10d6c53ca6902\transformed\AestheticDialogs-1.3.6\res
+com.bss.uis.app-navigation-fragment-2.3.2-65 C:\Users\Admin\.gradle\caches\transforms-3\d14b9cf96db43931ea611b65dceeb087\transformed\navigation-fragment-2.3.2\res
+com.bss.uis.app-navigation-runtime-2.5.3-66 C:\Users\Admin\.gradle\caches\transforms-3\d587fe97786fffc2b1a1487bd9d118b4\transformed\navigation-runtime-2.5.3\res
+com.bss.uis.app-appcompat-resources-1.6.0-67 C:\Users\Admin\.gradle\caches\transforms-3\e4452c9c0aa44965fc5c51eecb8405c6\transformed\appcompat-resources-1.6.0\res
+com.bss.uis.app-hilt-navigation-1.0.0-68 C:\Users\Admin\.gradle\caches\transforms-3\e5a480088030287af47cbf5197e914c4\transformed\hilt-navigation-1.0.0\res
+com.bss.uis.app-viewpager2-1.0.0-69 C:\Users\Admin\.gradle\caches\transforms-3\eae771bc49e100cdd45a583724bc3423\transformed\viewpager2-1.0.0\res
+com.bss.uis.app-navigation-common-2.5.3-70 C:\Users\Admin\.gradle\caches\transforms-3\ebcf881ecf23572d3bc4b864053c57e9\transformed\navigation-common-2.5.3\res
+com.bss.uis.app-browser-1.4.0-71 C:\Users\Admin\.gradle\caches\transforms-3\ed88c404bc46751fa5ddb7fb231d3559\transformed\browser-1.4.0\res
+com.bss.uis.app-savedstate-ktx-1.2.0-72 C:\Users\Admin\.gradle\caches\transforms-3\edb02f833bf3ef7f177a615f7a39d199\transformed\savedstate-ktx-1.2.0\res
+com.bss.uis.app-hilt-navigation-fragment-1.0.0-73 C:\Users\Admin\.gradle\caches\transforms-3\f23410964763a3532d4d8da74554bb55\transformed\hilt-navigation-fragment-1.0.0\res
+com.bss.uis.app-play-services-basement-18.1.0-74 C:\Users\Admin\.gradle\caches\transforms-3\f39058d1fe64e9df2d881b6bb5cf8ae6\transformed\play-services-basement-18.1.0\res
+com.bss.uis.app-glide-4.14.2-75 C:\Users\Admin\.gradle\caches\transforms-3\fc503a3029bc08945ece9779e88df00d\transformed\glide-4.14.2\res
+com.bss.uis.app-facebook-login-8.1.0-76 C:\Users\Admin\.gradle\caches\transforms-3\fcf4e4e634191b3ccd9d118922d11422\transformed\facebook-login-8.1.0\res
+com.bss.uis.app-activity-ktx-1.6.0-77 C:\Users\Admin\.gradle\caches\transforms-3\fece8845087e939a3861350dfc615bc1\transformed\activity-ktx-1.6.0\res
+com.bss.uis.app-ui-1.3.3-78 C:\Users\Admin\.gradle\caches\transforms-3\ff603c25ab78f451615cc93342f39749\transformed\ui-1.3.3\res
+com.bss.uis.app-google-services-79 D:\studio project\uis-android-kotlin\app\build\generated\res\google-services\debug
+com.bss.uis.app-pngs-80 D:\studio project\uis-android-kotlin\app\build\generated\res\pngs\debug
+com.bss.uis.app-resValues-81 D:\studio project\uis-android-kotlin\app\build\generated\res\resValues\debug
+com.bss.uis.app-rs-82 D:\studio project\uis-android-kotlin\app\build\generated\res\rs\debug
+com.bss.uis.app-packageDebugResources-83 D:\studio project\uis-android-kotlin\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.bss.uis.app-packageDebugResources-84 D:\studio project\uis-android-kotlin\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.bss.uis.app-merged_res-85 D:\studio project\uis-android-kotlin\app\build\intermediates\merged_res\debug
+com.bss.uis.app-debug-86 D:\studio project\uis-android-kotlin\app\src\debug\res
+com.bss.uis.app-main-87 D:\studio project\uis-android-kotlin\app\src\main\res
+com.bss.uis.app-packaged_res-88 D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\packaged_res\debug
+com.bss.uis.app-packaged_res-89 D:\studio project\uis-android-kotlin\step_progres\build\intermediates\packaged_res\debug
+com.bss.uis.app-packaged_res-90 D:\studio project\uis-android-kotlin\viewpagerutil\build\intermediates\packaged_res\debug

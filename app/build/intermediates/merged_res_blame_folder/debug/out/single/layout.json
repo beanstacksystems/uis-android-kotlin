@@ -1,0 +1,146 @@
+[
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\custom_exit_dialog.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\custom_exit_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_medical_history.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_medical_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\user_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\user_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\footer_buttons_layout.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\footer_buttons_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_dynamic_tab_attendant.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_dynamic_tab_attendant.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_address_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_address_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\popup_select.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\popup_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\loading_lottie.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\loading_lottie.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_blank.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_blank.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_drawer_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_drawer_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\footer_layout.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\footer_layout.xml"
+    },
+    {
+        "merged": "com.bss.uis.app-mergeDebugResources-84:/layout/activity_edit_profile.xml",
+        "source": "com.bss.uis.app-main-87:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_enable_biometric_login.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_enable_biometric_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_log_in_sign_up.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_log_in_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_personal_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_personal_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_dynamic_tab.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_dynamic_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_attendant_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_attendant_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\dialog_loading.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_medical_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_medical_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\app_bar_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\patient_slider.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\patient_slider.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_add_patient.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_add_patient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_attendant_record.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_attendant_record.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_edit_profile.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\content_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_patient_details.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_patient_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_admin_work_space.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_admin_work_space.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\activity_admin_work_space.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\activity_admin_work_space.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\stepprogressbar.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\stepprogressbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\custom_step_view.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\custom_step_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\master_data_dialog.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\master_data_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\nav_header_main.xml"
+    }
+]

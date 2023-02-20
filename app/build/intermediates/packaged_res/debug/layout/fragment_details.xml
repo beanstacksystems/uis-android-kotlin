@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.fragment.DetailsFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="#D806B9"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#D806B9">
+
+            <ImageView
+                android:id="@+id/iv_patient"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_man"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.72" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:gravity="start"
+                android:text="Name :"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.154"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DOB:"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.146"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:layout_editor_absoluteY="91dp" />
+
+            <TextView
+                android:id="@+id/tv_illnessType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancer:"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintStart_toEndOf="@+id/iv_patient"
+                app:layout_constraintTop_toBottomOf="@id/tv_patient_dob"
+                tools:layout_editor_absoluteY="112dp" />
+
+            <TextView
+                android:id="@+id/tv_phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="Phone Number :"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_illnessType"
+                app:layout_constraintTop_toBottomOf="@id/tv_cancer_type"
+                tools:layout_editor_absoluteY="131dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="Mitchell Johnson"
+                android:textColor="@color/white"
+
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toEndOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_patient_dob"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="42"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_age"
+                app:layout_constraintTop_toBottomOf="@id/tv_patient_name"
+                tools:layout_editor_absoluteY="91dp" />
+
+            <TextView
+                android:id="@+id/tv_cancer_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lukemia"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.023"
+                app:layout_constraintStart_toEndOf="@+id/tv_illnessType"
+                app:layout_constraintTop_toBottomOf="@id/tv_age"
+                tools:layout_editor_absoluteY="112dp" />
+
+            <TextView
+                android:id="@+id/tv_contact"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="9348067631"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_phoneNumber"
+                app:layout_constraintTop_toBottomOf="@id/tv_cancer_type"
+                tools:layout_editor_absoluteY="131dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Address Details"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_30sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="#D806B9"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D806B9"
+            android:layout_marginBottom="@dimen/_10sdp"
+            >
+
+            <TextView
+                android:id="@+id/tv_addres1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/tv_bg"
+                android:text="AddresLine1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvaddressline2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/tv_bg"
+                android:text="AddresLine2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_addres1" />
+
+            <TextView
+                android:id="@+id/tvcity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/tv_bg"
+                android:text="city"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvaddressline2" />
+
+            <TextView
+                android:id="@+id/tvstsate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Satte"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/tv_bg"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvcity" />
+
+            <TextView
+                android:id="@+id/tvpincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pincode"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/tv_bg"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvstsate" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/iv_download"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/file_download_"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
+        app:layout_constraintVertical_bias="0.508" />
+
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+       android:src="@drawable/baseline_share_"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toEndOf="@+id/iv_download"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
+        app:layout_constraintVertical_bias="0.508" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

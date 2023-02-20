@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/odisha"
+    tools:context=".presentation.activity.SplashActivity">
+    <LinearLayout
+        android:id="@+id/splashToplayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footerLayout"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:gravity="top|center"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imageViewblue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="0dp"
+                android:layout_gravity="center|center_vertical"
+                app:srcCompat="@mipmap/ic_uisblue_nobg_foreground" />
+            <ImageView
+                android:id="@+id/imageViewred"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="62dp"
+                android:layout_marginRight="50dp"
+                app:srcCompat="@mipmap/ic_uisred_nobg_foreground" />
+            <ImageView
+                android:id="@+id/imageViewpurple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="128dp"
+                android:layout_marginRight="43dp"
+                app:srcCompat="@mipmap/ic_uispurple_nobg_foreground" />
+            <ImageView
+                android:id="@+id/imageVieworrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="166dp"
+                android:layout_marginLeft="18dp"
+                app:srcCompat="@mipmap/ic_uisorrange_nobg_foreground" />
+            <ImageView
+                android:id="@+id/imageViewYellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="108dp"
+                android:layout_marginLeft="67dp"
+                app:srcCompat="@mipmap/ic_uisyellow_nobg_foreground" />
+            <ImageView
+                android:id="@+id/imageViewGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="42dp"
+                android:layout_marginLeft="62dp"
+                app:srcCompat="@mipmap/ic_uisgreen_nobg_foreground" />
+            <TextView
+                android:id="@+id/SplashLogoTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Unity"
+                android:layout_gravity="center|center_vertical"
+                />
+            <TextView
+                android:id="@+id/SplashLogoTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="90dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="IS"
+                android:layout_gravity="center|center_vertical"
+                />
+            <TextView
+                android:id="@+id/SplashLogoTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="110dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Strength"
+                android:layout_gravity="center|center_vertical"/>
+            <TextView
+                android:id="@+id/caption"
+                android:gravity="center"
+                android:layout_marginTop="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cancerFoundation"
+                android:layout_gravity="center|center_vertical"
+                android:textStyle="bold"
+                android:textColor="@color/uisRed"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/footerLayout"
+        android:layout_below="@id/splashToplayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center|bottom"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <include layout="@layout/footer_layout"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/connection_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:text="No Internet Connection"
+        android:textColor="@color/white"
+        android:background="@color/uisRed"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:visibility="gone"
+         />
+
+
+
+
+</LinearLayout>

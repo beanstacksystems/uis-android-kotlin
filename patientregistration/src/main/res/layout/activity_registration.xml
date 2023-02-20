@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+    <LinearLayout
+        android:id="@+id/registration_fragment_header"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/header"
+        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/back"
+        android:paddingTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"/>
+        <com.bss.patientregistration.TextWithIconHeaderView
+            android:id="@+id/fragmentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerTitle="@string/fragment_title">
+        </com.bss.patientregistration.TextWithIconHeaderView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/registration_fragment_progress"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registration_fragment_header"
+        android:orientation="vertical">
+    <include layout="@layout/stepprogressbar" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/registration_fragment_layout"
+        android:layout_below="@+id/registration_fragment_progress"
+        android:layout_marginTop="10dp"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <com.bss.viewpagerutil.CustomViewPagerNoTouchNoSwipe
+        android:id="@+id/regpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </FrameLayout>
+    <include layout="@layout/footer_buttons_layout" />
+
+
+</RelativeLayout>
