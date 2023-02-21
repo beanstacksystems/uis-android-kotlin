@@ -5,6 +5,7 @@ import com.bss.uis.di.NetworkModule;
 import com.bss.uis.di.RepositoryModule;
 import com.bss.uis.presentation.activity.AddPatientActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.DrawerMainActivity_GeneratedInjector;
+import com.bss.uis.presentation.activity.EditProfileActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.LogInSignUpActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.SplashActivity_GeneratedInjector;
 import com.bss.uis.presentation.viewmodel.ViewModelUIS_HiltModules;
@@ -178,6 +179,7 @@ public final class BaseApplication_HiltComponents {
   @ActivityScoped
   public abstract static class ActivityC implements AddPatientActivity_GeneratedInjector,
       DrawerMainActivity_GeneratedInjector,
+      EditProfileActivity_GeneratedInjector,
       LogInSignUpActivity_GeneratedInjector,
       SplashActivity_GeneratedInjector,
       ActivityComponent,

@@ -38,6 +38,7 @@ import com.bss.uis.mapper.UserApiResponseDomainMapper;
 import com.bss.uis.mapper.UserRightsDomainMapper;
 import com.bss.uis.presentation.activity.AddPatientActivity;
 import com.bss.uis.presentation.activity.DrawerMainActivity;
+import com.bss.uis.presentation.activity.EditProfileActivity;
 import com.bss.uis.presentation.activity.LogInSignUpActivity;
 import com.bss.uis.presentation.activity.SplashActivity;
 import com.bss.uis.presentation.viewmodel.ViewModelUIS;
@@ -408,6 +409,10 @@ public final class DaggerBaseApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectDrawerMainActivity(DrawerMainActivity drawerMainActivity) {
+    }
+
+    @Override
+    public void injectEditProfileActivity(EditProfileActivity editProfileActivity) {
     }
 
     @Override

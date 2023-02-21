@@ -23,6 +23,8 @@ import com.bss.uis.roomdb.dao.MasterDao;
 import com.bss.uis.roomdb.dao.MasterDao_Impl;
 import com.bss.uis.roomdb.dao.PatientDao;
 import com.bss.uis.roomdb.dao.PatientDao_Impl;
+import com.bss.uis.roomdb.dao.ProfileDetailDao;
+import com.bss.uis.roomdb.dao.ProfileDetailDao_Impl;
 import com.bss.uis.roomdb.dao.UserDao;
 import com.bss.uis.roomdb.dao.UserDao_Impl;
 import java.lang.Class;
@@ -46,6 +48,8 @@ public final class UISDatabase_Impl extends UISDatabase {
 
   private volatile ApplicationDao _applicationDao;
 
+  private volatile ProfileDetailDao _profileDetailDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -60,8 +64,9 @@ public final class UISDatabase_Impl extends UISDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `hometabdata` (`tabid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tabname` TEXT, `tabdesc` TEXT, `tabdata` TEXT, `tabseq` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `masterData` (`masterdatapkId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `masterdataType` TEXT, `masterdataId` INTEGER NOT NULL, `masterdataval` TEXT, `isactive` TEXT, `masterdatadesc` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `userrightdata` (`userRightDataId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userRightId` INTEGER NOT NULL, `userRightType` TEXT, `desc` TEXT, `userRoleId` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `profileDetails` (`userid` INTEGER, `salutation` TEXT, `usename` TEXT, `email` TEXT, `dob` TEXT, `gender` TEXT, `occupation` TEXT, PRIMARY KEY(`userid`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '70b3c7c41669548d120edee699fa390d')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd01a5c44bc2bd0b365593825877a54b2')");
       }
 
       @Override
@@ -75,6 +80,7 @@ public final class UISDatabase_Impl extends UISDatabase {
         _db.execSQL("DROP TABLE IF EXISTS `hometabdata`");
         _db.execSQL("DROP TABLE IF EXISTS `masterData`");
         _db.execSQL("DROP TABLE IF EXISTS `userrightdata`");
+        _db.execSQL("DROP TABLE IF EXISTS `profileDetails`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -266,9 +272,26 @@ public final class UISDatabase_Impl extends UISDatabase {
                   + " Expected:\n" + _infoUserrightdata + "\n"
                   + " Found:\n" + _existingUserrightdata);
         }
+        final HashMap<String, TableInfo.Column> _columnsProfileDetails = new HashMap<String, TableInfo.Column>(7);
+        _columnsProfileDetails.put("userid", new TableInfo.Column("userid", "INTEGER", false, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("salutation", new TableInfo.Column("salutation", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("usename", new TableInfo.Column("usename", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("email", new TableInfo.Column("email", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("dob", new TableInfo.Column("dob", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("gender", new TableInfo.Column("gender", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("occupation", new TableInfo.Column("occupation", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysProfileDetails = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesProfileDetails = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoProfileDetails = new TableInfo("profileDetails", _columnsProfileDetails, _foreignKeysProfileDetails, _indicesProfileDetails);
+        final TableInfo _existingProfileDetails = TableInfo.read(_db, "profileDetails");
+        if (! _infoProfileDetails.equals(_existingProfileDetails)) {
+          return new RoomOpenHelper.ValidationResult(false, "profileDetails(com.bss.uis.roomdb.entity.ProfileDetails).\n"
+                  + " Expected:\n" + _infoProfileDetails + "\n"
+                  + " Found:\n" + _existingProfileDetails);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "70b3c7c41669548d120edee699fa390d", "ae7c2ad774dc74e2b8f4802d688538fd");
+    }, "d01a5c44bc2bd0b365593825877a54b2", "6133847012f46941db115dbba6e90f67");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -281,7 +304,7 @@ public final class UISDatabase_Impl extends UISDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Patient","PatientImages","AppConfig","address","medicalhistory","attendant","hometabdata","masterData","userrightdata");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Patient","PatientImages","AppConfig","address","medicalhistory","attendant","hometabdata","masterData","userrightdata","profileDetails");
   }
 
   @Override
@@ -306,6 +329,7 @@ public final class UISDatabase_Impl extends UISDatabase {
       _db.execSQL("DELETE FROM `hometabdata`");
       _db.execSQL("DELETE FROM `masterData`");
       _db.execSQL("DELETE FROM `userrightdata`");
+      _db.execSQL("DELETE FROM `profileDetails`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -326,6 +350,7 @@ public final class UISDatabase_Impl extends UISDatabase {
     _typeConvertersMap.put(UserDao.class, UserDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(PatientDao.class, PatientDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(ApplicationDao.class, ApplicationDao_Impl.getRequiredConverters());
+    _typeConvertersMap.put(ProfileDetailDao.class, ProfileDetailDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
 
@@ -393,6 +418,20 @@ public final class UISDatabase_Impl extends UISDatabase {
           _applicationDao = new ApplicationDao_Impl(this);
         }
         return _applicationDao;
+      }
+    }
+  }
+
+  @Override
+  public ProfileDetailDao getProfileDetailsDao() {
+    if (_profileDetailDao != null) {
+      return _profileDetailDao;
+    } else {
+      synchronized(this) {
+        if(_profileDetailDao == null) {
+          _profileDetailDao = new ProfileDetailDao_Impl(this);
+        }
+        return _profileDetailDao;
       }
     }
   }

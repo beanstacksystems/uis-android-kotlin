@@ -23,6 +23,7 @@ import hilt_aggregated_deps._com_bss_uis_di_NetworkModule;
 import hilt_aggregated_deps._com_bss_uis_di_RepositoryModule;
 import hilt_aggregated_deps._com_bss_uis_presentation_activity_AddPatientActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_bss_uis_presentation_activity_DrawerMainActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_bss_uis_presentation_activity_EditProfileActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_bss_uis_presentation_activity_LogInSignUpActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_bss_uis_presentation_activity_SplashActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_bss_uis_presentation_viewmodel_ViewModelUIS_HiltModules_BindsModule;
@@ -72,6 +73,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_bss_uis_di_RepositoryModule.class,
         _com_bss_uis_presentation_activity_AddPatientActivity_GeneratedInjector.class,
         _com_bss_uis_presentation_activity_DrawerMainActivity_GeneratedInjector.class,
+        _com_bss_uis_presentation_activity_EditProfileActivity_GeneratedInjector.class,
         _com_bss_uis_presentation_activity_LogInSignUpActivity_GeneratedInjector.class,
         _com_bss_uis_presentation_activity_SplashActivity_GeneratedInjector.class,
         _com_bss_uis_presentation_viewmodel_ViewModelUIS_HiltModules_BindsModule.class,
