@@ -99,4 +99,9 @@ interface ApiInterFace {
     ): Call<ApproveUserResponse>
 
 
+    @POST(" /getPatientById/{patientId}")
+    fun getPatientDetails(
+        @Header("Authorization") token: String,
+        @Path("patientId") patientId: String
+    ): Call<PatientDetailsResponse>
 }

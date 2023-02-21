@@ -35,7 +35,8 @@ class ViewModelUIS @Inject constructor(
     private val fetchUserUseCase: FetchUserUseCase,
     private val approveUserUseCase: ApproveUserUseCase,
     private val fetchPatientListUsecase: FetchPatientListUsecase,
-    private val updateUserProfileUseCase:UpdateUserProfileUseCase
+    private val updateUserProfileUseCase: UpdateUserProfileUseCase,
+    private val patientDetailUseCase: PatientDetailUseCase
 
 ) : ViewModel() {
     var isServerReachableString: MutableLiveData<Resource<String>> =
@@ -52,7 +53,7 @@ class ViewModelUIS @Inject constructor(
         MutableLiveData()
     var userrightList: MutableLiveData<Resource<List<UserRightResponseDomain>>> =
         MutableLiveData()
-    var pincodedetailsList :MutableLiveData<Resource<List<PinCodeResponse?>>> = MutableLiveData()
+    var pincodedetailsList: MutableLiveData<Resource<List<PinCodeResponse?>>> = MutableLiveData()
     var patientRegistrationResReqList: MutableLiveData<Resource<PatientRegistrationResReq?>> =
         MutableLiveData()
     var fetchUserList: MutableLiveData<Resource<List<FetchUserListResponse>?>> =
@@ -61,6 +62,8 @@ class ViewModelUIS @Inject constructor(
         MutableLiveData()
     var patientlist: MutableLiveData<Resource<List<FetchPatientList>?>> =
         MutableLiveData()
+
+    var patientDetails: MutableLiveData<Resource<PatientDetailsResponse>> = MutableLiveData()
 
     init {
         /** this scope is alive as-long-as viewModel **/
@@ -260,14 +263,34 @@ class ViewModelUIS @Inject constructor(
         }
     }
 
-    suspend fun updateUserProfile(token:String,body: UpdateUserProfileDataRequest){
+    /**
+     * this for EditProfileActivity to update the user profile details
+     * */
+    suspend fun updateUserProfile(token: String, body: UpdateUserProfileDataRequest) {
         CoroutineScope(Dispatchers.IO).launch {
             val res = updateUserProfileUseCase.invoke(token, body)
             launch(Dispatchers.Main) {
                 res.collectLatest {
-                   //it
+                    //it
                 }
             }
         }
     }
+
+
+    /**
+     * this is for the PatientDetailsActivity for getting latest patient details
+     * from the patient id
+     * */
+    suspend fun getPatientDetails(token: String, patientId: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = patientDetailUseCase.invoke(token, patientId)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                    patientDetails.value = it
+                }
+            }
+        }
+    }
+
 }

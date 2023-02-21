@@ -7,11 +7,6 @@ import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.util.Resource
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Url
 
 interface Repository {
     suspend fun isServerConnected(
@@ -92,4 +87,9 @@ interface Repository {
         token: String?,
         body: UpdateUserProfileDataRequest
     ): Flow<Resource<ApproveUserResponse>>
+
+    suspend fun getPatientDetails(
+        token: String,
+        patientId: String
+    ): Flow<Resource<PatientDetailsResponse>>
 }

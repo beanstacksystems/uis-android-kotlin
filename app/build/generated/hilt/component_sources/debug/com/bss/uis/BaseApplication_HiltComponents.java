@@ -7,6 +7,7 @@ import com.bss.uis.presentation.activity.AddPatientActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.DrawerMainActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.EditProfileActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.LogInSignUpActivity_GeneratedInjector;
+import com.bss.uis.presentation.activity.PatientDetailsActivity_GeneratedInjector;
 import com.bss.uis.presentation.activity.SplashActivity_GeneratedInjector;
 import com.bss.uis.presentation.viewmodel.ViewModelUIS_HiltModules;
 import dagger.Binds;
@@ -181,6 +182,7 @@ public final class BaseApplication_HiltComponents {
       DrawerMainActivity_GeneratedInjector,
       EditProfileActivity_GeneratedInjector,
       LogInSignUpActivity_GeneratedInjector,
+      PatientDetailsActivity_GeneratedInjector,
       SplashActivity_GeneratedInjector,
       ActivityComponent,
       DefaultViewModelFactories.ActivityEntryPoint,

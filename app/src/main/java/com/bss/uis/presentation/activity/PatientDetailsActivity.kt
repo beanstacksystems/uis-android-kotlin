@@ -19,14 +19,32 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.lifecycle.ViewModelProvider
 import com.bss.uis.R
 import com.bss.uis.data.remote.dto.response.FetchPatientList
+import com.bss.uis.data.remote.dto.response.PatientDetailsResponse
+import com.bss.uis.databinding.ActivityPatientDetailsBinding
+import com.bss.uis.presentation.viewmodel.ViewModelUIS
+import com.bss.uis.util.ContextPreferenceManager
+import com.bss.uis.util.Resource
+import dagger.hilt.android.AndroidEntryPoint
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
+
+@AndroidEntryPoint
+@OptIn(ExperimentalCoroutinesApi::class)
 class PatientDetailsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityPatientDetailsBinding
+    private lateinit var viewModelUIS: ViewModelUIS
+
     private lateinit var ivPatient: CircleImageView
     private lateinit var tvName: TextView
     private lateinit var tvCancerType: TextView
@@ -40,10 +58,19 @@ class PatientDetailsActivity : AppCompatActivity() {
     private lateinit var ivback: ImageView
     private lateinit var ivShare: ImageView
 
+    var patientDetailsResponse: PatientDetailsResponse = PatientDetailsResponse()
+
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_patient_details)
+        binding = ActivityPatientDetailsBinding.inflate(layoutInflater)
+        viewModelUIS = ViewModelProvider(this)[ViewModelUIS::class.java]
+
+
+        val view = binding.root
+        setContentView(view)
+
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         ivPatient = findViewById(R.id.iv_Patient)
@@ -67,6 +94,35 @@ class PatientDetailsActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
+        val token = ContextPreferenceManager().getToken(
+            "token", this@PatientDetailsActivity
+        )
+
+        //get patient details api call
+        if (token != null)
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModelUIS.getPatientDetails(token, data.patientId.toString())
+            }
+        else Toast.makeText(this, "Invalid token, please restart", Toast.LENGTH_SHORT).show()
+
+        viewModelUIS.patientDetails.observe(this) {
+            when (it) {
+                is Resource.Error -> {
+                    viewModelUIS.patientDetails.value = null
+                }
+                is Resource.Loading -> {
+                    viewModelUIS.patientDetails.value = null
+                }
+                is Resource.Success -> {
+                    patientDetailsResponse = it.data!!
+                    Toast.makeText(this, "${it.data}", Toast.LENGTH_SHORT).show()
+                    viewModelUIS.patientDetails.value = null
+
+                }
+            }
+        }
+
         tvName.text = data.patientName
         tvCancerType.text = data.patientCancerType
         tvDob.text = data.patientAge
