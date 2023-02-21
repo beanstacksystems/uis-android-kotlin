@@ -1,0 +1,12 @@
+[
+  {
+    "name": "mobile_navigation",
+    "navigationXmlIds": [],
+    "deepLinks": []
+  },
+  {
+    "name": "nav_host_fragment",
+    "navigationXmlIds": [],
+    "deepLinks": []
+  }
+]

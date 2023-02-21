@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.request.UpdateUserProfileDataRequest
 import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.domain.usecase.*
@@ -33,7 +34,8 @@ class ViewModelUIS @Inject constructor(
     private val patientRegistrationUsecase: PatientRegistrationUsecase,
     private val fetchUserUseCase: FetchUserUseCase,
     private val approveUserUseCase: ApproveUserUseCase,
-    private val fetchPatientListUsecase: FetchPatientListUsecase
+    private val fetchPatientListUsecase: FetchPatientListUsecase,
+    private val updateUserProfileUseCase:UpdateUserProfileUseCase
 
 ) : ViewModel() {
     var isServerReachableString: MutableLiveData<Resource<String>> =
@@ -258,5 +260,14 @@ class ViewModelUIS @Inject constructor(
         }
     }
 
-
+    suspend fun updateUserProfile(token:String,body: UpdateUserProfileDataRequest){
+        CoroutineScope(Dispatchers.IO).launch {
+            val res = updateUserProfileUseCase.invoke(token, body)
+            launch(Dispatchers.Main) {
+                res.collectLatest {
+                   //it
+                }
+            }
+        }
+    }
 }

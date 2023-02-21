@@ -586,6 +586,7 @@ class PersonalDetailsFragment : BaseFragment() {
     }
 
     private fun patientRegistartionDto(): PersonlistRequest {
+
         val imagelist = ImagelistRequest(
             imageid = 1,
             medicalrecordid = 1,

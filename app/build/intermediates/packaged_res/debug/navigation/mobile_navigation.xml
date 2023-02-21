@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.bss.uis.presentation.fragment.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_adminWorkSpaceFragment"
+            app:destination="@id/adminWorkSpaceFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminWorkSpaceFragment"
+        android:name="com.bss.uis.presentation.fragment.AdminWorkSpaceFragment"
+        android:label="fragment_admin_work_space"
+        tools:layout="@layout/fragment_admin_work_space" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.bss.uis.presentation.fragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <!--    <fragment-->
+<!--        android:id="@+id/nav_patient"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.patient.PatientFragment"-->
+<!--        android:label="@string/menu_patient"-->
+<!--        tools:layout="@layout/fragment_patients" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_shelterHome"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.shelterHome.ShelterHomeFragment"-->
+<!--        android:label="@string/menu_shelterHome"-->
+<!--        tools:layout="@layout/fragment_shelterhome" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_members"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.members.MembersFragment"-->
+<!--        android:label="@string/menu_members"-->
+<!--        tools:layout="@layout/fragment_members" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_gallery"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.gallery.GalleryFragment"-->
+<!--        android:label="@string/menu_gallery"-->
+<!--        tools:layout="@layout/fragment_gallery" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_notification"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.notification.NotificationFragment"-->
+<!--        android:label="@string/menu_notifications"-->
+<!--        tools:layout="@layout/fragment_notifications" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_settings"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.settings.SettingsFragement"-->
+<!--        android:label="@string/menu_settings"-->
+<!--        tools:layout="@layout/fragment_members" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_menu_admin"-->
+<!--        android:name="com.bss.uis.ui.navDrawer.ui.admin.AdminFragment"-->
+<!--        android:label="@string/menu_admin"-->
+<!--        tools:layout="@layout/admin_fragment" />-->
+</navigation>

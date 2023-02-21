@@ -2,6 +2,7 @@ package com.bss.uis.domain.repository
 
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.request.UpdateUserProfileDataRequest
 import com.bss.uis.data.remote.dto.response.*
 import com.bss.uis.domain.model.responsedomain.*
 import com.bss.uis.util.Resource
@@ -85,7 +86,10 @@ interface Repository {
 
     suspend fun fetchPatientList(
         token: String?,
-
     ): Flow<Resource<List<FetchPatientList>?>>
 
+    suspend fun updateUserProfile(
+        token: String?,
+        body: UpdateUserProfileDataRequest
+    ): Flow<Resource<ApproveUserResponse>>
 }
