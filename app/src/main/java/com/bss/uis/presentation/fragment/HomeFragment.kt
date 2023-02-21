@@ -133,7 +133,9 @@ class HomeFragment : Fragment(),ScrollImageAdapter.OnItemClickListener{
         TabLayoutMediator(
             my_tablayout,
             viewPager
+
         ) { _, _ -> }.attach()
+
 
     }
 

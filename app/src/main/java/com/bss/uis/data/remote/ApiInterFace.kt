@@ -2,6 +2,7 @@ package com.bss.uis.data.remote
 
 import com.bss.uis.data.remote.dto.request.ApproveUserRequestBody
 import com.bss.uis.data.remote.dto.request.PatientRegistatrtionRequest
+import com.bss.uis.data.remote.dto.request.UpdateUserProfileDataRequest
 import com.bss.uis.data.remote.dto.response.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -90,6 +91,12 @@ interface ApiInterFace {
         @Header("Authorization") token: String,
     ): Call<List<FetchPatientList>?>?
 
+
+    @POST("updateUserProfileData")
+    fun updateUserProfileData(
+        @Header("Authorization") token: String,
+        @Body updateUserProfileDataRequest: UpdateUserProfileDataRequest
+    ): Call<ApproveUserResponse>
 
 
 }

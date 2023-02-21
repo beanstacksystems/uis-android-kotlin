@@ -55,12 +55,13 @@
 
                         <ImageView
                             android:id="@+id/profile_image_edit_layout"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="65dp"
-                            android:src="@drawable/ic_edit_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="65dp"
                             android:layout_marginTop="60dp"
-                            android:orientation="vertical" />
+                            android:orientation="vertical"
+                            android:src="@drawable/ic_edit_image"
+                            app:tint="@color/black" />
                     </RelativeLayout>
 
                     <LinearLayout
