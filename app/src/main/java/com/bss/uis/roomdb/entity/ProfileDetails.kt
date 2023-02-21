@@ -20,5 +20,7 @@ data class ProfileDetails(
     @ColumnInfo(name = "gender")
     var gender: String? = null,
     @ColumnInfo(name = "occupation")
-    var occupation: String? = null
+    var occupation: String? = null,
+    @ColumnInfo(name = "profileimage")
+    var profileimage: String? = null
 )

@@ -30,7 +30,7 @@ object NetworkModule {
             .retryOnConnectionFailure(true)
             .build()
         return  Retrofit.Builder()
-            .baseUrl("https://api.uis.byree.in/api/")
+            .baseUrl("http://172.16.2.178:8000/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(client)

@@ -132,14 +132,20 @@ class EditProfileActivity : AppCompatActivity() {
                             if (binding.epDob.editText?.text?.isNotEmpty()!!) {
                                 //make api call
                                 CoroutineScope(Dispatchers.IO).launch {
-                                    Log.e(
-                                        "EditProfileActivity",
+                                    Log.d(
+                                        "profileRequestbody",
                                         "onCreate: ${
                                             updateUserProfileDataRequest(
                                                 binding, this@EditProfileActivity
                                             )
                                         }",
                                     )
+
+                                        updateUserorofile(updateUserProfileDataRequest(
+                                            binding, this@EditProfileActivity
+                                        ))
+
+
                                     val profileDetailsRepo =
                                         ProfileDetailsRepository(profileDetailsDao)
                                     profileDetailsRepo.delete()
@@ -151,7 +157,8 @@ class EditProfileActivity : AppCompatActivity() {
                                             email = binding.epEmail.editText?.text.toString(),
                                             dob = binding.epDob.editText?.text.toString(),
                                             gender = binding.epGender.editText?.text.toString(),
-                                            occupation = null
+                                            occupation = null,
+                                            profileimage = AppUtil().imageEncode(binding.epImage)
                                         )
                                     )
                                     val data = profileDetailsRepo.get()
@@ -353,6 +360,14 @@ class EditProfileActivity : AppCompatActivity() {
         }
         return masterId
 
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    suspend fun updateUserorofile(updateUserProfileDataRequest:UpdateUserProfileDataRequest) {
+        viewModelUIS.updateUserProfile(
+            ContextPreferenceManager().getToken("token", this)
+                .toString(), updateUserProfileDataRequest
+        )
     }
 
 
