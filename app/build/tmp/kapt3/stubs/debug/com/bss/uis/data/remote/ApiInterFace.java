@@ -49,7 +49,7 @@ public abstract interface ApiInterFace {
     java.lang.String value);
     
     @org.jetbrains.annotations.Nullable()
-    @retrofit2.http.POST(value = "userrights")
+    @retrofit2.http.POST(value = "userrights/")
     @retrofit2.http.FormUrlEncoded()
     public abstract retrofit2.Call<java.util.List<com.bss.uis.data.remote.dto.response.UserRightResponse>> userrights(@org.jetbrains.annotations.Nullable()
     @retrofit2.http.Header(value = "Authorization")

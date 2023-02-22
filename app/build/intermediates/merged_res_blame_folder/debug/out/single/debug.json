@@ -68,28 +68,28 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\drawable\\ic_photo_library_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\anim_animation.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\anim\\animation.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-hdpi_ic_switch_admin_image_round.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-hdpi\\ic_switch_admin_image_round.png"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-xxhdpi_ic_switch_role_image.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-xxhdpi\\ic_switch_role_image.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-hdpi_ic_switch_admin_image_round.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-hdpi\\ic_switch_admin_image_round.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\anim_animation.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\anim\\animation.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\drawable_shape_layout_orange.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\drawable\\shape_layout_orange.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-xhdpi_ic_uisgreen_nobg_foreground.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-xhdpi\\ic_uisgreen_nobg_foreground.png"
-    },
-    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-xhdpi_ic_switch_admin_image_round.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-xhdpi\\ic_switch_admin_image_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-xhdpi_ic_uisgreen_nobg_foreground.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-xhdpi\\ic_uisgreen_nobg_foreground.png"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\drawable_shape_layout_white.xml.flat",
@@ -258,6 +258,10 @@
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\mipmap-xhdpi_ic_uisyellow_nobg_round.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\mipmap-xhdpi\\ic_uisyellow_nobg_round.png"
+    },
+    {
+        "merged": "com.bss.uis.app-merged_res-85:/drawable_idproogpng.png.flat",
+        "source": "com.bss.uis.app-main-87:/drawable/idproogpng.png"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-merged_res-85:\\drawable_ic_members.png.flat",

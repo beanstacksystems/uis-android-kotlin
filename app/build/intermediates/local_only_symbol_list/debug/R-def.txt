@@ -112,6 +112,7 @@ drawable ic_uisorrange_nobg_background
 drawable ic_uispurple_nobg_background
 drawable ic_uisred_nobg_background
 drawable ic_uisyellow_nobg_background
+drawable idproogpng
 drawable indicator_selector
 drawable login_signup_bottom
 drawable login_signup_top

@@ -3947,6 +3947,7 @@ drawable ic_uisyellow_nobg_background
 drawable ic_unchecked
 drawable ic_warning_orange_24dp
 drawable ic_wifi_white_24dp
+drawable idproogpng
 drawable indicator_selector
 drawable linear_green_gradient_connectify
 drawable linear_red_gradient_connectify

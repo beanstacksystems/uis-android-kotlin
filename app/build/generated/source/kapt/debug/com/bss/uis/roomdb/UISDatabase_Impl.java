@@ -64,9 +64,9 @@ public final class UISDatabase_Impl extends UISDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `hometabdata` (`tabid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tabname` TEXT, `tabdesc` TEXT, `tabdata` TEXT, `tabseq` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `masterData` (`masterdatapkId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `masterdataType` TEXT, `masterdataId` INTEGER NOT NULL, `masterdataval` TEXT, `isactive` TEXT, `masterdatadesc` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `userrightdata` (`userRightDataId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userRightId` INTEGER NOT NULL, `userRightType` TEXT, `desc` TEXT, `userRoleId` INTEGER NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `profileDetails` (`userid` INTEGER, `salutation` TEXT, `usename` TEXT, `email` TEXT, `dob` TEXT, `gender` TEXT, `occupation` TEXT, PRIMARY KEY(`userid`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `profileDetails` (`userid` INTEGER, `salutation` TEXT, `usename` TEXT, `email` TEXT, `dob` TEXT, `gender` TEXT, `occupation` TEXT, `profileimage` TEXT, PRIMARY KEY(`userid`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd01a5c44bc2bd0b365593825877a54b2')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c1d425b081f86743d73c886cce5270b7')");
       }
 
       @Override
@@ -272,7 +272,7 @@ public final class UISDatabase_Impl extends UISDatabase {
                   + " Expected:\n" + _infoUserrightdata + "\n"
                   + " Found:\n" + _existingUserrightdata);
         }
-        final HashMap<String, TableInfo.Column> _columnsProfileDetails = new HashMap<String, TableInfo.Column>(7);
+        final HashMap<String, TableInfo.Column> _columnsProfileDetails = new HashMap<String, TableInfo.Column>(8);
         _columnsProfileDetails.put("userid", new TableInfo.Column("userid", "INTEGER", false, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProfileDetails.put("salutation", new TableInfo.Column("salutation", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProfileDetails.put("usename", new TableInfo.Column("usename", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -280,6 +280,7 @@ public final class UISDatabase_Impl extends UISDatabase {
         _columnsProfileDetails.put("dob", new TableInfo.Column("dob", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProfileDetails.put("gender", new TableInfo.Column("gender", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProfileDetails.put("occupation", new TableInfo.Column("occupation", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProfileDetails.put("profileimage", new TableInfo.Column("profileimage", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysProfileDetails = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesProfileDetails = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoProfileDetails = new TableInfo("profileDetails", _columnsProfileDetails, _foreignKeysProfileDetails, _indicesProfileDetails);
@@ -291,7 +292,7 @@ public final class UISDatabase_Impl extends UISDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "d01a5c44bc2bd0b365593825877a54b2", "6133847012f46941db115dbba6e90f67");
+    }, "c1d425b081f86743d73c886cce5270b7", "25378ef7d17e0c6e717a5cbe34509802");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

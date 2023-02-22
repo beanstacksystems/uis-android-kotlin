@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\custom_exit_dialog.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\custom_exit_dialog.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\fragment_medical_history.xml",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\fragment_medical_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\custom_exit_dialog.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-main-87:\\layout\\custom_exit_dialog.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\7.4\\com.bss.uis.app-mergeDebugResources-84:\\layout\\user_list.xml",
