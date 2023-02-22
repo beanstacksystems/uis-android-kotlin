@@ -164,7 +164,6 @@ class EditProfileActivity : AppCompatActivity() {
                                     val data = profileDetailsRepo.get()
 
                                     Log.e("EditProfileActivity", "onCreate:$data ")
-
                                 }
                             } else binding.epDob.error = "Date of Birth can not be left empty."
                         } else binding.epEmail.error = "Email can not be left empty."
