@@ -32,6 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import timber.log.Timber
 
 @AndroidEntryPoint
 class DrawerMainActivity : AppCompatActivity() {
@@ -83,7 +84,7 @@ class DrawerMainActivity : AppCompatActivity() {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
                 }
-                Log.d("dataDrawear", data.userRightType.toString())
+                Timber.tag("dataDrawear").d(data.userRightType.toString())
                 return@forEach
             }
 
@@ -118,8 +119,8 @@ class DrawerMainActivity : AppCompatActivity() {
         val logout = navMenu.findItem(R.id.logout)
         profilelayout = navHeaderView.findViewById<View>(R.id.profile_details_layout) as ConstraintLayout
         profilelayout.setOnClickListener {
-            startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
-//            startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
+//            startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
+            startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
         }
         navHeaderPersonName = navHeaderView.findViewById<View>(R.id.navHeaderPersonName) as TextView
         navHeaderPersonEmail =
