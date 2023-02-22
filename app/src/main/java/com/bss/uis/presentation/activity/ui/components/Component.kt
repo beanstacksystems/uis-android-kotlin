@@ -108,7 +108,8 @@ fun DropDownMenuGray(
                         .bounceClick { expanded.value = !expanded.value })
             },
         )
-        DropdownMenu(expanded = expanded.value,
+        DropdownMenu(
+            expanded = expanded.value,
             onDismissRequest = { expanded.value = false },
             modifier = Modifier.width(with(LocalDensity.current) {
                 textFieldSize.width.toDp()

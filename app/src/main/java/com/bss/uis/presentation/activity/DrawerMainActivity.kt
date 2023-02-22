@@ -127,7 +127,8 @@ class DrawerMainActivity : AppCompatActivity() {
             startActivity(Intent(this@DrawerMainActivity, SettingActivity::class.java))
             return@setOnMenuItemClickListener true
         }
-        profilelayout = navHeaderView.findViewById<View>(R.id.profile_details_layout) as ConstraintLayout
+        profilelayout =
+            navHeaderView.findViewById<View>(R.id.profile_details_layout) as ConstraintLayout
         profilelayout.setOnClickListener {
 //            startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
             startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
