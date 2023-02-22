@@ -1,12 +1,11 @@
 package com.bss.uis.presentation.activity
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.WindowManager
-import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -18,31 +17,16 @@ import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
-
 import com.bss.uis.R
-import com.bss.uis.SharedPrefForRoomDb
-import com.bss.uis.domain.model.responsedomain.MasterDataResponseDomain
-import com.bss.uis.domain.model.responsedomain.TabDataResponseDomain
-import com.bss.uis.domain.model.responsedomain.UserRightResponseDomain
-import com.bss.uis.presentation.adapter.UserAdapter
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
 import com.bss.uis.roomdb.UISDatabase
 import com.bss.uis.roomdb.dao.MasterDao
-import com.bss.uis.roomdb.dao.repository.MasterDaoRepository
 import com.bss.uis.roomdb.dao.repository.UserDaoRepository
-import com.bss.uis.roomdb.entity.HomeTabData
-import com.bss.uis.roomdb.entity.MasterData
-import com.bss.uis.roomdb.entity.UserRightData
 import com.bss.uis.util.AppConstant
 import com.bss.uis.util.AppUtil
 import com.bss.uis.util.ContextPreferenceManager
 import com.bss.uis.util.Resource
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -134,7 +118,8 @@ class DrawerMainActivity : AppCompatActivity() {
         val logout = navMenu.findItem(R.id.logout)
         profilelayout = navHeaderView.findViewById<View>(R.id.profile_details_layout) as ConstraintLayout
         profilelayout.setOnClickListener {
-            startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
+            startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
+//            startActivity(Intent(this@DrawerMainActivity, EditProfileActivity::class.java))
         }
         navHeaderPersonName = navHeaderView.findViewById<View>(R.id.navHeaderPersonName) as TextView
         navHeaderPersonEmail =

@@ -345,6 +345,27 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getPatientDetails(
+        token: String,
+        patientId: String
+    ): Flow<Resource<PatientDetailsResponse>> {
+        return flow {
+            emit(Resource.Loading(true))
+            try {
+                val apiResponse =
+                    apiInterFace.getPatientDetails(token.toString(), patientId).awaitRespo()
+                emit(Resource.Success(apiResponse))
+            } catch (e: IOException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: HttpException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            } catch (e: IllegalStateException) {
+                e.message?.let { emit(Resource.Error(it)) }
+            }
+            emit(Resource.Loading(false))
+        }
+    }
+
     override suspend fun registerWithGogle(
         token: String?,
         serial: String?,

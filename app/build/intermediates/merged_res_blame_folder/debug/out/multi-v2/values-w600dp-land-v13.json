@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.bss.uis.app-mergeDebugResources-83:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.bss.uis.app-mergeDebugResources-87:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\1badce3b380dc4bd487c01308a0799fd\\transformed\\material-1.9.0-alpha01\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\f78fcfe9cd5b957f1d936a7ce577a1e3\\transformed\\material-1.9.0-alpha01\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

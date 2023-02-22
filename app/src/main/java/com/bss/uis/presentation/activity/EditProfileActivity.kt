@@ -216,7 +216,6 @@ class EditProfileActivity : AppCompatActivity() {
             } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
                 val photo = data?.extras?.get("data") as Bitmap
                 binding.epImage.setImageBitmap(photo)
-
             } else if (requestCode == ID_PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
                 if (data != null && data.data != null) {
                     val imageUri = data.data
@@ -225,7 +224,6 @@ class EditProfileActivity : AppCompatActivity() {
             } else if (requestCode == ID_REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
                 val photo = data?.extras?.get("data") as Bitmap
                 binding.epImage.setImageBitmap(photo)
-
             }
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
@@ -239,7 +237,6 @@ class EditProfileActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (view.epDob.editText?.text.toString() == "") {
                     view.epDob.error = "This Field Can Not Be Empty"
-
                 } else {
                     view.epDob.error = null
                 }

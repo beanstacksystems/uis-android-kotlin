@@ -8,6 +8,7 @@ import com.bss.uis.domain.usecase.IsServerReachableUseCase;
 import com.bss.uis.domain.usecase.LogOutUseCase;
 import com.bss.uis.domain.usecase.LoginUserUseCase;
 import com.bss.uis.domain.usecase.MasterDataUseCase;
+import com.bss.uis.domain.usecase.PatientDetailUseCase;
 import com.bss.uis.domain.usecase.PatientRegistrationUsecase;
 import com.bss.uis.domain.usecase.PincodeUsecase;
 import com.bss.uis.domain.usecase.RegisterUseCase;
@@ -60,6 +61,8 @@ public final class ViewModelUIS_Factory implements Factory<ViewModelUIS> {
 
   private final Provider<UpdateUserProfileUseCase> updateUserProfileUseCaseProvider;
 
+  private final Provider<PatientDetailUseCase> patientDetailUseCaseProvider;
+
   public ViewModelUIS_Factory(Provider<IsServerReachableUseCase> isServerReachableUseCaseProvider,
       Provider<RegisterUseCase> registerUserUsecaseProvider,
       Provider<MasterDataUseCase> masterDataUseCaseProvider,
@@ -74,7 +77,8 @@ public final class ViewModelUIS_Factory implements Factory<ViewModelUIS> {
       Provider<FetchUserUseCase> fetchUserUseCaseProvider,
       Provider<ApproveUserUseCase> approveUserUseCaseProvider,
       Provider<FetchPatientListUsecase> fetchPatientListUsecaseProvider,
-      Provider<UpdateUserProfileUseCase> updateUserProfileUseCaseProvider) {
+      Provider<UpdateUserProfileUseCase> updateUserProfileUseCaseProvider,
+      Provider<PatientDetailUseCase> patientDetailUseCaseProvider) {
     this.isServerReachableUseCaseProvider = isServerReachableUseCaseProvider;
     this.registerUserUsecaseProvider = registerUserUsecaseProvider;
     this.masterDataUseCaseProvider = masterDataUseCaseProvider;
@@ -90,11 +94,12 @@ public final class ViewModelUIS_Factory implements Factory<ViewModelUIS> {
     this.approveUserUseCaseProvider = approveUserUseCaseProvider;
     this.fetchPatientListUsecaseProvider = fetchPatientListUsecaseProvider;
     this.updateUserProfileUseCaseProvider = updateUserProfileUseCaseProvider;
+    this.patientDetailUseCaseProvider = patientDetailUseCaseProvider;
   }
 
   @Override
   public ViewModelUIS get() {
-    return newInstance(isServerReachableUseCaseProvider.get(), registerUserUsecaseProvider.get(), masterDataUseCaseProvider.get(), tabDataUseCaseProvider.get(), userApiUseCaseProvider.get(), userRightUseCaseProvider.get(), loginUserUseCaseProvider.get(), logOutUseCaseProvider.get(), registerWithGoogleUsecaseProvider.get(), pincodeUsecaseProvider.get(), patientRegistrationUsecaseProvider.get(), fetchUserUseCaseProvider.get(), approveUserUseCaseProvider.get(), fetchPatientListUsecaseProvider.get(), updateUserProfileUseCaseProvider.get());
+    return newInstance(isServerReachableUseCaseProvider.get(), registerUserUsecaseProvider.get(), masterDataUseCaseProvider.get(), tabDataUseCaseProvider.get(), userApiUseCaseProvider.get(), userRightUseCaseProvider.get(), loginUserUseCaseProvider.get(), logOutUseCaseProvider.get(), registerWithGoogleUsecaseProvider.get(), pincodeUsecaseProvider.get(), patientRegistrationUsecaseProvider.get(), fetchUserUseCaseProvider.get(), approveUserUseCaseProvider.get(), fetchPatientListUsecaseProvider.get(), updateUserProfileUseCaseProvider.get(), patientDetailUseCaseProvider.get());
   }
 
   public static ViewModelUIS_Factory create(
@@ -112,8 +117,9 @@ public final class ViewModelUIS_Factory implements Factory<ViewModelUIS> {
       Provider<FetchUserUseCase> fetchUserUseCaseProvider,
       Provider<ApproveUserUseCase> approveUserUseCaseProvider,
       Provider<FetchPatientListUsecase> fetchPatientListUsecaseProvider,
-      Provider<UpdateUserProfileUseCase> updateUserProfileUseCaseProvider) {
-    return new ViewModelUIS_Factory(isServerReachableUseCaseProvider, registerUserUsecaseProvider, masterDataUseCaseProvider, tabDataUseCaseProvider, userApiUseCaseProvider, userRightUseCaseProvider, loginUserUseCaseProvider, logOutUseCaseProvider, registerWithGoogleUsecaseProvider, pincodeUsecaseProvider, patientRegistrationUsecaseProvider, fetchUserUseCaseProvider, approveUserUseCaseProvider, fetchPatientListUsecaseProvider, updateUserProfileUseCaseProvider);
+      Provider<UpdateUserProfileUseCase> updateUserProfileUseCaseProvider,
+      Provider<PatientDetailUseCase> patientDetailUseCaseProvider) {
+    return new ViewModelUIS_Factory(isServerReachableUseCaseProvider, registerUserUsecaseProvider, masterDataUseCaseProvider, tabDataUseCaseProvider, userApiUseCaseProvider, userRightUseCaseProvider, loginUserUseCaseProvider, logOutUseCaseProvider, registerWithGoogleUsecaseProvider, pincodeUsecaseProvider, patientRegistrationUsecaseProvider, fetchUserUseCaseProvider, approveUserUseCaseProvider, fetchPatientListUsecaseProvider, updateUserProfileUseCaseProvider, patientDetailUseCaseProvider);
   }
 
   public static ViewModelUIS newInstance(IsServerReachableUseCase isServerReachableUseCase,
@@ -124,7 +130,8 @@ public final class ViewModelUIS_Factory implements Factory<ViewModelUIS> {
       PincodeUsecase pincodeUsecase, PatientRegistrationUsecase patientRegistrationUsecase,
       FetchUserUseCase fetchUserUseCase, ApproveUserUseCase approveUserUseCase,
       FetchPatientListUsecase fetchPatientListUsecase,
-      UpdateUserProfileUseCase updateUserProfileUseCase) {
-    return new ViewModelUIS(isServerReachableUseCase, registerUserUsecase, masterDataUseCase, tabDataUseCase, userApiUseCase, userRightUseCase, loginUserUseCase, logOutUseCase, registerWithGoogleUsecase, pincodeUsecase, patientRegistrationUsecase, fetchUserUseCase, approveUserUseCase, fetchPatientListUsecase, updateUserProfileUseCase);
+      UpdateUserProfileUseCase updateUserProfileUseCase,
+      PatientDetailUseCase patientDetailUseCase) {
+    return new ViewModelUIS(isServerReachableUseCase, registerUserUsecase, masterDataUseCase, tabDataUseCase, userApiUseCase, userRightUseCase, loginUserUseCase, logOutUseCase, registerWithGoogleUsecase, pincodeUsecase, patientRegistrationUsecase, fetchUserUseCase, approveUserUseCase, fetchPatientListUsecase, updateUserProfileUseCase, patientDetailUseCase);
   }
 }

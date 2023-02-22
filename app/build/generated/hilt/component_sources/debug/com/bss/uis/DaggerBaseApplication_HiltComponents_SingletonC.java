@@ -23,6 +23,7 @@ import com.bss.uis.domain.usecase.IsServerReachableUseCase;
 import com.bss.uis.domain.usecase.LogOutUseCase;
 import com.bss.uis.domain.usecase.LoginUserUseCase;
 import com.bss.uis.domain.usecase.MasterDataUseCase;
+import com.bss.uis.domain.usecase.PatientDetailUseCase;
 import com.bss.uis.domain.usecase.PatientRegistrationUsecase;
 import com.bss.uis.domain.usecase.PincodeUsecase;
 import com.bss.uis.domain.usecase.RegisterUseCase;
@@ -40,6 +41,7 @@ import com.bss.uis.presentation.activity.AddPatientActivity;
 import com.bss.uis.presentation.activity.DrawerMainActivity;
 import com.bss.uis.presentation.activity.EditProfileActivity;
 import com.bss.uis.presentation.activity.LogInSignUpActivity;
+import com.bss.uis.presentation.activity.PatientDetailsActivity;
 import com.bss.uis.presentation.activity.SplashActivity;
 import com.bss.uis.presentation.viewmodel.ViewModelUIS;
 import com.bss.uis.presentation.viewmodel.ViewModelUIS_HiltModules_KeyModule_ProvideFactory;
@@ -420,6 +422,10 @@ public final class DaggerBaseApplication_HiltComponents_SingletonC {
     }
 
     @Override
+    public void injectPatientDetailsActivity(PatientDetailsActivity patientDetailsActivity) {
+    }
+
+    @Override
     public void injectSplashActivity(SplashActivity splashActivity) {
     }
 
@@ -527,6 +533,10 @@ public final class DaggerBaseApplication_HiltComponents_SingletonC {
       return new UpdateUserProfileUseCase(singletonCImpl.provideRepositoryProvider.get());
     }
 
+    private PatientDetailUseCase patientDetailUseCase() {
+      return new PatientDetailUseCase(singletonCImpl.provideRepositoryProvider.get());
+    }
+
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam) {
       this.viewModelUISProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
@@ -559,7 +569,7 @@ public final class DaggerBaseApplication_HiltComponents_SingletonC {
       public T get() {
         switch (id) {
           case 0: // com.bss.uis.presentation.viewmodel.ViewModelUIS 
-          return (T) new ViewModelUIS(viewModelCImpl.isServerReachableUseCase(), viewModelCImpl.registerUseCase(), viewModelCImpl.masterDataUseCase(), viewModelCImpl.tabDataUseCase(), viewModelCImpl.userApiUseCase(), viewModelCImpl.userRightUseCase(), viewModelCImpl.loginUserUseCase(), viewModelCImpl.logOutUseCase(), viewModelCImpl.registerWithGoogleUsecase(), viewModelCImpl.pincodeUsecase(), viewModelCImpl.patientRegistrationUsecase(), viewModelCImpl.fetchUserUseCase(), viewModelCImpl.approveUserUseCase(), viewModelCImpl.fetchPatientListUsecase(), viewModelCImpl.updateUserProfileUseCase());
+          return (T) new ViewModelUIS(viewModelCImpl.isServerReachableUseCase(), viewModelCImpl.registerUseCase(), viewModelCImpl.masterDataUseCase(), viewModelCImpl.tabDataUseCase(), viewModelCImpl.userApiUseCase(), viewModelCImpl.userRightUseCase(), viewModelCImpl.loginUserUseCase(), viewModelCImpl.logOutUseCase(), viewModelCImpl.registerWithGoogleUsecase(), viewModelCImpl.pincodeUsecase(), viewModelCImpl.patientRegistrationUsecase(), viewModelCImpl.fetchUserUseCase(), viewModelCImpl.approveUserUseCase(), viewModelCImpl.fetchPatientListUsecase(), viewModelCImpl.updateUserProfileUseCase(), viewModelCImpl.patientDetailUseCase());
 
           default: throw new AssertionError(id);
         }
