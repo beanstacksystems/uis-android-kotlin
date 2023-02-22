@@ -123,6 +123,7 @@ class PatientDetailsActivity : AppCompatActivity() {
             }
         }
 
+
         /*   tvName.text = data.patientName
            tvCancerType.text = data.patientCancerType
            tvDob.text = data.patientAge
@@ -130,6 +131,7 @@ class PatientDetailsActivity : AppCompatActivity() {
            tvAdress.text =
                data.patientAddress?.addressLine1 + ", " + data.patientAddress?.addressLine2 + ", " + data.patientAddress?.pinCode + ", " + data.patientAddress?.state + ", " + data.patientAddress?.city
           */
+
         ivback.setOnClickListener {
             onBackPressed()
         }

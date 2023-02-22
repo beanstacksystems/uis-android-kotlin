@@ -42,6 +42,11 @@
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.bss.uis.presentation.activity.SettingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_setting"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
             android:name="com.bss.uis.presentation.activity.SearchActivity"
             android:exported="false"
             android:label="@string/title_activity_search"

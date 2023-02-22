@@ -4522,7 +4522,6 @@ id loading_text
 id login_bottom_layout
 id login_layout
 id login_signup_btn
-id logout
 id lottie_dialog_animation
 id lottie_dialog_animation_container
 id lottie_dialog_buttons_layout
@@ -4610,7 +4609,10 @@ id nav_home
 id nav_host_fragment
 id nav_host_fragment_xml
 id nav_host_fragment_container
+id nav_logout
 id nav_menu_admin
+id nav_search_patient
+id nav_settings
 id nav_view
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
@@ -5629,6 +5631,7 @@ string template_percent
 string title_activity_drawer_main
 string title_activity_login_signup
 string title_activity_search
+string title_activity_setting
 string title_activity_user_profile
 string update
 string update_profile

@@ -77,7 +77,10 @@ class EditProfileActivity : AppCompatActivity() {
         binding.epImage.setOnClickListener {
             selectImage()
         }
-
+        binding.imageView8.setOnClickListener {
+            finish()
+        }
+        binding
         binding.epSalutation.boxStrokeColor = Color.parseColor("#000000")
 
         binding.epFullname.editText?.setText(

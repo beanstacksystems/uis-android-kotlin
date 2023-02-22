@@ -151,6 +151,7 @@
     <string name="title_activity_drawer_main">DrawerMainActivity</string>
     <string name="title_activity_login_signup">LoginSignupActivity</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="update">Update</string>
     <string name="update_profile"><u>Update</u></string>
