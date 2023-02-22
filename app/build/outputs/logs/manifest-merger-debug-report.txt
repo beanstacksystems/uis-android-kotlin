@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:118:9-127:20
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:123:9-132:20
 	android:grantUriPermissions
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:122:13-47
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:127:13-47
 	android:authorities
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:120:13-60
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:125:13-60
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:121:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:126:13-37
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:119:13-62
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:124:13-62
 manifest
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
 MERGED from [androidx.databinding:viewbinding:7.3.0] C:\Users\Admin\.gradle\caches\transforms-3\04c99e14cb71f44ef5e09c70113d6271\transformed\viewbinding-7.3.0\AndroidManifest.xml:2:1-9:12
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-20:12
-MERGED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-20:12
+MERGED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.activity:activity-compose:1.6.1] C:\Users\Admin\.gradle\caches\transforms-3\191070eb268fecad15777de46502631a\transformed\activity-compose-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material:1.3.1] C:\Users\Admin\.gradle\caches\transforms-3\ad4786e2f08b67ef7b9983ec2fa15334\transformed\material-1.3.1\AndroidManifest.xml:17:1-22:12
@@ -38,7 +38,7 @@ MERGED from [androidx.hilt:hilt-navigation:1.0.0] C:\Users\Admin\.gradle\caches\
 MERGED from [androidx.navigation:navigation-fragment:2.3.2] C:\Users\Admin\.gradle\caches\transforms-3\261106140b3c843d22549611e1573b98\transformed\navigation-fragment-2.3.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Admin\.gradle\caches\transforms-3\342c40cbd8e522aeff5b5958f872c954\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.ui:ui-test-manifest:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\a200ab97f9e87a9516b0329ea9053dd6\transformed\ui-test-manifest-1.3.3\AndroidManifest.xml:17:1-28:12
-MERGED from [:viewpagerutil] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:viewpagerutil] D:\studio project\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.9.0-alpha01] C:\Users\Admin\.gradle\caches\transforms-3\f78fcfe9cd5b957f1d936a7ce577a1e3\transformed\material-1.9.0-alpha01\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Admin\.gradle\caches\transforms-3\d879c5ff33c9983599b8f718d1d30ca5\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Admin\.gradle\caches\transforms-3\dd98067c44df4473e87468f53e7bd25c\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
@@ -163,27 +163,27 @@ MERGED from [androidx.compose.ui:ui-util:1.3.3] C:\Users\Admin\.gradle\caches\tr
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Admin\.gradle\caches\transforms-3\eaea49e8aeac874a3dc2f1ca703f84d8\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.dagger:dagger-lint-aar:2.43.2] C:\Users\Admin\.gradle\caches\transforms-3\d34e7d6c0194017eeccfc1311f2f5190\transformed\dagger-lint-aar-2.43.2\AndroidManifest.xml:16:1-19:12
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\Admin\.gradle\caches\transforms-3\b2150375d4bddeed56eb1e68cf5f5001\transformed\installreferrer-1.0\AndroidManifest.xml:2:1-13:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
 	package
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-130:12
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:1-135:12
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:5:5-79
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:5:5-79
 MERGED from [com.google.firebase:firebase-auth:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\217156e8457a177fa3cdf90f6c349f02\transformed\firebase-auth-21.1.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-auth:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\217156e8457a177fa3cdf90f6c349f02\transformed\firebase-auth-21.1.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\da1200910408fce9cc373def34caa01a\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:23:5-79
@@ -199,11 +199,11 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:
 MERGED from [androidx.work:work-runtime:2.8.0] C:\Users\Admin\.gradle\caches\transforms-3\0972a1f101607e8a083f6fd394189dec\transformed\work-runtime-2.8.0\AndroidManifest.xml:24:5-79
 MERGED from [androidx.work:work-runtime:2.8.0] C:\Users\Admin\.gradle\caches\transforms-3\0972a1f101607e8a083f6fd394189dec\transformed\work-runtime-2.8.0\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:5:22-76
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:5:22-76
 uses-permission#android.permission.INTERNET
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:7:5-67
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-67
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-67
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:7:5-67
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-67
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-67
 MERGED from [com.google.firebase:firebase-auth:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\217156e8457a177fa3cdf90f6c349f02\transformed\firebase-auth-21.1.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\217156e8457a177fa3cdf90f6c349f02\transformed\firebase-auth-21.1.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\da1200910408fce9cc373def34caa01a\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:22:5-67
@@ -217,41 +217,41 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\cc693f5ac4f61490a5a11e1a33869cc5\transformed\play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\cc693f5ac4f61490a5a11e1a33869cc5\transformed\play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:7:22-64
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:7:22-64
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:8:5-80
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:8:22-77
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:8:22-77
 uses-permission#android.permission.CAMERA
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:9:5-65
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:9:5-65
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:9:22-62
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:9:22-62
 uses-permission#android.permission.ACCESS_MEDIA_LOCATION
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:10:5-80
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:10:5-80
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:10:22-77
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:10:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:11:5-13:40
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:11:5-13:40
 	tools:ignore
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:13:9-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:13:9-37
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:12:9-65
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:12:9-65
 uses-permission#com.google.android.gms.permission.AD_ID
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:14:5-16:31
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:14:5-16:31
 REJECTED from [com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\da1200910408fce9cc373def34caa01a\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:25:5-79
 REJECTED from [com.google.android.gms:play-services-measurement-impl:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2c7e3fd27de6972d4089f14067244742\transformed\play-services-measurement-impl-21.2.0\AndroidManifest.xml:27:5-79
 REJECTED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\Admin\.gradle\caches\transforms-3\eb67f9a4c88a7852310467d588c103fd\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:5-79
 REJECTED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\Admin\.gradle\caches\transforms-3\cc693f5ac4f61490a5a11e1a33869cc5\transformed\play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:26:5-79
 	tools:node
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:16:9-28
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:16:9-28
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:15:9-63
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:15:9-63
 application
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:18:5-128:19
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:19
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:19
-MERGED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-17:19
-MERGED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-17:19
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:18:5-133:19
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:19
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:19
+MERGED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-17:19
+MERGED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-17:19
 MERGED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\a200ab97f9e87a9516b0329ea9053dd6\transformed\ui-test-manifest-1.3.3\AndroidManifest.xml:22:5-26:19
@@ -355,179 +355,189 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\Admin\.gr
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\27e608b039bf1d43f309b1d5b7e28dc0\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:26:9-35
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:24:9-41
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:24:9-41
 	android:fullBackupContent
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:22:9-54
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:22:9-54
 	android:roundIcon
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:25:9-46
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:25:9-46
 	tools:targetApi
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:29:9-29
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:29:9-29
 	android:icon
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:23:9-41
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:23:9-41
 	android:allowBackup
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:20:9-35
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:27:9-73
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:27:9-73
 	android:dataExtractionRules
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:21:9-65
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:21:9-65
 	android:usesCleartextTraffic
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:28:9-44
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:28:9-44
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:19:9-40
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:19:9-40
+activity#com.bss.uis.presentation.activity.SettingActivity
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:30:9-34:80
+	android:label
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:33:13-59
+	android:exported
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:32:13-37
+	android:theme
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:34:13-77
+	android:name
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:31:13-66
 activity#com.bss.uis.presentation.activity.SearchActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:30:9-34:80
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:35:9-39:80
 	android:label
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:33:13-58
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:38:13-58
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:32:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:37:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:34:13-77
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:39:13-77
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:31:13-65
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:36:13-65
 activity#com.bss.uis.presentation.activity.EditProfileActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:35:9-38:75
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:40:9-43:75
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:37:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:42:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:38:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:43:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:36:13-70
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:41:13-70
 activity#com.bss.uis.presentation.activity.PatientDetailsActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:39:9-42:75
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:44:9-47:75
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:41:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:46:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:42:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:47:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:40:13-73
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:45:13-73
 activity#com.bss.uis.presentation.activity.AdminWorkSpaceActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:43:9-46:75
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:48:9-51:75
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:45:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:50:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:46:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:51:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:44:13-73
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:49:13-73
 activity#com.bss.uis.presentation.activity.AddPatientActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:47:9-54:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:52:9-59:20
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:49:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:54:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:50:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:55:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:48:13-69
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:53:13-69
 meta-data#android.app.lib_name
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:51:13-53:36
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:56:13-58:36
 	android:value
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:53:17-33
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:58:17-33
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:52:17-52
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:57:17-52
 activity#com.bss.uis.presentation.activity.DrawerMainActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:55:9-62:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:60:9-67:20
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:57:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:62:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:58:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:63:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:56:13-69
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:61:13-69
 activity#com.bss.uis.presentation.activity.EnableBiometricLoginActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:63:9-70:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:68:9-75:20
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:65:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:70:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:66:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:71:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:64:13-79
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:69:13-79
 activity#com.bss.uis.presentation.activity.LogInSignUpActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:71:9-78:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:76:9-83:20
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:73:13-37
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:78:13-37
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:74:13-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:79:13-72
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:72:13-70
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:77:13-70
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:80:9-82:55
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:85:9-87:55
 	android:value
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:82:13-52
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:87:13-52
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:81:13-58
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:86:13-58
 meta-data#com.facebook.sdk.ClientToken
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:83:9-85:61
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:88:9-90:61
 	android:value
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:85:13-58
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:90:13-58
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:84:13-56
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:89:13-56
 activity#com.facebook.FacebookActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:87:9-90:48
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:92:9-95:48
 MERGED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:30:9-33:66
 MERGED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:30:9-33:66
 	android:label
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:90:13-45
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:95:13-45
 	android:configChanges
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:89:13-96
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:94:13-96
 	android:theme
 		ADDED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:33:13-63
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:88:13-57
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:93:13-57
 activity#com.facebook.CustomTabActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:91:9-102:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:96:9-107:20
 MERGED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:35:9-49:20
 MERGED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:35:9-49:20
 	tools:node
 		ADDED from [com.facebook.android:facebook-common:8.1.0] C:\Users\Admin\.gradle\caches\transforms-3\f5797fd08ddebbba8c81dd3eea95533b\transformed\facebook-common-8.1.0\AndroidManifest.xml:38:13-31
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:93:13-36
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:98:13-36
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:92:13-58
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:97:13-58
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/fb_login_protocol_scheme
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:94:13-101:29
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:99:13-106:29
 action#android.intent.action.VIEW
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:95:17-69
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:100:17-69
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:95:25-66
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:100:25-66
 category#android.intent.category.DEFAULT
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:97:17-76
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:102:17-76
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:97:27-73
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:102:27-73
 category#android.intent.category.BROWSABLE
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:98:17-78
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:103:17-78
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:98:27-75
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:103:27-75
 data
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:100:17-75
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:105:17-75
 	android:scheme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:100:23-72
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:105:23-72
 activity#com.bss.uis.presentation.activity.SplashActivity
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:103:9-116:20
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:108:9-121:20
 	android:exported
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:105:13-36
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:110:13-36
 	android:theme
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:106:13-60
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:111:13-60
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:104:13-65
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:109:13-65
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:107:13-111:29
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:112:13-116:29
 action#android.intent.action.MAIN
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:108:17-69
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:113:17-69
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:108:25-66
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:113:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:110:17-77
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:115:17-77
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:110:27-74
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:115:27-74
 uses-sdk
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:7.3.0] C:\Users\Admin\.gradle\caches\transforms-3\04c99e14cb71f44ef5e09c70113d6271\transformed\viewbinding-7.3.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.databinding:viewbinding:7.3.0] C:\Users\Admin\.gradle\caches\transforms-3\04c99e14cb71f44ef5e09c70113d6271\transformed\viewbinding-7.3.0\AndroidManifest.xml:5:5-7:41
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
-MERGED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
-MERGED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-compose:1.6.1] C:\Users\Admin\.gradle\caches\transforms-3\191070eb268fecad15777de46502631a\transformed\activity-compose-1.6.1\AndroidManifest.xml:20:5-44
@@ -568,8 +578,8 @@ MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Admin\.gradl
 MERGED from [androidx.navigation:navigation-runtime:2.5.3] C:\Users\Admin\.gradle\caches\transforms-3\342c40cbd8e522aeff5b5958f872c954\transformed\navigation-runtime-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.compose.ui:ui-test-manifest:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\a200ab97f9e87a9516b0329ea9053dd6\transformed\ui-test-manifest-1.3.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.ui:ui-test-manifest:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\a200ab97f9e87a9516b0329ea9053dd6\transformed\ui-test-manifest-1.3.3\AndroidManifest.xml:20:5-44
-MERGED from [:viewpagerutil] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:viewpagerutil] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:viewpagerutil] D:\studio project\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:viewpagerutil] D:\studio project\uis-android-kotlin\viewpagerutil\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.material:material:1.9.0-alpha01] C:\Users\Admin\.gradle\caches\transforms-3\f78fcfe9cd5b957f1d936a7ce577a1e3\transformed\material-1.9.0-alpha01\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.9.0-alpha01] C:\Users\Admin\.gradle\caches\transforms-3\f78fcfe9cd5b957f1d936a7ce577a1e3\transformed\material-1.9.0-alpha01\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Admin\.gradle\caches\transforms-3\d879c5ff33c9983599b8f718d1d30ca5\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
@@ -818,36 +828,36 @@ MERGED from [com.google.dagger:dagger-lint-aar:2.43.2] C:\Users\Admin\.gradle\ca
 MERGED from [com.google.dagger:dagger-lint-aar:2.43.2] C:\Users\Admin\.gradle\caches\transforms-3\d34e7d6c0194017eeccfc1311f2f5190\transformed\dagger-lint-aar-2.43.2\AndroidManifest.xml:18:3-42
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\Admin\.gradle\caches\transforms-3\b2150375d4bddeed56eb1e68cf5f5001\transformed\installreferrer-1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\Admin\.gradle\caches\transforms-3\b2150375d4bddeed56eb1e68cf5f5001\transformed\installreferrer-1.0\AndroidManifest.xml:5:5-7:41
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
-		INJECTED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:123:13-126:52
+ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:128:13-131:52
 	android:resource
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:125:17-55
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:130:17-55
 	tools:replace
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:126:17-49
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:131:17-49
 	android:name
-		ADDED from D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\app\src\main\AndroidManifest.xml:124:17-67
+		ADDED from D:\studio project\uis-android-kotlin\app\src\main\AndroidManifest.xml:129:17-67
 activity#com.bss.patientregistration.patientregistration.RegistrationActivity
-ADDED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-17:75
+ADDED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-17:75
 	android:theme
-		ADDED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-72
+		ADDED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-72
 	android:name
-		ADDED from [:patientregistration] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-96
+		ADDED from [:patientregistration] D:\studio project\uis-android-kotlin\patientregistration\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-96
 activity#com.bss.step_progres.MainActivity
-ADDED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-16:20
+ADDED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-16:20
 	android:exported
-		ADDED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+		ADDED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
 	android:name
-		ADDED from [:step_progres] D:\AndroidStudioProject\uis\masterBranch\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-61
+		ADDED from [:step_progres] D:\studio project\uis-android-kotlin\step_progres\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-61
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling:1.3.3] C:\Users\Admin\.gradle\caches\transforms-3\244a0993d9981a00d2b8715468290dc7\transformed\ui-tooling-1.3.3\AndroidManifest.xml:23:9-25:39
 	android:exported

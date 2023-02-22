@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bss.uis.R
 import com.bss.uis.presentation.activity.ui.theme.UnityISStrengthTheme
 
@@ -49,10 +50,13 @@ fun Screen() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_arrow_back),
-                contentDescription = null
+                painter = painterResource(id = R.drawable.ic_arrow_back), contentDescription = null
             )
-            Text(text = "Search for patients", modifier = Modifier.padding(start = 16.dp))
+            Text(
+                text = "Search for patients",
+                modifier = Modifier.padding(start = 16.dp),
+                fontSize = 20.sp
+            )
         }
 
         OutlinedTextField(
