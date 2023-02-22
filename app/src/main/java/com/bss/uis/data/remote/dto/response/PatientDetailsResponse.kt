@@ -164,7 +164,7 @@ data class Medicaldetails(
 	val isactive: Any? = null,
 
 	@field:SerializedName("illnesstypeid")
-	val illnesstypeid: Any? = null,
+	val illnesstypeid: String? = null,
 
 	@field:SerializedName("diagnosisdetails")
 	val diagnosisdetails: Any? = null,

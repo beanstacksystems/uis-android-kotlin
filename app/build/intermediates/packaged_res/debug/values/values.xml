@@ -150,6 +150,7 @@
     <string name="switch_admin">Switch to Admin</string>
     <string name="title_activity_drawer_main">DrawerMainActivity</string>
     <string name="title_activity_login_signup">LoginSignupActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="update">Update</string>
     <string name="update_profile"><u>Update</u></string>
@@ -197,6 +198,7 @@
         <item name="android:paddingEnd">10dp</item>
         <item name="android:gravity">fill</item>
     </style>
+    <style name="Theme.Holo.NoActionBar.Fullscreen" parent="android:Theme.Material.Light.NoActionBar"/>
     <style name="Theme.UnityISStrength" parent="Theme.MaterialComponents.NoActionBar">
         
         <item name="colorPrimary">@color/uisOrange</item>

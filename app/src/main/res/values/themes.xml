@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.UnityISStrength" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
@@ -14,8 +14,12 @@
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.Holo.NoActionBar.Fullscreen" parent="android:Theme.Material.Light.NoActionBar" />
 
 
 </resources>

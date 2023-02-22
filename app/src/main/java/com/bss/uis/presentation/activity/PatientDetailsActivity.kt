@@ -58,7 +58,7 @@ class PatientDetailsActivity : AppCompatActivity() {
     private lateinit var ivback: ImageView
     private lateinit var ivShare: ImageView
 
-    var patientDetailsResponse: PatientDetailsResponse = PatientDetailsResponse()
+    private var patientDetailsResponse: PatientDetailsResponse = PatientDetailsResponse()
 
 
     @SuppressLint("SetTextI18n")
@@ -100,10 +100,9 @@ class PatientDetailsActivity : AppCompatActivity() {
         )
 
         //get patient details api call
-        if (token != null)
-            CoroutineScope(Dispatchers.IO).launch {
-                viewModelUIS.getPatientDetails(token, data.patientId.toString())
-            }
+        if (token != null) CoroutineScope(Dispatchers.IO).launch {
+            viewModelUIS.getPatientDetails(token, data.patientId.toString())
+        }
         else Toast.makeText(this, "Invalid token, please restart", Toast.LENGTH_SHORT).show()
 
         viewModelUIS.patientDetails.observe(this) {
@@ -117,18 +116,20 @@ class PatientDetailsActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     patientDetailsResponse = it.data!!
                     Toast.makeText(this, "${it.data}", Toast.LENGTH_SHORT).show()
+                    setUiData()
                     viewModelUIS.patientDetails.value = null
 
                 }
             }
         }
 
-        tvName.text = data.patientName
-        tvCancerType.text = data.patientCancerType
-        tvDob.text = data.patientAge
-        tvContact.text = data.patientContact
-        tvAdress.text =
-            data.patientAddress?.addressLine1 + ", " + data.patientAddress?.addressLine2 + ", " + data.patientAddress?.pinCode + ", " + data.patientAddress?.state + ", " + data.patientAddress?.city
+        /*   tvName.text = data.patientName
+           tvCancerType.text = data.patientCancerType
+           tvDob.text = data.patientAge
+           tvContact.text = data.patientContact
+           tvAdress.text =
+               data.patientAddress?.addressLine1 + ", " + data.patientAddress?.addressLine2 + ", " + data.patientAddress?.pinCode + ", " + data.patientAddress?.state + ", " + data.patientAddress?.city
+          */
         ivback.setOnClickListener {
             onBackPressed()
         }
@@ -154,6 +155,16 @@ class PatientDetailsActivity : AppCompatActivity() {
 
     }
 
+    private fun setUiData() {
+        if (patientDetailsResponse.personlist?.get(0)?.name != null) {
+            val details = patientDetailsResponse.personlist?.get(0)
+            binding.tvPatientname.text = details?.name
+            binding.tvDob.text = details?.dateofbirth
+            binding.tvGender.text = if (details?.gender == 0) "M" else "F"
+            binding.tvCancerType.text = patientDetailsResponse.medicaldetails?.illnesstypeid ?: ""
+        }
+    }
+
     private fun downloadpdf(pdfDocument: PdfDocument): File {
         var save: String
         var num = 0
@@ -164,17 +175,14 @@ class PatientDetailsActivity : AppCompatActivity() {
         while (folder.exists()) {
             save = "Patient Details" + num++ + ".pdf"
             folder = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                save
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), save
             )
         }
         try {
             folder.createNewFile()
             pdfDocument.writeTo(FileOutputStream(folder))
             Toast.makeText(
-                this@PatientDetailsActivity,
-                "PDF file generated successfully.",
-                Toast.LENGTH_SHORT
+                this@PatientDetailsActivity, "PDF file generated successfully.", Toast.LENGTH_SHORT
             ).show()
         } catch (e: IOException) {
             e.printStackTrace()
@@ -228,24 +236,17 @@ class PatientDetailsActivity : AppCompatActivity() {
         val value = Paint()
         val amount = Paint()
         val successStatus = Paint()
-        val mypageInfo =
-            PdfDocument.PageInfo.Builder(pagewidth, pageHeight, 1)
-                .create()
+        val mypageInfo = PdfDocument.PageInfo.Builder(pagewidth, pageHeight, 1).create()
         val myPage = pdfDocument.startPage(mypageInfo)
         val canvas = myPage.canvas
         val byteArray = Base64.decode(patientdetails.patientImage, Base64.DEFAULT)
         val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
         canvas.drawBitmap(bitmap, 320f, 140f, imagePaint)
-        faildStaus.typeface =
-            Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        keys.typeface =
-            Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        value.typeface =
-            Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
-        amount.typeface =
-            Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        successStatus.typeface =
-            Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        faildStaus.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        keys.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        value.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
+        amount.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        successStatus.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         keys.textSize = 20f
         value.textSize = 20f
         amount.textSize = 40f

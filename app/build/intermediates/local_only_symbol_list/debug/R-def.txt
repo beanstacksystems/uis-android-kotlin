@@ -554,6 +554,7 @@ string submit
 string switch_admin
 string title_activity_drawer_main
 string title_activity_login_signup
+string title_activity_search
 string title_activity_user_profile
 string update
 string update_profile
@@ -566,6 +567,7 @@ style FooterBar
 style PatientRegistrationStyle
 style TextInputLayoutStyle
 style TextInputStyleBox
+style Theme.Holo.NoActionBar.Fullscreen
 style Theme.UnityISStrength
 styleable StepView android:text
 xml backup_rules
