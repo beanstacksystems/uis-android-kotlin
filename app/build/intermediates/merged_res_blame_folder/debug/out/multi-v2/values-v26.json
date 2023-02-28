@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "D:\\AndroidStudioProject\\uis\\masterBranch\\uis-android-kotlin\\patientregistration\\build\\intermediates\\packaged_res\\debug\\values-v26\\values-v26.xml",
+                    "source": "D:\\studio project\\uis-android-kotlin\\patientregistration\\build\\intermediates\\packaged_res\\debug\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,12,23,29,39",
                         "startColumns": "4,4,4,4,4",

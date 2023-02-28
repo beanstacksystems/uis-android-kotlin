@@ -322,7 +322,7 @@ class EditProfileActivity : AppCompatActivity() {
             occupation = 1,
             gender = getmasterId(view.epGender.editText?.text.toString(), context),
             dob = view.epDob.editText?.text.toString(),
-            logintype = "",
+            logintype = "uis",
             imagedto = UpdateUserProfileDataRequest.Imagedto(
                 imagetype = 24,
                 imageid = 1,

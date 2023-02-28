@@ -30,7 +30,7 @@ public final class ProfileDetailDao_Impl implements ProfileDetailDao {
     this.__insertionAdapterOfProfileDetails = new EntityInsertionAdapter<ProfileDetails>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `profileDetails` (`userid`,`salutation`,`usename`,`email`,`dob`,`gender`,`occupation`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `profileDetails` (`userid`,`salutation`,`usename`,`email`,`dob`,`gender`,`occupation`,`profileimage`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -69,6 +69,11 @@ public final class ProfileDetailDao_Impl implements ProfileDetailDao {
           stmt.bindNull(7);
         } else {
           stmt.bindString(7, value.getOccupation());
+        }
+        if (value.getProfileimage() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getProfileimage());
         }
       }
     };
@@ -121,6 +126,7 @@ public final class ProfileDetailDao_Impl implements ProfileDetailDao {
       final int _cursorIndexOfDob = CursorUtil.getColumnIndexOrThrow(_cursor, "dob");
       final int _cursorIndexOfGender = CursorUtil.getColumnIndexOrThrow(_cursor, "gender");
       final int _cursorIndexOfOccupation = CursorUtil.getColumnIndexOrThrow(_cursor, "occupation");
+      final int _cursorIndexOfProfileimage = CursorUtil.getColumnIndexOrThrow(_cursor, "profileimage");
       final ProfileDetails _result;
       if(_cursor.moveToFirst()) {
         final Integer _tmpUserid;
@@ -165,7 +171,13 @@ public final class ProfileDetailDao_Impl implements ProfileDetailDao {
         } else {
           _tmpOccupation = _cursor.getString(_cursorIndexOfOccupation);
         }
-        _result = new ProfileDetails(_tmpUserid,_tmpSalutation,_tmpUsename,_tmpEmail,_tmpDob,_tmpGender,_tmpOccupation);
+        final String _tmpProfileimage;
+        if (_cursor.isNull(_cursorIndexOfProfileimage)) {
+          _tmpProfileimage = null;
+        } else {
+          _tmpProfileimage = _cursor.getString(_cursorIndexOfProfileimage);
+        }
+        _result = new ProfileDetails(_tmpUserid,_tmpSalutation,_tmpUsename,_tmpEmail,_tmpDob,_tmpGender,_tmpOccupation,_tmpProfileimage);
       } else {
         _result = null;
       }

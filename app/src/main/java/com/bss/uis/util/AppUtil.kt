@@ -9,7 +9,9 @@ import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.util.Base64
 import android.util.Patterns
-import android.view.*
+import android.view.Gravity
+import android.view.View
+import android.view.Window
 import android.widget.*
 import com.bss.uis.domain.model.responsedomain.AuthResponseDomain
 import com.bss.uis.domain.model.responsedomain.UserApiResponseDomain
@@ -160,7 +162,7 @@ open class AppUtil {
             val encoded: String = Base64.encodeToString(byteArray, Base64.DEFAULT)
             encoded
         }catch (e:java.lang.Exception){
-            null
+            ""
         }
 
     }
