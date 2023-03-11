@@ -62,11 +62,11 @@ public final class UISDatabase_Impl extends UISDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `medicalhistory` (`medicalHistoryId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bloodGroup` TEXT, `cancerType` TEXT, `identifiedOn` TEXT, `otherDisease` TEXT, `patientId` INTEGER NOT NULL, FOREIGN KEY(`medicalHistoryId`) REFERENCES `Patient`(`patientId`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `attendant` (`attendantId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `idproof` TEXT, `emailId` TEXT, `contact` TEXT, `relation` TEXT, `occupation` TEXT, `yearlyIncome` TEXT, `imageStr` TEXT, `patientId` INTEGER NOT NULL, FOREIGN KEY(`attendantId`) REFERENCES `Patient`(`patientId`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `hometabdata` (`tabid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tabname` TEXT, `tabdesc` TEXT, `tabdata` TEXT, `tabseq` INTEGER NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `masterData` (`masterdatapkId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `masterdataType` TEXT, `masterdataId` INTEGER NOT NULL, `masterdataval` TEXT, `isactive` TEXT, `masterdatadesc` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `masterData` (`masterdatapkId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `masterdataType` TEXT, `masterdataId` TEXT, `masterdataval` TEXT, `isactive` TEXT, `masterdatadesc` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `userrightdata` (`userRightDataId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userRightId` INTEGER NOT NULL, `userRightType` TEXT, `desc` TEXT, `userRoleId` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `profileDetails` (`userid` INTEGER, `salutation` TEXT, `usename` TEXT, `email` TEXT, `dob` TEXT, `gender` TEXT, `occupation` TEXT, `profileimage` TEXT, PRIMARY KEY(`userid`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c1d425b081f86743d73c886cce5270b7')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '119ebaca413cb6c124ce118b6db5a049')");
       }
 
       @Override
@@ -244,7 +244,7 @@ public final class UISDatabase_Impl extends UISDatabase {
         final HashMap<String, TableInfo.Column> _columnsMasterData = new HashMap<String, TableInfo.Column>(6);
         _columnsMasterData.put("masterdatapkId", new TableInfo.Column("masterdatapkId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMasterData.put("masterdataType", new TableInfo.Column("masterdataType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsMasterData.put("masterdataId", new TableInfo.Column("masterdataId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMasterData.put("masterdataId", new TableInfo.Column("masterdataId", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMasterData.put("masterdataval", new TableInfo.Column("masterdataval", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMasterData.put("isactive", new TableInfo.Column("isactive", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMasterData.put("masterdatadesc", new TableInfo.Column("masterdatadesc", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -292,7 +292,7 @@ public final class UISDatabase_Impl extends UISDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "c1d425b081f86743d73c886cce5270b7", "25378ef7d17e0c6e717a5cbe34509802");
+    }, "119ebaca413cb6c124ce118b6db5a049", "d519f0a5feea514e1fdca630c977287d");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

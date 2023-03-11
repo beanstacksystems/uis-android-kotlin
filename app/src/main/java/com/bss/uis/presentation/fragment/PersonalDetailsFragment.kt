@@ -43,7 +43,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class PersonalDetailsFragment : BaseFragment() {
@@ -265,13 +264,9 @@ class PersonalDetailsFragment : BaseFragment() {
             if (data.masterdatadesc!! == dataS) {
                 this.masterid = data.masterdataId.toString()
                 Log.d("masteridloop", this.masterid.toString())
-
             }
-
         }
         return this.masterid
-
-
     }
 
     private fun initDOB(fragmentView: View) {

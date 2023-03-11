@@ -49,7 +49,11 @@ public final class MasterDao_Impl implements MasterDao {
         } else {
           stmt.bindString(2, value.getMasterdataType());
         }
-        stmt.bindLong(3, value.getMasterdataId());
+        if (value.getMasterdataId() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getMasterdataId());
+        }
         if (value.getMasterdataval() == null) {
           stmt.bindNull(4);
         } else {
@@ -186,8 +190,12 @@ public final class MasterDao_Impl implements MasterDao {
         } else {
           _tmpMasterdataType = _cursor.getString(_cursorIndexOfMasterdataType);
         }
-        final int _tmpMasterdataId;
-        _tmpMasterdataId = _cursor.getInt(_cursorIndexOfMasterdataId);
+        final String _tmpMasterdataId;
+        if (_cursor.isNull(_cursorIndexOfMasterdataId)) {
+          _tmpMasterdataId = null;
+        } else {
+          _tmpMasterdataId = _cursor.getString(_cursorIndexOfMasterdataId);
+        }
         final String _tmpMasterdataval;
         if (_cursor.isNull(_cursorIndexOfMasterdataval)) {
           _tmpMasterdataval = null;
@@ -293,8 +301,12 @@ public final class MasterDao_Impl implements MasterDao {
         } else {
           _tmpMasterdataType = _cursor.getString(_cursorIndexOfMasterdataType);
         }
-        final int _tmpMasterdataId;
-        _tmpMasterdataId = _cursor.getInt(_cursorIndexOfMasterdataId);
+        final String _tmpMasterdataId;
+        if (_cursor.isNull(_cursorIndexOfMasterdataId)) {
+          _tmpMasterdataId = null;
+        } else {
+          _tmpMasterdataId = _cursor.getString(_cursorIndexOfMasterdataId);
+        }
         final String _tmpMasterdataval;
         if (_cursor.isNull(_cursorIndexOfMasterdataval)) {
           _tmpMasterdataval = null;
@@ -361,8 +373,12 @@ public final class MasterDao_Impl implements MasterDao {
             } else {
               _tmpMasterdataType = _cursor.getString(_cursorIndexOfMasterdataType);
             }
-            final int _tmpMasterdataId;
-            _tmpMasterdataId = _cursor.getInt(_cursorIndexOfMasterdataId);
+            final String _tmpMasterdataId;
+            if (_cursor.isNull(_cursorIndexOfMasterdataId)) {
+              _tmpMasterdataId = null;
+            } else {
+              _tmpMasterdataId = _cursor.getString(_cursorIndexOfMasterdataId);
+            }
             final String _tmpMasterdataval;
             if (_cursor.isNull(_cursorIndexOfMasterdataval)) {
               _tmpMasterdataval = null;
