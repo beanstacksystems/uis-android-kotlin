@@ -273,7 +273,7 @@ class HomeFragment : Fragment(),ScrollImageAdapter.OnItemClickListener{
         val userDao = UISDatabase.getInstance(requireActivity()).userDAO
         val userDaoRepository = UserDaoRepository(userDao)
         userDaoRepository.userRightList.forEach {
-            if (it.userRoleId == 2) {
+            if (it.userRoleId == 3) {
                 mainScope.launch {
                     userCard.visibility = View.GONE
                     admincard.visibility = View.VISIBLE

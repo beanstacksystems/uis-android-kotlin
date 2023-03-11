@@ -346,8 +346,8 @@ class EditProfileActivity : AppCompatActivity() {
 
     }
 
-    private fun getmasterId(dataS: String, context: Context): Int {
-        var masterId: Int = 0
+    private fun getmasterId(dataS: String, context: Context): String {
+        var masterId: String? = null
         val masterdao = UISDatabase.getInstance(context).masterDAO
         val masterDaoRepository = MasterDaoRepository(masterdao)
         masterDaoRepository.masterDataList.forEach { data ->
@@ -357,7 +357,7 @@ class EditProfileActivity : AppCompatActivity() {
             }
 
         }
-        return masterId
+        return masterId.toString()
 
     }
 

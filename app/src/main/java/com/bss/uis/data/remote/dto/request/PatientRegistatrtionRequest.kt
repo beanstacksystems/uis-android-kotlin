@@ -4,7 +4,7 @@ package com.bss.uis.data.remote.dto.request
 data class PatientRegistatrtionRequest(
 
     var patientid: Int? = null,
-    var bloodgroup: Int? = null,
+    var bloodgroup: String? = null,
     var attendanttypeids: ArrayList<String> = arrayListOf(),
     var personlist: ArrayList<PersonlistRequest> = arrayListOf(),
     var registrarid: Int? = null,
@@ -105,15 +105,15 @@ data class PersonlistRequest(
 
     var personid: Int? = null,
     var entitytype: Int? = null,
-    var prefix: Int? = null,
+    var prefix: String? = null,
     var name: String? = null,
     var suffix: Int? = null,
     var dateofbirth: String? = null,
-    var gender: Int? = null,
+    var gender: String? = null,
     var imagelist: ArrayList<ImagelistRequest> = arrayListOf(),
     var relationwithpatient: Int? = null,
     var incomeperyear: String? = null,
-    var occupation: Int? = null,
+    var occupation: String? = null,
     var isactive: String? = null,
     var addressdto: AddressdtoRequest? = AddressdtoRequest(),
     var idproofdto: IdproofdtoRequest? = IdproofdtoRequest(),
@@ -127,7 +127,7 @@ data class MedicaldetailsRequest(
 
     var medicalrecordid: Int? = null,
     var patientid: Int? = null,
-    var illnesstypeid: Int? = null,
+    var illnesstypeid: String? = null,
     var illnessstageid: Int? = null,
     var diagnosisdetails: Int? = null,
     var imagelist: ArrayList<ImagelistRequest> = arrayListOf(),

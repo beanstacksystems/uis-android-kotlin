@@ -52,7 +52,7 @@ class MedicalDetailsFragment : BaseFragment() {
     lateinit var btnback: AppCompatButton
     var fragmentTitle: String? = null
     lateinit var personlistRequest: PersonlistRequest
-    var masterid = 1
+    var masterid =""
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
@@ -266,12 +266,12 @@ class MedicalDetailsFragment : BaseFragment() {
         )
     }
 
-    private fun getmasterId(dataS: String): Int {
+    private fun getmasterId(dataS: String): String {
         val masterdao = UISDatabase.getInstance(requireActivity()).masterDAO
         val masterDaoRepository = MasterDaoRepository(masterdao)
         masterDaoRepository.masterDataList.forEach { data ->
             if (data.masterdatadesc!! == dataS) {
-                this.masterid = data.masterdataId
+                this.masterid = data.masterdataId.toString()
                 Log.d("masteridloop", this.masterid.toString())
 
             }

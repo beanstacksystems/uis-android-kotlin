@@ -14,7 +14,7 @@ data class MasterData(
     var masterdataType: String? = null,
 
     @ColumnInfo(name = "masterdataId")
-    var masterdataId: Int = 0,
+    var masterdataId: String? = null,
 
     @ColumnInfo(name = "masterdataval")
     var masterdataval: String? = null,

@@ -8,7 +8,7 @@ data class UpdateUserProfileDataRequest(
 	val occupation: Int? = null,
 
 	@field:SerializedName("gender")
-	val gender: Int? = null,
+	val gender: String? = null,
 
 	@field:SerializedName("dob")
 	val dob: String? = null,
@@ -26,7 +26,7 @@ data class UpdateUserProfileDataRequest(
 	val personid: Int? = null,
 
 	@field:SerializedName("salutation")
-	val salutation: Int? = null,
+	val salutation: String? = null,
 
 	@field:SerializedName("userid")
 	val userid: Int? = null,

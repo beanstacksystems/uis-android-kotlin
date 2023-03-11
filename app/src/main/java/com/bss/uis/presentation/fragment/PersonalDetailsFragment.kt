@@ -81,7 +81,7 @@ class PersonalDetailsFragment : BaseFragment() {
     lateinit var onStepChangeListener: OnStepChangeListner
     private val ioScOPe = CoroutineScope(Dispatchers.IO)
     private val mainScope = CoroutineScope(Dispatchers.Main)
-    var masterid = 1
+    var masterid = ""
     lateinit var imageUri: Uri
     var myData = PersonlistRequest()
 
@@ -258,12 +258,12 @@ class PersonalDetailsFragment : BaseFragment() {
 //    }
     }
 
-    private fun getmasterId(dataS: String): Int {
+    private fun getmasterId(dataS: String): String {
         val masterdao = UISDatabase.getInstance(requireActivity()).masterDAO
         val masterDaoRepository = MasterDaoRepository(masterdao)
         masterDaoRepository.masterDataList.forEach { data ->
             if (data.masterdatadesc!! == dataS) {
-                this.masterid = data.masterdataId
+                this.masterid = data.masterdataId.toString()
                 Log.d("masteridloop", this.masterid.toString())
 
             }

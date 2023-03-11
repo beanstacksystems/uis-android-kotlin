@@ -578,7 +578,7 @@ class LogInSignUpActivity : AppCompatActivity() {
         masterValueDTOList.forEach {
             val masterData = MasterData()
             masterData.masterdatadesc = it.masterdatadesc
-            masterData.masterdataId = it.masterdataId!!
+            masterData.masterdataId = it.masterdataId.toString()
             masterData.masterdataType = it.masterdataType
             masterData.masterdataval = it.masterdataval
             masterData.isactive = it.isactive
