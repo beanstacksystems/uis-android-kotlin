@@ -114,6 +114,7 @@ class EditProfileActivity : AppCompatActivity() {
             isEditing = true
             binding.epEdit.visibility = View.GONE
             binding.epSubmit.visibility = View.VISIBLE
+            binding.epSubmitBank.visibility = View.VISIBLE
 
             binding.epSalutation.editText?.isEnabled = true
             binding.epFullname.editText?.isEnabled = true
