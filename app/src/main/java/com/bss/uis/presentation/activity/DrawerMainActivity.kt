@@ -50,7 +50,7 @@ class DrawerMainActivity : AppCompatActivity() {
 
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
-    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    private val ioScope = CoroutineScope(Dispatchers.IO)
     lateinit var recyclerviewView: RecyclerView
 
     private lateinit var uisDatabase: UISDatabase
@@ -67,7 +67,7 @@ class DrawerMainActivity : AppCompatActivity() {
         uisDatabase = UISDatabase.getInstance(this)
         masterDao = uisDatabase.masterDAO
         initView()
-        ioScOPe.launch {
+        ioScope.launch {
             fabbtn()
         }
 
@@ -116,9 +116,16 @@ class DrawerMainActivity : AppCompatActivity() {
         val navMenu = navigationView.menu
 //        val switchRole = navMenu.findItem(R.id.switchrolemenu)
         val logout = navMenu.findItem(R.id.nav_logout)
+        val changeService = navMenu.findItem(R.id.nav_change_service)
         val searchPatient = navMenu.findItem(R.id.nav_search_patient)
         val setting = navMenu.findItem(R.id.nav_settings)
 
+        
+
+        changeService.setOnMenuItemClickListener {
+            startActivity(Intent(this@DrawerMainActivity, ChangeServiceActivity::class.java))
+            return@setOnMenuItemClickListener true
+        }
         searchPatient.setOnMenuItemClickListener {
             startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
             return@setOnMenuItemClickListener true
@@ -138,7 +145,8 @@ class DrawerMainActivity : AppCompatActivity() {
             navHeaderView.findViewById<View>(R.id.navHeaderPersonEmail) as TextView
         navHeaderProfileImage =
             navHeaderView.findViewById<View>(R.id.navHeaderProfileImage) as ImageView
-        navHeaderPersonName.text = ContextPreferenceManager().getToken("username",this@DrawerMainActivity)
+        navHeaderPersonName.text =
+            ContextPreferenceManager().getToken("username", this@DrawerMainActivity)
         navHeaderPersonEmail.text = ContextPreferenceManager().getToken("email",this@DrawerMainActivity)
 
 //        switchRole.setOnMenuItemClickListener {
