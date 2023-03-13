@@ -4,7 +4,7 @@
             "outputFile": "com.bss.uis.app-mergeDebugResources-87:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\3dac6da534c12522751b4d5a578e22dc\\transformed\\play-services-auth-20.4.1\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\adnar\\.gradle\\caches\\transforms-3\\3dac6da534c12522751b4d5a578e22dc\\transformed\\play-services-auth-20.4.1\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\ec1c7ffdd270aa7bf296237d84aeef76\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\adnar\\.gradle\\caches\\transforms-3\\ec1c7ffdd270aa7bf296237d84aeef76\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
