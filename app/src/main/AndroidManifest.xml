@@ -28,6 +28,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.activity.ChangeServiceActivity"
+            android:exported="false"
+            android:label="@string/title_activity_change_service"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
             android:name=".presentation.activity.SettingActivity"
             android:exported="false"
             android:label="@string/title_activity_setting"

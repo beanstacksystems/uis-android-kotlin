@@ -30,13 +30,14 @@ object NetworkModule {
             .retryOnConnectionFailure(true)
             .build()
         return  Retrofit.Builder()
-            .baseUrl("http://192.168.135.68:8000/api/")
+            .baseUrl("http://192.168.29.96:8000/api/") //change ip port
             .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(client)
             .build()
             .create(ApiInterFace::class.java)
     }
+
 
     @Singleton
     @Provides

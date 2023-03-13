@@ -32,6 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import timber.log.Timber
 
 @AndroidEntryPoint
 class DrawerMainActivity : AppCompatActivity() {
@@ -50,7 +51,7 @@ class DrawerMainActivity : AppCompatActivity() {
 
     private lateinit var viewModelUIS: ViewModelUIS
     private val mainScope = CoroutineScope(Dispatchers.Main)
-    private val ioScOPe = CoroutineScope(Dispatchers.IO)
+    private val ioScope = CoroutineScope(Dispatchers.IO)
     lateinit var recyclerviewView: RecyclerView
 
     private lateinit var uisDatabase: UISDatabase
@@ -67,7 +68,7 @@ class DrawerMainActivity : AppCompatActivity() {
         uisDatabase = UISDatabase.getInstance(this)
         masterDao = uisDatabase.masterDAO
         initView()
-        ioScOPe.launch {
+        ioScope.launch {
             fabbtn()
         }
 
@@ -79,7 +80,11 @@ class DrawerMainActivity : AppCompatActivity() {
         val userdao = UISDatabase.getInstance(this).userDAO
         val userDaoRepository = UserDaoRepository(userdao)
         userDaoRepository.userRightList.forEach { data ->
-            if (data.userRoleId == ContextPreferenceManager().getToken("rollid",this@DrawerMainActivity)?.toInt() && data.userRightType.equals(AppConstant.registerPatient)) {
+            if (data.userRoleId == ContextPreferenceManager().getToken(
+                    "rollid",
+                    this@DrawerMainActivity
+                )?.toInt() && data.userRightType.equals(AppConstant.registerPatient)
+            ) {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
                 }
@@ -96,13 +101,9 @@ class DrawerMainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
-        actionBarDrawerToggle =
-            ActionBarDrawerToggle(
-                this@DrawerMainActivity,
-                drawerLayout,
-                R.string.nav_open,
-                R.string.nav_close
-            )
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this@DrawerMainActivity, drawerLayout, R.string.nav_open, R.string.nav_close
+        )
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -114,11 +115,35 @@ class DrawerMainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.nav_view)
         val navHeaderView = navigationView.getHeaderView(0)
         val navMenu = navigationView.menu
-//        val switchRole = navMenu.findItem(R.id.switchrolemenu)
+        val switchRole = navMenu.findItem(R.id.nav_menu_admin)
         val logout = navMenu.findItem(R.id.nav_logout)
+        val changeService = navMenu.findItem(R.id.nav_change_service)
         val searchPatient = navMenu.findItem(R.id.nav_search_patient)
         val setting = navMenu.findItem(R.id.nav_settings)
+        switchRole.isVisible = true
+        changeService.isVisible = true
 
+        val userDao = UISDatabase.getInstance(this@DrawerMainActivity).userDAO
+
+        ioScope.launch {
+            val userDaoRepository = UserDaoRepository(userDao)
+            userDaoRepository.userRightList.forEach {
+                Timber.tag("DrawerMainActivity").e("initView: %s", it.userRoleId)
+                if (it.userRoleId == 16) {
+                    mainScope.launch {
+                        switchRole.isVisible = false
+                        changeService.isVisible = true
+                    }
+                    return@forEach
+                }
+            }
+        }
+
+
+        changeService.setOnMenuItemClickListener {
+            startActivity(Intent(this@DrawerMainActivity, ChangeServiceActivity::class.java))
+            return@setOnMenuItemClickListener true
+        }
         searchPatient.setOnMenuItemClickListener {
             startActivity(Intent(this@DrawerMainActivity, SearchActivity::class.java))
             return@setOnMenuItemClickListener true
@@ -138,25 +163,23 @@ class DrawerMainActivity : AppCompatActivity() {
             navHeaderView.findViewById<View>(R.id.navHeaderPersonEmail) as TextView
         navHeaderProfileImage =
             navHeaderView.findViewById<View>(R.id.navHeaderProfileImage) as ImageView
-        navHeaderPersonName.text = ContextPreferenceManager().getToken("username",this@DrawerMainActivity)
-        navHeaderPersonEmail.text = ContextPreferenceManager().getToken("email",this@DrawerMainActivity)
+        navHeaderPersonName.text =
+            ContextPreferenceManager().getToken("username", this@DrawerMainActivity)
+        navHeaderPersonEmail.text =
+            ContextPreferenceManager().getToken("email", this@DrawerMainActivity)
 
 //        switchRole.setOnMenuItemClickListener {
 //
 //        }
         logout.setOnMenuItemClickListener {
-            MaterialAlertDialogBuilder(this@DrawerMainActivity)
-                .setTitle("Log out")
-                .setMessage(resources.getString(R.string.logout))
-                .setNegativeButton("YES") { _, _ ->
+            MaterialAlertDialogBuilder(this@DrawerMainActivity).setTitle("Log out")
+                .setMessage(resources.getString(R.string.logout)).setNegativeButton("YES") { _, _ ->
                     mainScope.launch {
                         logout()
                     }
-                }
-                .setPositiveButton("NO") { _, _ ->
+                }.setPositiveButton("NO") { _, _ ->
 
-                }
-                .show()
+                }.show()
             return@setOnMenuItemClickListener true
         }
         fab.setOnClickListener {
@@ -182,8 +205,6 @@ class DrawerMainActivity : AppCompatActivity() {
 //       ioScOPe.launch {
 //           fabbtn()
 //       }
-
-
 
 
     }
@@ -225,8 +246,6 @@ class DrawerMainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
 
 }

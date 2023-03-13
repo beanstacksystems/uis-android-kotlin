@@ -31,11 +31,9 @@ class MasterDomainResponseMapper @Inject constructor() :
                 MasterDataResponseDomain(
                     masterdatadesc = it?.masterdatadesc,
                     masterdataType = it?.masterdataType,
-                    masterdataId = it?.masterdataId,
+                    masterdataId = it?.masterdataId.toString(),
                     masterdataval = it?.masterdataval,
                     isactive = it?.isactive
-
-
                 )
             )
         }

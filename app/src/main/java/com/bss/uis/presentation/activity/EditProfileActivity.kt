@@ -39,6 +39,7 @@ import timber.log.Timber
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 @OptIn(ExperimentalCoroutinesApi::class)
 class EditProfileActivity : AppCompatActivity() {
@@ -113,6 +114,7 @@ class EditProfileActivity : AppCompatActivity() {
             isEditing = true
             binding.epEdit.visibility = View.GONE
             binding.epSubmit.visibility = View.VISIBLE
+            binding.epSubmitBank.visibility = View.VISIBLE
 
             binding.epSalutation.editText?.isEnabled = true
             binding.epFullname.editText?.isEnabled = true
@@ -144,10 +146,11 @@ class EditProfileActivity : AppCompatActivity() {
                                         }",
                                     )
 
-                                        updateUserorofile(updateUserProfileDataRequest(
+                                    updateUserprofile(
+                                        updateUserProfileDataRequest(
                                             binding, this@EditProfileActivity
-                                        ))
-
+                                        )
+                                    )
 
                                     val profileDetailsRepo =
                                         ProfileDetailsRepository(profileDetailsDao)
@@ -272,7 +275,6 @@ class EditProfileActivity : AppCompatActivity() {
 
     private fun initGenderView(view: ActivityEditProfileBinding, context: Context) {
         view.epGender.editText?.showSoftInputOnFocus = false
-
         val genderValue = SharedPrefForRoomDb().genderlist(context)
         view.epGender.editText?.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             view.epGender.error = null
@@ -362,14 +364,12 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    suspend fun updateUserorofile(updateUserProfileDataRequest:UpdateUserProfileDataRequest) {
+    suspend fun updateUserprofile(updateUserProfileDataRequest: UpdateUserProfileDataRequest) {
         viewModelUIS.updateUserProfile(
-            ContextPreferenceManager().getToken("token", this)
-                .toString(), updateUserProfileDataRequest
+            ContextPreferenceManager().getToken("token", this).toString(),
+            updateUserProfileDataRequest
         )
     }
-
-
 }
 
 

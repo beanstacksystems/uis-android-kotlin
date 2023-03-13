@@ -88,7 +88,7 @@ fun DropDownMenuGray(
                 }
                 .fillMaxWidth(),
             placeholder = {
-                Text(text = selectedAction.value)
+                Text(text = selectedAction.value, color = Color.Black)
             },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 backgroundColor = Color.White,
@@ -98,7 +98,11 @@ fun DropDownMenuGray(
                 focusedLabelColor = Purple200,
                 unfocusedBorderColor = Color.Gray,
             ),
-            textStyle = LocalTextStyle.current.copy(fontSize = 14.sp, textAlign = TextAlign.Start),
+            textStyle = LocalTextStyle.current.copy(
+                fontSize = 14.sp,
+                textAlign = TextAlign.Start,
+                color = Color.Black
+            ),
             trailingIcon = {
                 Icon(imageVector = icon,
                     contentDescription = "",
@@ -121,7 +125,7 @@ fun DropDownMenuGray(
                     expanded.value = false
                     onItemClick.invoke()
                 }) {
-                    Text(text = label, fontSize = 14.sp)
+                    Text(text = label, fontSize = 14.sp, color = Color.Black)
                 }
             }
         }

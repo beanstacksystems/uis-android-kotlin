@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bss.uis.R
-import com.bss.uis.constant.AppConstant
+import com.bss.uis.helper.AppConstant
 import com.bss.uis.internet.ConnectivityObserver
 import com.bss.uis.internet.NetworkConnectivityObserver
 import com.bss.uis.presentation.viewmodel.ViewModelUIS
