@@ -229,9 +229,9 @@ class MedicalDetailsFragment : BaseFragment() {
         val medicaldetailsRequest = MedicaldetailsRequest(
             medicalrecordid = 1,
             patientid = 1,
-            illnesstypeid = getmasterId(cancerType.text.toString()),
+            illnesstypeid = getmasterId(cancerType.text.toString()).toInt(),
             illnessstageid = 1,
-            diagnosisdetails = 1,
+            diagnosisdetails = "Details of patient diagnosis ",
             imagelist = personlistRequest.imagelist,
             diagnosisdate = "26/12/2022",
             otherremarks = otherdiseasetxt.text.toString(),

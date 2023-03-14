@@ -90,7 +90,7 @@ class AddressDetailsFragment : BaseFragment() {
                 val addressdtoRequest = AddressdtoRequest(
                     addressid = 1,
                     entityid = 1,
-                    entitytypeid = 1,
+                    entitytypeid ="et1",
                     addresstypeid = 1,
                     addressline1 = streetAdd.text.toString(),
                     addressline2 = "address2",

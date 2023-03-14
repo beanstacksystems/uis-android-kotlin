@@ -42,6 +42,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -293,18 +294,33 @@ class PersonalDetailsFragment : BaseFragment() {
             }
         })
         dob.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(
-                requireActivity(),
-                { _, year, monthOfYear, dayOfMonth ->
-                    dob.text =
-                        Editable.Factory.getInstance().newEditable("$dayOfMonth/$monthOfYear/$year")
-                },
-                Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-            )
 
+
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    val date =
+                        SimpleDateFormat("dd/MM/yyyy").parse("$dayOfMonth/$monthOfYear/$year")
+                    dob.text =
+                        Editable.Factory.getInstance().newEditable("$dayOfMonth/${monthOfYear + 1}/$year")
+//                    updateDate = "$dayOfMonth/${monthOfYear + 1}/$year"
+                }, Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
             datePickerDialog.show()
+
+//            val datePickerDialog = DatePickerDialog(
+//                requireActivity(),
+//                { _, year, monthOfYear, dayOfMonth ->
+//                    dob.text =
+//                        Editable.Factory.getInstance().newEditable("$dayOfMonth/$monthOfYear/$year")
+//                },
+//                Calendar.getInstance().get(Calendar.YEAR),
+//                Calendar.getInstance().get(Calendar.MONTH),
+//                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+//            )
+//
+//            datePickerDialog.show()
         }
     }
 
@@ -586,11 +602,11 @@ class PersonalDetailsFragment : BaseFragment() {
             imageid = 1,
             medicalrecordid = 1,
             entityid = 1,
-            entitytypeid = 16,
+            entitytypeid = "et1",
             imagefilename = "profile.jpeg",
             imagedata = AppUtil().imageEncode(profileImage),
             imageurl = "",
-            imagetype = 24,
+            imagetype = "imgt1",
             isactive = "y",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
@@ -601,11 +617,11 @@ class PersonalDetailsFragment : BaseFragment() {
             imageid = 1,
             medicalrecordid = 1,
             entityid = 1,
-            entitytypeid = 1,
+            entitytypeid = "et1",
             imagefilename = "id.jpeg",
             imagedata = AppUtil().imageEncode(iv_idProof),
             imageurl = "",
-            imagetype = 1,
+            imagetype = "imgt1",
             isactive = "y",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
@@ -613,7 +629,7 @@ class PersonalDetailsFragment : BaseFragment() {
         val idproofdto = IdproofdtoRequest(
             idproofid = 1,
             entityid = 1,
-            entitytypeid = 1,
+            entitytypeid = "et1",
             idtypeid = 1,
             iddetails = panadhar.text.toString(),
             imagedto = imagedto,
@@ -625,9 +641,9 @@ class PersonalDetailsFragment : BaseFragment() {
         val contactlist = ContactlistRequest(
             contactid = 1,
             entityid = 1,
-            entitytypeid = 1,
+            entitytypeid = "et1",
             contacttypeid = 1,
-            contactdetails = contact.text.toString(),
+            contactdetails = contact.text.toString().toLong(),
             isactive = "Y",
             createddate = "26/12/2022",
             updatedate = "26/12/2022"
@@ -637,16 +653,16 @@ class PersonalDetailsFragment : BaseFragment() {
 
         val persondata = PersonlistRequest(
             personid = 1,
-            entitytype = 1,
+            entitytype = "et1",
             prefix = getmasterId(salutation.text.toString()),
             name = name.text.toString(),
-            suffix = 1,
+            suffix ="s1",
             dateofbirth = dob.text.toString(),
             gender = getmasterId(gender.text.toString()),
             imagelist = imagelistd,
             relationwithpatient = 12,
-            incomeperyear = income.text.toString(),
-            occupation = getmasterId(occupation.text.toString()),
+            incomeperyear = income.text.toString().toLong(),
+            occupation = getmasterId(occupation.text.toString()).toInt(),
             isactive = "y",
             idproofdto = idproofdto,
             contactlist = contactlistdata,

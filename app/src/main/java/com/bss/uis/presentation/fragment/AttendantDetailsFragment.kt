@@ -505,6 +505,7 @@ class AttendantDetailsFragment : BaseFragment() {
         builder.setItems(options) { dialog, item ->
             try {
                 if (options[item] == "Take Photo") {
+
                     takePicture()
                 } else if (options[item] == "Choose from Gallery") {
                     imagePick()

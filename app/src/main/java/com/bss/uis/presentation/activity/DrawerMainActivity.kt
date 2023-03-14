@@ -88,9 +88,16 @@ class DrawerMainActivity : AppCompatActivity() {
                 runOnUiThread {
                     fab.visibility = View.VISIBLE
                 }
-                Log.d("dataDrawear", data.userRightType.toString())
+                Timber.tag("dataDrawear").d(data.userRightType.toString())
                 return@forEach
             }
+//
+//            else if (data.userRoleId == 3) {
+//                runOnUiThread {
+//                    fab.visibility = View.GONE
+//                }
+//                return@forEach
+//            }
 
 
         }
